@@ -1,0 +1,39 @@
+\usepackage[top=3cm,bottom=2.5cm,left=4cm,right=2.5cm]{geometry}
+\usepackage{mathptmx}
+
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{blindtext}
+\usepackage{sectsty}
+\usepackage{chngcntr}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+\usepackage{lipsum}
+
+\renewcommand{\baselinestretch}{1.5}
+\graphicspath{ {./resources/} }
+
+\renewcommand*\contentsname{Daftar Isi}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{Bab \ \thechapter \centering} % label
+{0.0ex} % sep
+{
+    \vspace{1ex}
+    \centering
+} % before-code
+[
+\vspace{-0.5ex}%
+] % after-code

@@ -1,0 +1,25 @@
+\documentclass[12pt, onecolumn, oneside, a4paper]{report}
+\input{config/preamble.sty}
+\input{config/about.tex}
+
+\begin{document}
+
+  \input{sections/cover.tex}
+  \clearpage
+  
+  \tableofcontents
+
+  \pagenumbering{arabic}
+
+  \input{sections/chapter-1/_index.tex}
+  \clearpage
+  \input{sections/chapter-2/_index.tex}
+  \clearpage
+  
+  \lipsum
+  \clearpage
+  
+  \input{sections/bibliography.tex}
+  \clearpage
+
+\end{document}
