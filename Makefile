@@ -2,9 +2,9 @@ all: generate clean
 
 generate:
 	mkdir -p out
-	pdflatex -shell-escape main.tex -output-format=pdf 
+	pdflatex -shell-escape -interaction=batchmode main.tex -output-format=pdf 
 	biber main.bcf
-	pdflatex -shell-escape main.tex -output-format=pdf
+	pdflatex -shell-escape -interaction=batchmode main.tex -output-format=pdf
 	mv main.pdf out/ 
 .PHONY: generate
 

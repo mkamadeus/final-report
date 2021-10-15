@@ -3,7 +3,7 @@
 ## Setup
 
 ```
-sudo apt texlive-full
+sudo apt install texlive-full
 ```
 
 ## Generating PDF

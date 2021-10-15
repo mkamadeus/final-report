@@ -1,0 +1,20 @@
+\section{Definisi GitOps}
+
+GitOps merupakan sebuah rangka kerja/ \textit{framework} yang menerapkan prinsip DevOps dalam melakukan pengembangan suatu sistem, meliputi penggunaan \textit{version control}, menerapkan CI/CD, dan melakukan otomasi terhadap proses \textit{deployment} sistem \cite{gitlab}. Seringkali, istilah GitOps dibingungkan dengan istilah DevOps, yang pada dasarnya sebenarnya GitOps menerapkan prinsip-prinsip yang ada pada DevOps, dengan memanfaatkan atau menambah kemampuan yang dimiliki dari suatu sistem \textit{version control} seperti git.
+
+Setelah memahami konsep GitOps yang sebenarnya, perlu dipahami komponen yang membentuk GitOps ini. Pada dasarnya, terdapat tiga komponen utama, yaitu: Infrastructure as Code, Merge Request (MR) atau Pull Request (PR), dan Continuous Integration, Continuous Deployment, serta Continuous Delivery (CI/CD).
+
+\subsection{Infrastructure as Code}
+
+Dengan perkembangan teknologi yang pesat di masa ini akan sejalan dengan pertumbuhan sistem, mungkin dari suatu perusahaan atau instansi. Seiring bertumbuhnya sistem secara umum tim pengembang sistem juga makin banyak. Terlebih lagi, dengan tren saat ini yang menerapkan penggunaan \textit{microservices} akan membuat sulitnya melakukan manajemen terhadap sistem yang ter-\textit{deploy}, karena tidak mungkin untuk memanajemen server yang jumlahnya tentu tidak sedikit. Belum lagi ketika dipertimbangkan migrasi antar server yang berbeda; belum tentu kedua server disiapkan dengan cara yang sama persis. Hal ini dapat menambah faktor kesalahan manusia yang seharusnya diusahakan untuk dikurangi dalam pengembangan suatu sistem.
+
+Oleh karena itu, salah satu pendekatannya adalah menerapkan \textit{Infrastructure as Code}. \textit{Infrastructure as Code} atau yang sering disebut dengan IaC adalah suatu istilah untuk membuat infrastruktur lewat pembuatan kode. Dengan kode yang sama akan dihasilkan infrastruktur yang identik, sehingga faktor kesalahan manusia dalam \textit{provisioning} manual bisa dikurangi. Sekarang, terdapat beberapa kakas untuk menerapkan IaC seperti Terraform dan Pulumi. 
+
+\subsection{Merge Request atau Pull Request}
+
+Merge Request (MR) atau Pull Request (PR) adalah istilah yang umum ditemui di platform berbasis git seperti GitHub dan GitLab. Kedua istilah ini sama; GitLab biasanya menggunakan istilah Merge Request sedangkan GitHub menggunakan istilah Pull Request. Pada dasarnya, mekanisme ini biasanya digunakan untuk memastikan bahwa kode program yang akan digabungkan bisa diperiksa secara terpisah. Selain itu, biasanya MR atau PR bisa ditambahkan pipeline CI/CD untuk melakukan pengujian seperti menggunakan \textit{testing frmaework} atau mungkin menggunakan \textit{linter} untuk menjamin gaya kode yang dibuat. 
+
+\subsection{Continuous Integration, Continuous Deployment, dan Continuous Delivery}
+
+Tiga hal ini yang sering disebut dengan CI/CD adalah suatu istilah dalam dunia pengembangan sistem dan perangkat lunak untuk selalu memastikan integritas sistem dan pembawaan perangkat lunak pada pengguna secara terus menerus. Secara teknis, CI/CD pada dasarnya adalah melakukan suatu pekerjaan secara otomatis lewat pembuatan \textit{pipeline} yang memanggil program dalam bentuk apapun dengan tujuan CI/CD tersebut. Beberapa kakas yang populer digunakan saat ini seperti Jenkins, Github Actions, CircleCI, dan masih banyak lagi.
+

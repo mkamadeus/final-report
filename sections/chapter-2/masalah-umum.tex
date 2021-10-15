@@ -1,10 +1,28 @@
 \section{Masalah Umum}
 
-Dilansir dari beberapa sumber, terdapat beberapa masalah yang sering dihadapi dalam penerapan prinsip GitOps dan \textit{Infrastructure as Code}, meliputi:
+Dikutip dari artikel yang dibuat oleh \cite{chrisward}, tentang GitOps,. terdapat beberapa masalah yang sering dihadapi dalam penerapan prinsip GitOps dan \textit{Infrastructure as Code}, meliputi:
 
 \begin{itemize}
   \item Tidak menjamin bahwa \textit{provisioning} yang dilakukan menjamin penerapan prinsip-prinsip yang baik dalam pengembangan sistem.
   \item Melakukan manajemen sistem yang \textit{multirepo} serta melakukan \textit{deployment}-nya.
   \item Sulitnya melakukan audit terhadap perubahan sistem dengan kemungkinan sistem yang bisa berubah dengan cepat.
+  \item Melakukan manajemen \textit{secret} untuk masing-masing sistem yang ada.
 \end{itemize}
 
+\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+
+Dalam pembangunan sebuah sistem, perlu diperhatikan aspek-asper keamanan serta prinsip-prinsip lainnya yang dapat membantu integritas sistem. Bila aspek-aspek tersebut diabaikan, sistem tentunya dapat menyebabkan suatu masalah besar nantinya, misalnya seperti terjadi kebocoran data. Di masa kini, hal tersebut sudah lumrah terjadi akibat kegagalan dalam menjamin prinsip-prinsip yang seharusnya ada dalam pengembangan sistem.
+
+Berikut adalah sedikit contoh terkait prinsip-prinsip yang harus dijamin, seperti pemisahan antara network private dan public, memastikan bahwa \textit{S3 bucket} memiliki akses yang sesuai agar tidak bisa dibuka untuk umum, dan masih banyak lagi. Penjaminan prinsip dan aturan ini tidak juga selalu terkait keamanan sistem, namun bisa juga untuk menjamin konvensi-konvensi yang ada di dalam tim pengembang agar kode dan infrastruktur yang dibuat bisa konsisten, misalnya memastikan bahwa nama pada suatu node mengikuti aturan yang ada di perusahaan.
+
+\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+
+\lipsum
+
+\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+
+\lipsum
+
+\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+
+\lipsum
