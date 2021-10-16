@@ -1,3 +1,46 @@
 {
   "editor.wordWrap": "on",
+
+  // format on save latex/bib files
+  "editor.formatOnSave": true,
+
+  // autosync latex
+  "latex-workshop.synctex.afterBuild.enabled": true,
+
+  // enable auto build
+  "latex-workshop.latex.autoBuild.run": "onSave", 
+
+  // enable chktex linting
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.latex.bibDirs": [
+    "%DIR%/references/"
+  ],
+
+  // enable autoclean on recipe run
+  "latex-workshop.latex.autoClean.run":"onBuilt",
+
+  // latex workshop recipes
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Build using latexmk 🌵",
+      "tools": ["latexmk"],
+    },
+  ],
+
+  // latex workshop tools
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+  ]
 }
