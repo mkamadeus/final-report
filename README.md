@@ -1,16 +1,29 @@
-# final-project-report-latex
+# mkamadeus-final-report
+
+[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
+[![lint](https://github.com/mkamadeus/final-report/actions/workflows/lint.yml/badge.svg)](https://github.com/mkamadeus/final-report/actions/workflows/lint.yml)
 
 ## Setup
 
-```
+To use this, install from `texlive-full` for easier dependencies management.
+
+```sh
 sudo apt install texlive-full
 ```
 
 ## Generating PDF
 
-```
+### Using `Makefile`
+
+A makefile has been provided. To compile this report into `.pdf`, use:
+
+```sh
 make
 ```
+
+### Using Latex Workshop
+
+If you're using the [VSCode Latex Workshop](https://github.com/James-Yu/LaTeX-Workshop) extension, the `settings.json` file for VSCode is provided for you to use. You can run the build command provided from the extension's tab.
 
 ## Additional Notes
 

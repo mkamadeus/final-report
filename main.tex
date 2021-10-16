@@ -1,21 +1,30 @@
+% sets document class
 \documentclass[12pt, onecolumn, oneside, a4paper]{report}
+
+% latex metadatas
 \input{config/preamble.sty}
 \input{config/about.tex}
 
 \begin{document}
 
+  % cover
   \input{sections/cover.tex}
   \clearpage
   
+  \pagenumbering{roman}
+  
+  % toc
   \tableofcontents
-
+  \clearpage
+  
+  % the 🥩 and 🥔 of your report
   \pagenumbering{arabic}
-
   \input{sections/chapter-1/_index.tex}
   \clearpage
   \input{sections/chapter-2/_index.tex}
   \clearpage
   
+  % bibliography
   \input{sections/bibliography.tex}
   \clearpage
 

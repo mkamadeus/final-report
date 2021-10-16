@@ -1,6 +1,6 @@
-\section{Masalah Umum}
+\section{Masalah Umum}\label{problems}
 
-Dikutip dari artikel yang dibuat oleh \cite{chrisward}, tentang GitOps,. terdapat beberapa masalah yang sering dihadapi dalam penerapan prinsip GitOps dan \textit{Infrastructure as Code}, meliputi:
+Dikutip dari artikel yang dibuat oleh~\cite{chrisward} tentang GitOps, terdapat beberapa masalah yang sering dihadapi dalam penerapan prinsip GitOps dan \textit{Infrastructure as Code}, meliputi:
 
 \begin{itemize}
   \item Tidak menjamin bahwa \textit{provisioning} yang dilakukan menjamin penerapan prinsip-prinsip yang baik dalam pengembangan sistem.
@@ -15,14 +15,19 @@ Dalam pembangunan sebuah sistem, perlu diperhatikan aspek-asper keamanan serta p
 
 Berikut adalah sedikit contoh terkait prinsip-prinsip yang harus dijamin, seperti pemisahan antara network private dan public, memastikan bahwa \textit{S3 bucket} memiliki akses yang sesuai agar tidak bisa dibuka untuk umum, dan masih banyak lagi. Penjaminan prinsip dan aturan ini tidak juga selalu terkait keamanan sistem, namun bisa juga untuk menjamin konvensi-konvensi yang ada di dalam tim pengembang agar kode dan infrastruktur yang dibuat bisa konsisten, misalnya memastikan bahwa nama pada suatu node mengikuti aturan yang ada di perusahaan.
 
-\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+\subsection{Manajemen Sistem Multirepo dan Deployment}
+Semakin besar suatu tim dalam sebuah sistem perangkat lunak, secara umum pengembangan akan dilakukan secara terpisah di repository yang berbeda. Terutama di sistem yang menggunakan arsitektur microservice, layanan yang dibuat akan terpisah di repository yang berbeda. Secara proses pengembangan memang sangat disarankan untuk memisah layanan di repository yang berbeda, namun akan menambah masalah lagi terutama untuk melakukan deployment.
 
-\lipsum
+Menetapkan dan memanajemen suatu konvensi dalam melakukan deployment pada repository yang berbeda bukanlah pekerjaan yang mudah. Setiap repository dan layanan biasanya akan memiliki konfigurasi yang berbeda, sehingga penerapan GitOps tidak bisa sepenuhnya dilakukan secara otomatis. Walaupun di masa kini sistem yang menggunakan container sudah umum, tidak dipungkiri penghubungan suatu layanan dengan layanan lainnya tidak sesederhana itu. Sudah ada beberapa kakas yang berusaha untuk menyelesaikan masalah ini, seperti FluxCD yang mengintegrasikan repository GitHub dengan cluster Kubernetes.
 
-\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+\subsection{Audit Sistem dalam GitOps}
 
-\lipsum
+Perubahan suatu sistem di saat ini sangat cepat. Metodologi agile yang diadopsi di tim-tim pengembang sistem membuat perubahan pada suatu layanan dengan cepat. Akibatnya, kadang bisa terjadi kesalahan pada proses tersebut, dan kadang bisa menjadi fatal yang alasannya mungkin tidak diketahui. Di kasus seperti berikut biasanya akan diperlukan penelusuran lanjut, terkait apa, siapa, mengapa, dan di mana masalah tersebut berasal.
 
-\subsection{Penjaminan Prinsip dalam Pengembangan Sistem}
+GitOps yang di satu sisi dapat mempercepat proses tersebut membawa kelemahan, yaitu sulitnya melakukan audit terhadap sistem. Cepatnya perubahan tersebut kadang bisa membawa masalah tersednri bagi sistem. Solusinya biasanya adalah untuk melakukan rollback terhadap sistem yang tentunya dapat menambah pekerjaan yang cukup memakan waktu. Untuk menyelesaikan masalah tersebut secara umum diperlukan kakas lain di luar kakas dengan prinsip GitOps, atau mengintegrasikan kakas tersebut dengan kakas GitOps yang sudah ada.
 
-\lipsum
+\subsection{Manajemen Secret untuk Sistem}
+
+Dengan adanya banyak sistem, melakukan manajemen pada secret atau variabel-variabel rahasia yang digunakan untuk suatu layanan (contoh: URI dan password untuk database, IAM user untuk cloud provider) menjadi suatu hal yang tidak trivial. Dengan banyaknya layanan yang ada, manajemen terhadap secret harus diperhatikan agar tidak terjadi kebocoran, karena banyak sekali terjadi kebobolan pada sistem akibat penanganan secret yang buruk.
+
+Solusi yang mungkin digunakan adalah dengan menggunakan suatu secret store yang tersentralisasi, namun hal itu mungkin menjadi tidak feasible seiring meningkatnya jumlah layanan yang ada. Sayangnya, dengan prinsip GitOps saja masalah ini sulit untuk diselesaikan, karena secara umum buruk untuk menyimpan secret dalam repository, meskipun repository tersebut di-private.

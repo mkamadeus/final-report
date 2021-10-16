@@ -1,4 +1,5 @@
 {
+  // for better viewing experience
   "editor.wordWrap": "on",
 
   // format on save latex/bib files

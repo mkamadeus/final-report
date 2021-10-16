@@ -1,45 +1,74 @@
+% margin settings
 \usepackage[top=3cm,bottom=2.5cm,left=4cm,right=2.5cm]{geometry}
+
+% math support with Times font
 \usepackage{mathptmx}
 
-% BIBLATEX SETUP
+% biblatex
 \usepackage[style=authoryear, backend=biber]{biblatex}
 \addbibresource{references/paper.bib}
 \addbibresource{references/website.bib}
 \addbibresource{references/book.bib}
 
-
+% use utf8 characters
 \usepackage[utf8]{inputenc}
+
+% includegraphics
 \usepackage{graphicx}
+
+% title, author, date, thanks
 \usepackage{titling}
+
+% placeholder texts
 \usepackage{blindtext}
+\usepackage{lipsum}
+
 \usepackage{sectsty}
+
+% counter
 \usepackage{chngcntr}
+
+% defining newcommand and stuff
 \usepackage{etoolbox}
+
+% referencing other parts
 \usepackage{hyperref}
+
 \usepackage{titlesec}
+
+% paragraph line height
 \usepackage{parskip}
 
+% sets font
 \usepackage[T1]{fontenc}
 \usepackage{tgtermes}
 
-\usepackage{lipsum}
-
-
+% set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
 \graphicspath{ {./resources/} }
 
 \renewcommand*\contentsname{Daftar Isi}
 
-\titleformat
-{\chapter} % command
-[display] % shape
-{\bfseries\Large\itshape} % format
-{Bab \ \thechapter \centering} % label
+% chapter title settings
+\chapterfont{\centering \Large}
+\titleformat{\chapter}[display]
+    {\bfseries\Large\itshape}
+    {Bab~\thechapter\centering}
 {0.0ex} % sep
 {
-    \vspace{1ex}
+    \vspace{0ex}
     \centering
 } % before-code
 [
 \vspace{-0.5ex}%
 ] % after-code
+
+% subsubsubsub-section
+\setcounter{secnumdepth}{3}
+
+% figures and tables counter
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% blankpage command
+\newcommand*{\blankpage}{\afterpage{\null\newpage}}

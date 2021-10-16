@@ -1,11 +1,7 @@
 all: generate clean
 
 generate:
-	mkdir -p out
-	pdflatex -shell-escape -interaction=batchmode main.tex -output-format=pdf 
-	biber main.bcf
-	pdflatex -shell-escape -interaction=batchmode main.tex -output-format=pdf
-	mv main.pdf out/ 
+	latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf main.tex
 .PHONY: generate
 
 clean:
@@ -15,3 +11,7 @@ clean:
 check:
 	lacheck main.tex
 .PHONY: check
+
+lint:
+	chktex main.tex
+.PHONY: lint
