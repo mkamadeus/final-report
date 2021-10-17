@@ -2,6 +2,14 @@
 
 [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![lint](https://github.com/mkamadeus/final-report/actions/workflows/lint.yml/badge.svg)](https://github.com/mkamadeus/final-report/actions/workflows/lint.yml)
+[![build](https://github.com/mkamadeus/final-report/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/mkamadeus/final-report/actions/workflows/build.yml)
+
+## Features
+
+This repository includes:
+- My final project report made in LaTEX.
+- ChkTEX workflow to lint the LaTEX report.
+- Workflow to build the report and upload it to Google Drive.
 
 ## Setup
 
