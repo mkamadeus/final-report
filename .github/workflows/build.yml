@@ -1,0 +1,28 @@
+name: build
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        description: 'Filename uploaded to Google Drive'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Generate PDF document
+        uses: hspaans/latexmk-action@v1.1.0
+        with:
+          format: pdf
+          filename: main.tex
+      
+      - name: Upload to gdrive
+        uses: team-tumbleweed/gdrive-upload-action@main
+        with:
+          filename: main.pdf
+          name: ${{ github.event.inputs.filename }}.pdf
+          folderId: ${{ secrets.GOOGLE_FOLDER_ID }}
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
