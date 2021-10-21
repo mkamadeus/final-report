@@ -1,0 +1,27 @@
+\section{Masalah Keamanan di Infrastructure as Code}
+
+Bagian ini akan membahas masalah-masalah keamanan yang sering ditemui ketika memanfaatkan prinsip Infrastructure as Code, serta sedikit terkait penanganannya. Bagian ini secara khusus mengutip laporan yang dibuat oleh~\cite{8812041}. Laporan tersebut dibuat dengan mengumpulkan data-data dari banyak kode program dan menandai masalah-masalah yang umum terjadi.
+
+\subsection{User Admin Secara Bawaan}
+Banyak sekali yang menggunakan user admin secara bawaan, tanpa membuat user baru dengan batasan yang sesuai. Tentunya ini akan menimbulkan masalah keamanan ke depannya bila user tersebut bocor. Walaupun sederhana, seharusnya perlu dibuat suatu user dengan akses yang seminimal mungkin.
+
+\subsection{Pemberian Kata Sandi Kosong}
+Kata sandi dalam program IaC seringkali dikosongkan untuk kemudahan dalam pengembangan. Terkadang, hal tersebut dilupakan dan sampai di production. Tentunya bukan hal yang baik dan hal ini tentunya dapat mempermudah orang lain untuk menerka kata sandi tersebut. Seminimalnya, isi kata sandi dengan suatu string; jangan sampai kata sandi benar-benar kosong.
+
+\subsection{Adanya~\textit{Hard-coded Secrets}}
+Serupa dengan pemberian kata sandi yang kosong, biasanya hard-coded secrets ini terjadi akibat demi mempermudah proses pengembangan. Untuk melakukan uji coba, hal-hal seperti kata sandi dimasukkan secara plainteks di kode yang dibuat dan terlupa untuk diganti di production. Dalan laporan tersebut, hal-hal yang diperiksa meliputi username, private key, dan kata sandi. Walau begitu, ada kasus di mana hal seperti ini memang diperlukan, namun hal ini menimbulkan pertanyaan dan potensi bahaya secara keamanan
+
+\subsection{Binding IP Address yang Kurang Tepat}
+Masalah ini biasanya timbul dalam proses pengembangan juga. Umumnya, kesalahan ini muncul karena menggunakan alamat 0.0.0.0 yang terbuka. Walau belum tentu menjadi masalah, bisa jadi hal ini menimbulkan masalah keamanan.
+
+\subsection{Komentar Mencurigakan dalam Kode}
+Komentar mencurigakan yang dimaksud adalah menandai suatu bagian program dengan TODO, FIXME, dan hal-hal serupa. Biasanya, hal ini bisa menandakan bahwa ada hal yang tidak diimplementasikan dengan tepat. Memang belum tentu seperti itu, namun dalam laporan yang diberikan ini bisa menjadi masalah keamanan ke depannya.
+
+\subsection{Menggunakan HTTP tanpa TLS}
+Seperti yang sudah diketahui, HTTP bukanlah protokol yang aman, sehingga disarankan untu pembuat layanan menggunakan HTTP dengan TLS atau HTTPS. HTTPS lebih aman dibandingkan HTTP karena ada TLS yang melakukan encryption handshake. Walau begitu, HTTP masih sering digunakan walaupun tidak aman, sehingga ini termasuk dalam masalah keamanan yang ditemui dalam kode \textit{Infrastructure as Code}.
+
+\subsection{Menggunakan Algoritma Kriptografi yang Lemah}
+Walaupun sudah diberi password, terkadang algoritma kriptografi yang digunakan adalah algoritma kriptografi yang lemah atau sudah ditemukan celah keamanannya, seperti algoritma MD5. Hal ini juga termasuk salah satu dari tujuh hal yang sering ditemui menjadi masalah.
+
+
+

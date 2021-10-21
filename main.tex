@@ -10,7 +10,10 @@
   % cover
   \input{sections/cover.tex}
   \clearpage
+
+  \afterpage{\null\newpage}
   
+  \setcounter{page}{3}
   \pagenumbering{roman}
   
   % toc
@@ -18,6 +21,7 @@
   \clearpage
   
   % the 🥩 and 🥔 of your report
+  \setcounter{page}{1}
   \pagenumbering{arabic}
   \input{sections/chapter-1/_index.tex}
   \clearpage
