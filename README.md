@@ -38,6 +38,8 @@ If you're using the [VSCode Latex Workshop](https://github.com/James-Yu/LaTeX-Wo
 My final project notes:
 https://docs.google.com/document/d/1ruI1CTkQI1rTCbM2XpxtThPhjFf4rjzOTXHYHvPGUDc/
 
+(now migrated to Obsidian)
+
 ## Table of Contents
 
 For TA1:
@@ -50,7 +52,7 @@ For TA2:
 2. Studi Literatur/Dasar Teori
 3. Deskripsi Umum Solusi
     1. Analisis
-    2. Peracangan
+    2. Perancangan
     3. Implementasi
 4. Pengujian/Evaluasi Hasil
 5. Kesimpulan dan Saran

@@ -13,9 +13,6 @@
 
   // enable chktex linting
   "latex-workshop.chktex.enabled": true,
-  "latex-workshop.latex.bibDirs": [
-    "%DIR%/references/"
-  ],
 
   // enable autoclean on recipe run
   "latex-workshop.latex.autoClean.run":"onBuilt",
