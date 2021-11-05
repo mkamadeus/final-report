@@ -7,26 +7,31 @@
 
 \begin{document}
 
-  % cover
+  % covers
   \input{sections/cover.tex}
-  \clearpage
+  \input{sections/innercover.tex}
 
-  \afterpage{\null\newpage}
-  
+
   \setcounter{page}{3}
   \pagenumbering{roman}
-  
+
+  % abstract
+  \input{sections/abstract.tex}
+
+  % preface
+  \input{sections/preface.tex}
+
   % toc
-  \tableofcontents
-  \clearpage
+  \input{sections/tableofcontents.tex}
+  
+  % tof
+  \input{sections/listoffigures.tex}
   
   % the 🥩 and 🥔 of your report
   \setcounter{page}{1}
   \pagenumbering{arabic}
   \input{sections/chapter-1/_index.tex}
-  \clearpage
   \input{sections/chapter-2/_index.tex}
-  \clearpage
   
   % bibliography
   \input{sections/bibliography.tex}

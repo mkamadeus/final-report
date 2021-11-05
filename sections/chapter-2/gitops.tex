@@ -1,5 +1,8 @@
 \section{GitOps}
 
+% TODO: Possibly buang atau refactor
+\todo{Possibly buang atau refactor}
+
 \subsection{Definisi GitOps}
 
 GitOps merupakan sebuah rangka kerja/ \textit{framework} yang menerapkan prinsip DevOps dalam melakukan pengembangan suatu sistem, meliputi penggunaan \textit{version control}, menerapkan CI/CD, dan melakukan otomasi terhadap proses \textit{deployment} sistem\cite{gitlab}. Seringkali, istilah GitOps dibingungkan dengan istilah DevOps, yang pada dasarnya sebenarnya GitOps menerapkan prinsip-prinsip yang ada pada DevOps, dengan memanfaatkan atau menambah kemampuan yang dimiliki dari suatu sistem \textit{version control} seperti git.
@@ -22,6 +25,8 @@ Tiga hal ini yang sering disebut dengan CI/CD adalah suatu istilah dalam dunia p
 
 \subsection{Contoh Kakas GitOps}
 
-Contoh kakas yang memanfaatkan prinsip GitOps yang cukup terkenal adalah FluxCD. Dikutip dari dokumentasi resminya~\cite{fluxcd}, FluxCD adalah kakas yang digunakan untuk memastikan bahwa sebuah cluster Kubernetes tetap tersinkronisasi dengan konfigurasi yang sudah ada pada platform git. FluxCD juga memanfaatkan API Kubernetes dan memiliki integrasi yang baik dengan kakas umum lainnya yang digunakan dalam sebuah cluster, seperti Prometheus.
+Contoh kakas yang memanfaatkan prinsip GitOps yang cukup terkenal adalah FluxCD.
+Dikutip dari dokumentasi resminya~\cite{fluxcd}, FluxCD adalah kakas yang digunakan untuk memastikan bahwa sebuah cluster Kubernetes tetap tersinkronisasi dengan konfigurasi yang sudah ada pada platform git.
+FluxCD juga memanfaatkan API Kubernetes dan memiliki integrasi yang baik dengan kakas umum lainnya yang digunakan dalam sebuah cluster, seperti Prometheus.
 
 Secara umum, fitur yang diberikan oleh FluxCD sudah cukup lengkap dalam menerapkan prinsip GitOps. Fitur-fiturnya tentu meliputi integrasinya dengan Git. Beberapa fitur lainnya adalah integrasi yang baik dengan Helm (kakas untuk melakukan versioning terhadap deployment), memiliki sistem policy validation, role-based access control, manajemen~\textit{dependecy}, dan masih banyak fitur lainnya.
