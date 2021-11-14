@@ -9,7 +9,7 @@ MLOps adalah bagian yang lebih spesifik dari DevOps.
 Seperti yang telah dibahas pada bagian sebelumnya, DevOps adalah suatu metodologi dan prinsip yang diterapkan untuk membuat proses pengembangan sistem menjadi lebih cepat dan efisien. 
 MLOps adalah metodologi yang menerapkan DevOps untuk proses-proses yang ada pada pengembangan model machine learning.
 
-Dalam MLOps, terdapat proses-proses tertentu yang spesifik untuk domain pengembangan \textit{pipeline} ML.
+Dalam MLOps, terdapat proses-proses tertentu yang spesifik untuk domain pengembangan \textit{pipeline} ML.\@
 Seperti dilansir dari artikel oleh~\cite{mlops}, MLOps ini merupakan bidang yang masih baru karena baru-baru ini teknologi kecerdasan buatan mulai diterapkan dalam perusahaan.
 Tujuan dari MLOps adalah untuk melakukan manajemen dari eksperimen dalam proses pengembangan sistem intelijen.
 Saat ini, metodologi MLOps juga sudah diterapkan pada berbagai perusahaan besar di dunia, seperti Facebook, Google, AirBnB, dan Uber.
@@ -23,7 +23,67 @@ Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLO
 Kubeflow, seperti tertulis dalam dokumentasi resminya adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem ML dengan mudah.
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
 Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas ML lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
-Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan  \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
+Dengan dibangunnyaKubeflow di atas Kubernetes, hal itu membuat melakukan  \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
 
 % TODO: Tambah bagian untuk pipeline mlops in general
 \todo{Tambah bagian untuk pipeline mlops in general}
+
+\subsection{Alur Kerja MLOps}
+
+Berdasarkan pada artikel dari~\cite{mlopsorg}, terdapat tiga tahapan utama dalam alur kerja MLOps.
+Alur kerja tersebut adalah sebagai berikut:
+\begin{enumerate}
+  \item Data Engineering
+  \item Model Engineering
+  \item Code Engineering
+\end{enumerate}
+
+Dalam makalah ini, akan dibahas secara lebih mendetail pada tahap code engineering.
+Untuk tahapan lainnya, akan dibahas beberapa hal yang relevan terhadap tahap code engineering.
+
+\subsubsection{Data Engineering}
+
+Tahapan awal dalam bidang ilmu data secara umum seharusnya meliputi pengumpulan data dan persiapan data untuk digunakan dalam analisis.
+Secara lebih detailnya, tahapan ini dibagi menjadi beberapa bagian:
+\begin{enumerate}
+  \item Data Ingestion, yaitu mengumpulkan data dari berbagai sumber melalui framework yang ada. 
+  \item Data Exploration and Validation, yaitu melakukan EDA (\textit{Exploratory Data Analysis}) yang meliputi \textit{profileing}
+  \item Data Cleaning, yaitu melakukan proses lanjut pada data untuk memperbaiki kesalahan yang ada pada dataset.
+  \item Data Labelling, yaitu melakukan labelling kepada dataset yang ada.
+  \item Data Splitting, yaitu memisahkan dataset menjadi beberapa bagian yang umumnya adalah untuk \textit{training}, \textit{testing}, dan \textit{validation}.
+\end{enumerate}
+
+\subsubsection{Model Engineering}
+
+Tahapan selanjutnya setelah melakukan pemrosesan terhadap data adalah melakukan pemodelan terhadap dataset yang sudah disiapkan.
+Untuk mendapatkan model yang optimal, biasanya tahap ini dibagi menjadi beberapa tahapan yang lebih kecil lagi, yaitu:
+\begin{enumerate}
+  \item Model Training, yaitu sebuah proses untuk mengaplikasikan algoritma machine learning terhadap training dataset yang ada.
+  \item Model Evaluation, yaitu melakukan evaluasi terhadap model yang dibuat dengan validation dataset atau untuk memastikan apakah model sesuai standar yang diharapkan
+  \item Model Testing, yaitu melakukan testing terhadap test dataset atau data yang sengaja disembunyikan untuk menguji kasus-kasus tertentu.
+  \item Model Packaging, yaitu melakukan penyimpanan model yang sudah dibuat dan diuji dalam suatu format file yang bisa digunakan kembali tanpa perlu melakukan training.
+\end{enumerate}
+
+Lewat framework-framework machine learning seperti Kubeflow, biasanya akan dilakukan versioning terhadap model.
+Hal ini dilakukan untuk melakukan eksperimen dan melakukan pencatatan terhadap hyperparameter yang unik untuk masing-masing model.
+Nantinya, model dengan parameter dan hasil terbaik akan dipilih dan digunakan.
+
+Tahapan ini cukup berpengaruh terhadap tahapan selanjutnya.
+Dalam tahapan ini, akan dibahas terkait model packaging secara lebih mendalam.
+Bila layanan akan diberikan kepada pelanggan secara masal, biasanya teknologi web akan dipilih untuk memberikan layanan tersebut.
+Jadi, akan dibuat sebuah API agar model tersebut bisa dimanfaatkan untuk layanan lain dengan tujuan akhir untuk pelanggan. Detail lengkapnya akan dibahas pada bagian berikutnya. 
+
+\subsubsection{Code Engineering}
+
+Tahapan terakhir dalam MLOps adalah untuk melakukan code engineering.
+Model yang sudah siap digunakan akan dihubungkan dengan program atau sistem yang ada atau akan ada.
+Tahap ini dibagi dalam beberapa tahapan, yaitu:
+
+\begin{enumerate}
+  \item Model Serving, yaitu terkait metode bagaimana model yang dibuat di-\textit{deploy} agar bisa diakses pelanggan.
+  \item Model Performance Monitoring, yaitu terkait metode melakukan monitoring terhadap kinerja model bila diberikan data yang sesungguhnya
+  \item Model Performance Logging, yaitu metode pilihan untuk menyimpan log dari request yang diberikan.
+\end{enumerate}
+
+Hal yang menjadi perhatian utama dalam tahap ini adalah model serving.Banyak pilihan dan \textit{pattern} yang bisa digunakan untuk melakukan serving, serta pilihan teknologi yang digunakan untuk \textit{deployment}.
+Model Serving akan dibahas pada bagian berikutnya secara lebih mendalam.

@@ -34,6 +34,7 @@
 % referencing other parts
 \usepackage{hyperref}
 
+% title, sections
 \usepackage{titlesec}
 
 % paragraph line height
@@ -52,12 +53,13 @@
 
 % set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
-\graphicspath{ {./resources/images/} }
+\graphicspath{ {./resources/images/}{./resources/images/chapter-2/} }
 
 \renewcommand*\contentsname{Daftar Isi}
 
 % chapter title settings
-\chapterfont{\centering \Large}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\chapterfont{\centering \MakeUppercase \Large}
 \titleformat{\chapter}[display]
     {\bfseries\Large\itshape}
     {Bab~\thechapter\centering}
