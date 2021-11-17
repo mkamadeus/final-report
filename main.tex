@@ -1,5 +1,5 @@
 % sets document class
-\documentclass[12pt, onecolumn, oneside, a4paper, bahasa]{report}
+\documentclass[12pt, onecolumn, oneside, a4paper]{report}
 
 % latex metadatas
 \input{config/preamble.sty}
@@ -10,7 +10,6 @@
   % covers
   \input{sections/cover.tex}
   \input{sections/innercover.tex}
-
 
   \pagenumbering{roman}
   \setcounter{page}{0}
@@ -25,12 +24,18 @@
   \input{sections/tableofcontents.tex}
   
   % tof
-  \input{sections/listoffigures.tex}
+  \input{sections/tableoffigures.tex}
+  
+  % tot
+  \input{sections/tableoftables.tex}
   
   % the 🥩 and 🥔 of your report,
   % the chapters
-  \setcounter{page}{0}
   \pagenumbering{arabic}
+  
+  \clearpage
+  \setcounter{page}{0}
+
   \input{sections/chapter-1/_index.tex}
   \input{sections/chapter-2/_index.tex}
   \input{sections/chapter-3/_index.tex}

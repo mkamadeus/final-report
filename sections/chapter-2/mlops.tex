@@ -20,13 +20,15 @@ Di masa lampau, kebutuhan untuk sistem intelijen tidak setinggi di masa kini.
 Oleh karena itu, seperti yang ditulis oleh~\cite{mlops}, perusahaan-perusahaan raksasa seperti Google membuat suatu \textit{framework} internal untuk kebutuhan mereka saat itu.
 Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLOps mulai bermunculan.
 
-Kubeflow, seperti tertulis dalam dokumentasi resminya adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem ML dengan mudah.
+Kubeflow, seperti tertulis dalam dokumentasi resminya oleh~\cite{k8s} adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem ML dengan mudah.
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
 Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas ML lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
-Dengan dibangunnyaKubeflow di atas Kubernetes, hal itu membuat melakukan  \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
+Dengan dibangunnyaKubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
 
-% TODO: Tambah bagian untuk pipeline mlops in general
-\todo{Tambah bagian untuk pipeline mlops in general}
+Dalam Kubeflow, terdapat suatu sistem yang menggunakan pipeline; serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
+Pipeline pada Kubeflow dapat membentuk sebuah graf yang masing-masing langkah atau \textit{node}-nya mendefinisikan parameter masukan dan keluaran yang terdapat pada tiap langkahnya.
+Tiap langkah merepresentasikan suatu proses terhadap data yang dilakukan lewat Docker yang membungkus suatu kode Python.
+Pendekatan pipeline ini secara umum fleksibel dan bisa menjadi potensi pengembangan untuk MLOps.
 
 \subsection{Alur Kerja MLOps}
 
