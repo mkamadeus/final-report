@@ -1,14 +1,29 @@
 % margin settings
 \usepackage[top=3cm,bottom=2.5cm,left=4cm,right=2.5cm]{geometry}
 
+% hypenation
+\usepackage{hyphenat}
+% \input{config/hypenation.tex}
+
+% bahasa indo
+\usepackage[bahasai]{babel}
+
 % math support with Times font
 \usepackage{mathptmx}
+
+% datetime
+\usepackage{datetime}
 
 % biblatex
 \usepackage[style=authoryear, backend=biber]{biblatex}
 \addbibresource{references/paper.bib}
 \addbibresource{references/website.bib}
 \addbibresource{references/book.bib}
+
+% \DefineBibliographyStrings{bahasai}{%
+%   bibliography = {Daftar Pustaka},
+%   references = {Referensi},
+% }
 
 % use utf8 characters
 \usepackage[utf8]{inputenc}
@@ -25,6 +40,7 @@
 
 \usepackage{sectsty}
 
+
 % counter
 \usepackage{chngcntr}
 
@@ -36,6 +52,30 @@
 
 % title, sections
 \usepackage{titlesec}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\titlespacing*{\chapter}{0pt}{-2\baselineskip}{1em} % remove vertical space
+% \chapterfont{\centering \MakeUppercase \Large}
+\titleformat{\chapter}[display]
+    {\bfseries\large}
+    {\MakeUppercase{Bab~\thechapter} \centering}
+    {0.0ex} % sep
+    {
+        \vspace{0ex}
+        \centering
+        \MakeUppercase
+    } % before-code
+    [
+        \vspace{0.0ex}%
+    ] % after-code
+
+\titlespacing*{\section}{0em}{1em}{0em}
+\titlespacing*{\subsection}{0em}{1em}{0em}
+\titlespacing*{\subsubsection}{0em}{1em}{0em}    
+\titleformat{\section}
+{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\fontsize{12}{15}\bfseries}{\thesubsection}{1em}{}
 
 % paragraph line height
 \usepackage{parskip}
@@ -57,24 +97,7 @@
 
 % set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
-\graphicspath{ {./resources/images/}{./resources/images/chapter-2/} }
-
-\renewcommand*\contentsname{Daftar Isi}
-
-% chapter title settings
-\renewcommand{\thechapter}{\Roman{chapter}}
-\chapterfont{\centering \MakeUppercase \Large}
-\titleformat{\chapter}[display]
-    {\bfseries\Large\itshape}
-    {Bab~\thechapter\centering}
-{0.0ex} % sep
-{
-    \vspace{0ex}
-    \centering
-} % before-code
-[
-\vspace{-0.5ex}%
-] % after-code
+\graphicspath{ {./resources/images/}{./resources/images/chapter-2/}{./resources/images/chapter-3/} }
 
 % subsubsubsub-section
 \setcounter{secnumdepth}{3}
@@ -85,3 +108,8 @@
 
 % blankpage command
 \newcommand*{\blankpage}{\afterpage{\null\newpage}}
+
+% monthyear command
+\newcommand*{\monthyear}{\ifcase \month \or Januari\or Februari\or Maret\or %
+April\or Mei \or Juni\or Juli\or Agustus\or September\or Oktober\or November\or %
+Desember\fi \number \year}

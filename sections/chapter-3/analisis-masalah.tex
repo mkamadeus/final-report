@@ -8,9 +8,9 @@ Dalam percobaan-percobaan yang memanfaatkan teknologi seperti Kubeflow, dapat di
 Dengan penggunaan pipeline dalam eksperimen pembelajaran mesin, proses eksperimen bisa dilakukan dengan lebih cepat.
 Hal tersebut karena pipeline didesain agar bisa digunakan kembali di beberapa proses yang serupa.
 Proses yang dimaksud bisa berupa proses untuk melakukan preproses pada data, atau bisa untuk melakukan proses pelatihan model.
-Pembuatannya yang membutuhkan script Python secara umum membuat proses pada pipeline ini bersifat atomik serta fleksibel.
+Pembuatannya yang membutuhkan script Python secara umum membuat proses pada pipeline ini bersifat atomik serta fleksibel untuk digunakan dalam pelatihan model yang berbeda.
 
 Namun, penggunaan pipeline ini biasanya hanya digunakan untuk eksperimen saja.
 Pipeline yang dibuat untuk eksperimen ini biasanya tidak digunakan lagi dalam proses pembuatan sistem inferensi, karena hasil eksperimen biasanya akan disimpan dalam sebuah file yang hanya perlu dibungkus lewat suatu metode komunikasi, seperti yang telah dibahas pada bagian sebelumnya.
-Sedangkan, dengan penggunaan pipeline ini sebenarnya mungkin saja membuat suatu sistem yang didasarkan pada pipeline tersebut.
+Sedangkan, dengan penggunaan pipeline ini sebenarnya mungkin saja dapat membantu dalam pembuatan sistem.
 Dengan metode seperti ini, ada potensi untuk melakukan pengembangan lanjut dalam berbagai aspek konversi eksperimen ke sistem.
