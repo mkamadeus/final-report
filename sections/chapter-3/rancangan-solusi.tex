@@ -8,11 +8,11 @@
 Solusi yang saya tawarkan adalah membuat prototipe kakas yang dapat menganalisis suatu eksperimen dan mengubahnya menjadi suatu sistem yang koheren.
 Definisi dari perjanjian data yang menjadi masukan dan keluaran akan dibuat oleh sistem secara otomatis berdasarkan eksperimen.
 Alur pemrosesan yang didefinisikan dapat dibuat lewat \textit{markup} file seperti JSON atau YAML.
-Alur didefinisikan lewat pemanggilan modul-modul yang diimplementasikan lebih dulu.
+Alur didefinisikan lewat pemanggilan modul-modul yang diimplementasikan lebih dulu, dan nantinya dapat memanggil sebuah model yang biasanya sudah siap dan disimpan dalam sebuah file.
 
-Modul tersebut akan diimplementasikan dalam satu bahasa pilihan, yaitu bahasa Go.
-Pemilihan tersebut didasarkan karena Go adalah bahasa yang cukup fleksibel dan dalam kasus ini sekaligus digunakan untuk menguji kemampuan prototipe ini untuk diterapkan dalam bahasa yang \textit{compiled}, serta Go memiliki dukungan yang baik terhadap sistem yang berbasis modul.
-Dalam proposal rancangan ini, modul-modul sederhana yang biasa digunakan akan diimplementasikan, khususnya berfokus pada data tabular.
+Modul dapat diimplementasikan dalam bahasa apapun, selama semua modul yang digunakan menggunakan bahasa yang sama.
+Dalam pendekatan yang umum, digunakan Docker sebagai bantuan untuk melakukan pemrosesan terhadap data.
+Dalam sebuah sistem yang koheren hal ini menjadi kurang baik, karena akan memerlukan komputasi yang lebih banyak dan akan membuang sumber daya.
 
 Hasil akhir dari kakas ini adalah sebuah sistem yang siap digunakan untuk production.
 Pemilihan interface untuk model ini ditentukan lewat file markup yang telah dibua.
