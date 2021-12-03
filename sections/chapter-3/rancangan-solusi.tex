@@ -2,12 +2,12 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{03-rancangan-solusi.drawio.png}
-  \caption{Rancangan Solusi (Sumber: Penulis)}
+  \caption{Rancangan Solusi Konversi Eksperimen}
 \end{figure}
 
 Solusi yang saya tawarkan adalah membuat prototipe kakas yang dapat menganalisis suatu eksperimen dan mengubahnya menjadi suatu sistem yang koheren.
 Definisi dari perjanjian data yang menjadi masukan dan keluaran akan dibuat oleh sistem secara otomatis berdasarkan eksperimen.
-Alur pemrosesan yang didefinisikan dapat dibuat lewat \textit{markup} file seperti JSON atau YAML.
+Alur pemrosesan yang didefinisikan dapat dibuat lewat \textit{markup} file seperti JSON atau YAML yang formatnya sudah ditentukan untuk kakas tersebut.
 Alur didefinisikan lewat pemanggilan modul-modul yang diimplementasikan lebih dulu, dan nantinya dapat memanggil sebuah model yang biasanya sudah siap dan disimpan dalam sebuah file.
 
 Modul dapat diimplementasikan dalam bahasa apapun, selama semua modul yang digunakan menggunakan bahasa yang sama.
@@ -15,6 +15,6 @@ Dalam pendekatan yang umum, digunakan Docker sebagai bantuan untuk melakukan pem
 Dalam sebuah sistem yang koheren hal ini menjadi kurang baik, karena akan memerlukan komputasi yang lebih banyak dan akan membuang sumber daya.
 
 Hasil akhir dari kakas ini adalah sebuah sistem yang siap digunakan untuk production.
-Pemilihan interface untuk model ini ditentukan lewat file markup yang telah dibua.
+Pemilihan interface untuk model ini ditentukan lewat file markup yang telah dibuat.
 Metode komunikasi menggunakan gRPC dan REST akan diimplementasikan sebagai contoh metode yang umum digunakan.
 

@@ -1,18 +1,13 @@
 \section{Solusi Umum}
 
 Seperti yang disinggung sebelumnya, konversi eksperimen masih relatif manual dan belum memanfaatkan pipeline yang ada.
-Sehingga, terdapat potensi pengembangan untuk membuat suatu kakas yang bisa mengubah eksperimen menjadi sistem yang siap digunakan.
+Sehingga, terdapat potensi pengembangan untuk membuat suatu kakas yang bisa mengubah eksperimen menjadi sistem yang siap digunakan dari sisi pengembangan perangkat lunak
 Berdasarkan eksperimen yang dilakukan lewat pipeline, secara teori memungkinkan untuk mengubah komponen-komponen yang ada dalam pipeline tersebut menjadi beberapa bagian dalam suatu sistem.
+Solusi yang dibuat dapat memperhatikan juga struktur data dan prosedur sehingga masukan, keluaran, dan prosedur yang ada dalam sistem bisa terjamin.
 
-Dalam sebuah eksperimen yang sukses, model biasanya hanya hanya perlu untuk dibungkus dalam sebuah metode komunikasi sesuai dengan kebutuhan arsitektur, misalnya dengan gRPC atau REST.
-Perlu adanya perjanjian antar sistem untuk memastikan objek yang dikirim dan diterima sesuai dengan pihak yang membutuhkan sistem.
-Misalnya, seperti dalam gRPC yang menggunakan Protobuf terdapat konvensi perjanjian prosedur dan struktur data yang terlibat, atau JSON Schema dan Swagger dalam REST.
-Solusi yang dibuat dapat memperhatikan hal ini sehingga struktur data dan prosedur yang ada bisa dijamin, mengingat juga ada kemungkinan 
-
-Terkait juga dengan masukan data, secara umum data diberikan secara mentah tanpa pemrosesan apapun, tetapi terkadang terdapat data yang berbeda sehinga perlu dilakukan pemrosesan yang berbeda.
-Solusi ini dapat memanfaatkan pipeline yang sudah ada dalam membuat suatu alur pemrosesan data di dalam sistem.
-Alur pemrosesan didefinisikan secara terpisah agar dapat didefinisikan implementasi yang berbeda-beda tergantung kebutuhan.
-Bila diimplementasikan dengan benar, untuk beberapa hal mungkin juga digunakan bahasa yang lebih cepat, sehingga hanya proses inferensi model saja dan beberapa hal saja yang sulit untuk dipindahkan ke bahasa lain.
+Dalam sistem pembelajaran mesin, masukan data diberikan secara mentah tanpa pemrosesan apapun, tetapi terkadang terdapat data yang berbeda sehinga perlu dilakukan pemrosesan yang berbeda.
+Pipeline yang sudah ada dalam membuat suatu alur pemrosesan data di dalam sistem dapat dimanfaatkan.
+Bila diimplementasikan secara modular, untuk beberapa hal mungkin juga digunakan bahasa yang lebih cepat, sehingga hanya proses inferensi model saja dan beberapa hal saja yang sulit untuk dipindahkan ke bahasa lain.
 
 Sebagai contoh, dalam pemrosesan data tabular umumnya terdapat beberapa tahapan dalam melakukan pemrosesan terhadap data.
 Tahapan \textit{preprocessing} yang dimaksud misalnya bisa berupa normalisasi terhadap fitur, pembentukan fitur baru, seleksi fitur, dan transformasi fitur.
