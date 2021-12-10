@@ -24,8 +24,8 @@ const isDark = ref(false);
     >
       <div rounded="lg" bg="black" p="2" opacity="75">
         <button rounded="md" bg="green-400" p="2" @click="isDark = !isDark">
-          <img src="sun.svg" v-if="!isDark" />
-          <img src="moon.svg" v-if="isDark" />
+          <img src="/sun.svg" v-if="!isDark" />
+          <img src="/moon.svg" v-if="isDark" />
         </button>
       </div>
     </div>
