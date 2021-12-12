@@ -16,34 +16,34 @@ Terdapat lima jenis \textit{serving pattern} yang umum digunakan untuk membuat l
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{02-model-as-service.jpg}
-  \caption{Ilustrasi Model-as-Service (Sumber:~\cite{book-handsonml})}
+  \includegraphics[width=0.7\textwidth]{02-model-as-service.jpg}
+  \caption{Ilustrasi Model-as-Service (Sumber:~\cite{book-handsonml})}\label{fig:model-as-service}
 \end{figure}
 
-Serving pattern ini adalah metode yang paling sederhana.
-Pada dasarnya, model yang sudah ada akan dibungkus dengan sebuah interface agar dapat dilakukan RPC terhadap model tersebut.
+\textit{Serving pattern} ini adalah metode yang paling sederhana.
+Pada dasarnya, model yang sudah ada akan dibungkus dengan sebuah interface agar dapat dilakukan RPC terhadap model tersebut (lihat Gambar~\ref{fig:model-as-service}).
 Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-metode RPC lainnya bisa juga digunakan.
 
 \subsection{Model-as-Dependency}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{02-model-as-dependency.jpg}
-  \caption{Ilustrasi Model-as-Dependency (Sumber:~\cite{book-handsonml})}
+  \includegraphics[width=0.7\textwidth]{02-model-as-dependency.jpg}
+  \caption{Ilustrasi Model-as-Dependency (Sumber:~\cite{book-handsonml})}\label{fig:model-as-dependency}
 \end{figure}
 
-Serving pattern serupa dengan Model-as-Service, tetapi perbedaan utamanya adalah di mana model tersebut menjadi dependency dari layanan yang dibuat secara internal, bukan melakukan \textit{deployment} secara terpisah untuk model tersebut.
-Pattern ini akan digunakan apabila model akan digunakan sebagai satu bagian dari layanan yang lebih besar.
+\textit{Serving pattern} serupa dengan Model-as-Service, tetapi perbedaan utamanya adalah di mana model tersebut menjadi dependency dari layanan yang dibuat secara internal, bukan melakukan \textit{deployment} secara terpisah untuk model tersebut (lihat Gambar~\ref{fig:model-as-dependency}).
+\textit{Pattern} ini akan digunakan apabila model akan digunakan sebagai satu bagian dari layanan yang lebih besar.
 
 \subsection{Precompute Serving}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{02-precompute-serving-pattern.jpg}
-  \caption{Ilustrasi Precompute Serving Pattern (Sumber:~\cite{book-handsonml})}
+  \includegraphics[width=0.7\textwidth]{02-precompute-serving-pattern.jpg}
+  \caption{Ilustrasi Precompute Serving Pattern (Sumber:~\cite{book-handsonml})}\label{fig:precompute-serving}
 \end{figure}
 
-Sesuai namanya, model akan digunakan untuk melakukan prekomputasi menggunakan model.
+Sesuai namanya, model akan digunakan untuk melakukan prekomputasi tanpa langsung menggunakan modelnya dalam sistem (lihat Gambar~\ref{fig:precompute-serving}).
 Hasil dari prekomputasi yang dilakukan biasanya akan disimpan pada suatu basis data, yang nantinya akan digunakan oleh layanan tertentu.
 Sehingga, model tidak perlu dijalankan terus menerus; hanya perlu dijalankan bila diperlukan atau secara berkala saja.
 
@@ -51,24 +51,24 @@ Sehingga, model tidak perlu dijalankan terus menerus; hanya perlu dijalankan bil
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{02-model-on-demand.jpg}
-  \caption{Ilustrasi Model-on-Demand (Sumber:~\cite{book-handsonml})}
+  \includegraphics[width=0.7\textwidth]{02-model-on-demand.jpg}
+  \caption{Ilustrasi Model-on-Demand (Sumber:~\cite{book-handsonml})}\label{fig:model-on-demand}
 \end{figure}
 
-Pada dasarnya, pattern ini memiliki karakteristik yang serupa dengan Model-as-Service.
+Pada dasarnya, \textit{pattern} ini memiliki karakteristik yang serupa dengan Model-as-Service dengan perbedaan dalam infrastruktur pembentuk sistem.
 Perbedaan utamanya adalah dalam Model-as-Service, request dijalankan secara sinkron.
-Dalam Model-on-Demand, terdapat penggunaan broker sehingga request terhadap model bisa dibuat asinkron.
+Dalam \textit{pattern} Model-on-Demand, terdapat penggunaan \textit{broker}  sehingga request terhadap model bisa dibuat asinkron (lihat Gambar~\ref{fig:model-on-demand}).
 Waktu prediksi juga bisa diatur lewat broker atau model yang digunakan.
 
 \subsection{Hybrid Serving}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{02-federated-learning.jpg}
-  \caption{Ilustrasi Federated Learning (Sumber:~\cite{book-handsonml})}
+  \includegraphics[width=0.7\textwidth]{02-federated-learning.jpg}
+  \caption{Ilustrasi Federated Learning (Sumber:~\cite{book-handsonml})}\label{fig:federated-learning}
 \end{figure}
 
-Hybrid Serving, atau biasa dikenal dengan istilah Federated Learning adalah teknik yang memanfaatkan beberapa perangkat untuk proses trainingnya.
-Model yang sudah jadi akan didistribusikan pada perangkat-perangkat berbeda, dan dari sana data baru akan dikumpulkan.
+Hybrid Serving, atau biasa dikenal dengan istilah Federated Learning adalah teknik yang memanfaatkan beberapa perangkat untuk proses \textit{training}-nya.
+Tidak hanya melakukan \textit{training} secara terpusat, model yang sudah jadi akan didistribusikan pada perangkat-perangkat berbeda, dan dari sana data baru akan dikumpulkan (lihat Gambar~\ref{fig:federated-learning}).
 Data yang dikumpulkan akan dikirim ke sebuah central store untuk membuat model yang lebih mutakhir.
 

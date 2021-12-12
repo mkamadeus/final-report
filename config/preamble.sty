@@ -20,6 +20,23 @@
 \addbibresource{references/website.bib}
 \addbibresource{references/book.bib}
 
+% glossary
+\usepackage{glossaries}
+\makeglossaries
+
+\newglossaryentry{latex}
+{
+    name=latex,
+    description={Is a markup language specially suited 
+    for scientific documents}
+}
+
+\newglossaryentry{maths}
+{
+    name=mathematics,
+    description={Mathematics is what mathematicians do}
+}
+
 % use utf8 characters
 \usepackage[utf8]{inputenc}
 
@@ -34,7 +51,6 @@
 \usepackage{lipsum}
 
 \usepackage{sectsty}
-
 
 % counter
 \usepackage{chngcntr}
@@ -86,10 +102,6 @@
 % changepage
 \usepackage{pgfgantt}
 
-% todo
-\usepackage[colorinlistoftodos,prependcaption]{todonotes}
-\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
-
 % tables
 \usepackage{longtable, booktabs} % Package untuk table multipage
 \usepackage{multirow} % Package untuk multirow
@@ -118,7 +130,7 @@
 % monthyear command
 \newcommand*{\monthyear}{\ifcase \month \or Januari\or Februari\or Maret\or %
 April\or Mei \or Juni\or Juli\or Agustus\or September\or Oktober\or November\or %
-Desember\fi \number \year}
+Desember\fi~\number\year}
 
 % toc no dots
 \makeatletter

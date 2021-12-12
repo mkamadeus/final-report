@@ -20,6 +20,11 @@ To use this, install from `texlive-full` for getting all required packages.
 sudo apt install texlive-full
 ```
 
+Using VSCode, install some extensions for better experience:
+
+- [VSCode LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop) (for compiling LaTeX and previewing it)
+- [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) (for making diagrams)
+
 ## Generating PDF
 
 ### Using `Makefile`
@@ -30,9 +35,11 @@ A makefile has been provided. To compile this report into `.pdf`, use:
 make
 ```
 
-### Using Latex Workshop
+but it's recommended to use the extension instead.
 
-If you're using the [VSCode Latex Workshop](https://github.com/James-Yu/LaTeX-Workshop) extension, the `settings.json` file for VSCode is provided for you to use. You can run the build command provided from the extension's tab.
+### Using LaTeX Workshop
+
+If you're using the [VSCode LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop) extension, the `settings.json` file for VSCode is provided for you to use. You can run the build command provided from the extension's tab.
 
 ## Document Structure
 

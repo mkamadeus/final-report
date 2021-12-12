@@ -1,5 +1,36 @@
 \ProvidesFile{bahasai.lbx}[by mkamadeus]
 
+\DeclareBibliographyExtras{%
+  \protected\def\mkdaterangecomp{% 2.1 - corrected date ranges
+    \mkdaterangetrunc{long}}%
+  \protected\def\mkdaterangeterse{%
+    \mkdaterangetrunc{short}}%
+  \protected\def\mkdaterangecompextra{%
+    \mkdaterangetruncextra{long}}%
+  \protected\def\mkdaterangeterseextra{%
+    \mkdaterangetruncextra{short}}%
+  \protected\def\mkbibdatelong#1#2#3{%
+    \iffieldundef{#3}
+      {}
+      {\thefield{#3}%
+       \iffieldundef{#2}{}{\nobreakspace}}%
+    \iffieldundef{#2}
+      {}
+      {\mkbibmonth{\thefield{#2}}%
+       \iffieldundef{#1}{}{\space}}%
+    \mkyearzeros{\thefield{#1}}}%
+  \protected\def\mkbibdateshort#1#2#3{%
+    \iffieldundef{#3}
+      {}
+      {\mkdayzeros{\thefield{#3}}%
+       \iffieldundef{#2}{}{/}}%
+    \iffieldundef{#2}
+      {}
+      {\mkmonthzeros{\thefield{#2}}%
+       \iffieldundef{#1}{}{/}}%
+    \mkyearzeros{\thefield{#1}}}%
+}
+
 \DeclareFieldFormat{citehyperref}{%
   \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
   \bibhyperref{#1}}
