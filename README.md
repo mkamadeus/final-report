@@ -14,6 +14,8 @@ This repository includes:
 
 ## Setup
 
+### Development
+
 To use this, install from `texlive-full` for getting all required packages.
 
 ```sh
@@ -24,6 +26,27 @@ Using VSCode, install some extensions for better experience:
 
 - [VSCode LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop) (for compiling LaTeX and previewing it)
 - [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) (for making diagrams)
+
+### CI/CD
+
+Some things are required to be set up for the CI/CD to work. The `.github/workflows` directory can be safely be deleted if the workflows are unnecessary.
+
+Secrets that need to be configured for uploading to Google Drive:
+
+- `GOOGLE_CREDENTIALS` - from GCP Console, make a user credential to access the Drive API.
+- `GOOGLE_FOLDER_ID` - the target Google Drive folder ID as the upload destination. Make sure your user account is invited to this folder.
+
+Secrets that need to be configured for deploying your paper to Vercel:
+
+- `VERCEL_ORG_ID` - Vercel organization ID, or should be your ID
+- `VERCEL_PROJECT_ID` - Vercel project ID
+- `VERCEL_TOKEN` - Vercel token generated for accessing your account
+
+To get organization and project ID for the site, run this command on `web/`:
+
+```
+npx vercel link
+```
 
 ## Generating PDF
 
