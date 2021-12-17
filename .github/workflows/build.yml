@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       filename:
-        description: 'Filename uploaded to Google Drive'
+        description: "Filename uploaded to Google Drive"
         required: true
 
 jobs:
@@ -18,7 +18,26 @@ jobs:
         with:
           format: pdf
           filename: main.tex
-      
+
+      - name: Archive pdf as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-build
+          path: main.pdf
+
+  gdrive:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: pdf-build
+          path: ./
+
       - name: Upload to gdrive
         uses: team-tumbleweed/gdrive-upload-action@main
         with:
@@ -26,3 +45,27 @@ jobs:
           name: ${{ github.event.inputs.filename }}.pdf
           folderId: ${{ secrets.GOOGLE_FOLDER_ID }}
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+  web:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: pdf-build
+          path: ./
+
+      - name: Copy resulting PDF to web directory
+        run: mv main.pdf web/public/main.pdf
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: "--prod"
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
