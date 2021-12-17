@@ -1,5 +1,11 @@
 \section{MLOps}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{02-mlops.png}
+  \caption{Siklus Hidup MLOps (Sumber:~\cite{mlops})}
+\end{figure}
+
 \subsection{Definisi MLOps}
 
 MLOps adalah penerapan yang lebih spesifik dari DevOps. 
@@ -30,8 +36,8 @@ Bagian yang mendefinisikan model tersebut pada akhirnya hanya menjadi sebagian k
 Hal-hal lain seperti bagaimana melakukan ekstraksi fitur, analisis terhadap data, metode pemberian layanan, dan pengawasan terhadap data menjadi bagian yang lebih utama dalam sebuah sistem.
 
 Oleh karena itu, di luar dari proses pengembangan dan eksperimentasi dari sebuah model, bagaimana sebuah model dapat diberikan lewat layanan juga perlu menjadi hal yang diperhatikan.
-Pada nyatanya, tidak semudah itu untuk memberikan laanan
-
+Pada nyatanya, tidak semudah itu untuk memberikan layanan dengan teknologi pembelajaran mesin.
+Diperlukan perhatian khusus untuk proses pengembangan sistem, khususnya untuk memastikan sistem dapat berjalan dengan mulus.
 
 \subsection{Contoh Kakas MLOps}
 
@@ -108,3 +114,16 @@ Tahap ini dibagi dalam beberapa tahapan, yaitu:
 
 Hal yang menjadi perhatian utama dalam tahap ini adalah model serving.Banyak pilihan dan \textit{pattern} yang bisa digunakan untuk melakukan serving, serta pilihan teknologi yang digunakan untuk \textit{deployment}.
 Model Serving akan dibahas pada bagian berikutnya secara lebih mendalam.
+
+\subsection{Kakas \textit{Serving} Model Pembelajaran Mesin}
+
+Dalam proses melakukan \textit{deployment} terhadap model yang sudah menjadi sistem secara utuh, seringkali dibutuhkan suatu kakas untuk membantu proses tersebut.
+Salah satu kakas terkait yang dapat membantu proses \textit{deployment} adalah Tensorflow Serving (\href{https://github.com/tensorflow/serving}{https://github.com/tensorflow/serving}).
+
+Kakas ini adalah kakas yang digunakan untuk membantu proses \textit{deployment} pada model pembelajaran mesin yang dibuat dengan Tensorflow.
+Secara sederhana, kakas ini menyediakan kemampuan untuk membungkus model Tensorflow yang ada lewat metode komunikasi yang umum seperti gRPC dan REST.\@
+Cara menjalankannya juga cukup mudah, yaitu hanya dengan menggunakan Docker untuk melakukan mounting terhadap model.
+
+Kakas ini cukup membantu dalam proses \textit{deployment} yang cepat untuk mendapatkan prototipe dari layanan yang seutuhnya.
+Kakas ini hanya berfokus pada bagaimana model dapat diakses oleh metode komunikasi umum.
+Terdapat beberapa hal yang tidak diatasi oleh kakas ini dari sisi pengembangan sistem, seperti bagaimana dokumentasi API dapat dibentuk berdasarkan masukan yang ada dan ketiadaan fitur untuk menggunakan model sebagai \textit{dependency} dari sistem.

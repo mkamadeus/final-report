@@ -36,7 +36,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: pdf-build
-          path: main.pdf
+          path: ./
 
       - name: Upload to gdrive
         uses: team-tumbleweed/gdrive-upload-action@main
@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: pdf-build
-          path: main.pdf
+          path: ./
 
       - name: Copy resulting PDF to web directory
         run: mv main.pdf web/public/main.pdf
