@@ -11,6 +11,11 @@ This repository includes:
 - My final project report made in LaTEX.
 - ChkTEX workflow to lint the LaTEX report.
 - Workflow to build the report and upload it to Google Drive.
+- Workflow to build the report and deploy it into a Vercel webpage.
+
+## Where can I see the report?
+
+Check it out here: https://report.mkamadeus.dev
 
 ## Setup
 
