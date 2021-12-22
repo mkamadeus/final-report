@@ -55,6 +55,11 @@
 % counter
 \usepackage{chngcntr}
 
+% toc settings
+\usepackage[titles]{tocloft}
+\cftsetindents{figure}{0em}{3.5em}
+\cftsetindents{table}{0em}{3.5em}
+
 % defining newcommand and stuff
 \usepackage{etoolbox}
 
@@ -115,7 +120,7 @@
 
 % set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
-\graphicspath{ {./resources/images/}{./resources/images/chapter-2/}{./resources/images/chapter-3/} }
+\graphicspath{ {./resources/images/}{./resources/images/chapter-1/}{./resources/images/chapter-2/}{./resources/images/chapter-3/} }
 
 % subsubsubsub-section
 \setcounter{secnumdepth}{3}
