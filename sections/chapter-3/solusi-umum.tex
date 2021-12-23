@@ -1,14 +1,14 @@
 \section{Solusi Umum}
 
-Seperti yang disinggung sebelumnya, konversi eksperimen masih relatif manual dan belum memanfaatkan pipeline yang ada.
+Seperti yang disinggung sebelumnya, konversi eksperimen masih relatif manual dan belum memanfaatkan \textit{pipeline} yang ada.
 Sehingga, terdapat potensi pengembangan untuk membuat suatu kakas yang bisa mengubah eksperimen menjadi sistem yang siap digunakan secara sudut pandang pengembangan perangkat lunak.
-Berdasarkan eksperimen yang dilakukan lewat pipeline, secara teori memungkinkan untuk mengubah komponen-komponen yang ada dalam pipeline tersebut menjadi beberapa bagian dalam suatu sistem.
+Berdasarkan eksperimen yang dilakukan lewat \textit{pipeline}, secara teori memungkinkan untuk mengubah komponen-komponen yang ada dalam \textit{pipeline} tersebut menjadi beberapa bagian dalam suatu sistem.
 Solusi yang dibuat dapat memperhatikan juga struktur data dan prosedur sehingga masukan, keluaran, dan prosedur yang ada dalam sistem bisa terjamin.
 
-Dalam sistem pembelajaran mesin, masukan data diberikan secara mentah tanpa pemrosesan apapun, tetapi terkadang terdapat data yang berbeda sehinga perlu dilakukan pemrosesan yang berbeda.
-Pipeline yang sudah ada dalam membuat suatu alur pemrosesan data di dalam sistem dapat dimanfaatkan.
+Dalam sistem pemelajaran mesin, masukan data diberikan secara mentah tanpa pemrosesan apapun, tetapi terkadang terdapat data yang berbeda sehinga perlu dilakukan pemrosesan yang berbeda.
+\textit{Pipeline} yang sudah ada dalam membuat suatu alur pemrosesan data di dalam sistem dapat dimanfaatkan.
 Bila diimplementasikan secara modular, untuk beberapa hal mungkin juga digunakan bahasa yang lebih cepat, sehingga hanya proses inferensi model saja dan beberapa hal saja yang sulit untuk dipindahkan ke bahasa lain.
 
-Sebagai contoh, dalam pemrosesan data tabular umumnya terdapat beberapa tahapan dalam melakukan pemrosesan terhadap data.
+Sebagai contoh, dalam pemrosesan data yang berupa tabel (data \textit{tabular}) umumnya terdapat beberapa tahapan dalam melakukan pemrosesan terhadap data.
 Tahapan \textit{preprocessing} dapat berupa normalisasi terhadap fitur, pembentukan fitur baru, seleksi fitur, dan transformasi fitur.
-Seperti pada transformasi fitur yang menggunakan metode seperti \textit{Principal Component Analysis} (PCA) atau \textit{Linear Discriminant Analysis} (LDA), tentunya akan memerlukan proses konversi dari data mentah menjadi data dengan dimensi yang berbeda.
+Transformasi fitur yang menggunakan metode seperti \textit{Principal Component Analysis} (PCA) atau \textit{Linear Discriminant Analysis} (LDA) tentunya akan memerlukan proses konversi dari data mentah menjadi data dengan dimensi yang berbeda.

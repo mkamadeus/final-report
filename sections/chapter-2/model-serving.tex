@@ -1,7 +1,7 @@
 \section{Model Serving}\label{chap:model-serving}
 
 Dalam makalah ini akan dibahas secara lebih mendalam terkait Model Serving.
-Hal-hal yang akan dibahas meliputi bagaimana metode-metode yang ada dalam melakukan serving dan teknologi apa yang digunakan untuk melakukan \textit{deployment} model tersebut.
+Hal-hal yang akan dibahas meliputi metode-metode yang ada dalam melakukan \textit{serving} dan teknologi apa saja yang digunakan untuk membangun arsitektur \textit{deployment} model tersebut.
 
 Terdapat lima jenis \textit{serving pattern} yang umum digunakan untuk membuat layanan dari model (\cite{mlopsorg}):
 \begin{enumerate}
@@ -21,7 +21,7 @@ Terdapat lima jenis \textit{serving pattern} yang umum digunakan untuk membuat l
 \end{figure}
 
 \textit{Serving pattern} ini adalah metode yang paling sederhana.
-Pada dasarnya, model yang sudah ada akan dibungkus dengan sebuah interface agar dapat dilakukan RPC terhadap model tersebut (lihat Gambar~\ref{fig:model-as-service}).
+Pada dasarnya, model yang sudah ada akan dibungkus dengan sebuah \textit{interface} agar dapat dilakukan RPC terhadap model tersebut (lihat Gambar~\ref{fig:model-as-service}).
 Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-metode RPC lainnya bisa juga digunakan.
 
 \subsection{Model-as-Dependency}
@@ -32,7 +32,7 @@ Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-m
   \caption{Ilustrasi Model-as-Dependency (Sumber:~\cite{book-handsonml})}\label{fig:model-as-dependency}
 \end{figure}
 
-\textit{Serving pattern} serupa dengan Model-as-Service, tetapi perbedaan utamanya adalah di mana model tersebut menjadi dependency dari layanan yang dibuat secara internal, bukan melakukan \textit{deployment} secara terpisah untuk model tersebut (lihat Gambar~\ref{fig:model-as-dependency}).
+\textit{Serving pattern} serupa dengan Model-as-Service, dengan pembeda utamanya adalah model tersebut menjadi \textit{dependency} dari layanan yang dibuat secara internal, bukan melakukan \textit{deployment} secara terpisah untuk model tersebut (lihat Gambar~\ref{fig:model-as-dependency}).
 \textit{Pattern} ini akan digunakan apabila model akan digunakan sebagai satu bagian dari layanan yang lebih besar.
 
 \subsection{Precompute Serving}
@@ -45,7 +45,7 @@ Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-m
 
 Sesuai namanya, model akan digunakan untuk melakukan prekomputasi tanpa langsung menggunakan modelnya dalam sistem (lihat Gambar~\ref{fig:precompute-serving}).
 Hasil dari prekomputasi yang dilakukan biasanya akan disimpan pada suatu basis data, yang nantinya akan digunakan oleh layanan tertentu.
-Sehingga, model tidak perlu dijalankan terus menerus; hanya perlu dijalankan bila diperlukan atau secara berkala saja.
+Model tidak perlu dijalankan terus menerus, melainkan hanya perlu dijalankan bila diperlukan atau secara berkala saja.
 
 \subsection{Model-on-Demand}
 
@@ -56,8 +56,8 @@ Sehingga, model tidak perlu dijalankan terus menerus; hanya perlu dijalankan bil
 \end{figure}
 
 Pada dasarnya, \textit{pattern} ini memiliki karakteristik yang serupa dengan Model-as-Service dengan perbedaan dalam infrastruktur pembentuk sistem.
-Perbedaan utamanya adalah dalam Model-as-Service, request dijalankan secara sinkron.
-Dalam \textit{pattern} Model-on-Demand, terdapat penggunaan \textit{broker}  sehingga request terhadap model bisa dibuat asinkron (lihat Gambar~\ref{fig:model-on-demand}).
+Perbedaan utamanya adalah dalam Model-as-Service, \textit{request} dijalankan secara sinkron.
+Dalam \textit{pattern} Model-on-Demand, terdapat penggunaan broker sehingga request terhadap model bisa dibuat asinkron (lihat Gambar~\ref{fig:model-on-demand}).
 Waktu prediksi juga bisa diatur lewat broker atau model yang digunakan.
 
 \subsection{Hybrid Serving}
@@ -68,6 +68,7 @@ Waktu prediksi juga bisa diatur lewat broker atau model yang digunakan.
   \caption{Ilustrasi Federated Learning (Sumber:~\cite{book-handsonml})}\label{fig:federated-learning}
 \end{figure}
 
-Hybrid Serving, atau biasa dikenal dengan istilah Federated Learning adalah teknik yang memanfaatkan beberapa perangkat untuk proses \textit{training}-nya.
-Tidak hanya melakukan \textit{training} secara terpusat, model yang sudah jadi akan didistribusikan pada perangkat-perangkat berbeda, dan dari sana data baru akan dikumpulkan (lihat Gambar~\ref{fig:federated-learning}).
-Data yang dikumpulkan akan dikirim ke sebuah central store untuk membuat model yang lebih mutakhir.
+Hybrid Serving, atau biasa dikenal dengan istilah Federated Learning, adalah teknik yang memanfaatkan beberapa perangkat untuk proses \textit{training}-nya.
+Tidak hanya melakukan \textit{training} secara terpusat, model yang sudah jadi akan didistribusikan pada perangkat-perangkat berbeda.
+Dari sana data pelatihan baru akan dikumpulkan dari perangkat-perangkat tersebut (lihat Gambar~\ref{fig:federated-learning}).
+Data yang dikumpulkan akan dikirim ke sebuah pusat penyimpanan data untuk membuat model yang lebih mutakhir.

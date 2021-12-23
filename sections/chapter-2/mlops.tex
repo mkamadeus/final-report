@@ -12,15 +12,15 @@ MLOps adalah penerapan yang lebih spesifik dari DevOps.
 Seperti yang telah dibahas pada bagian sebelumnya, DevOps adalah suatu metodologi dan prinsip yang diterapkan untuk membuat proses pengembangan sistem menjadi lebih cepat dan efisien.
 MLOps adalah metodologi yang menerapkan DevOps untuk proses-proses yang ada pada pengembangan model machine learning.
 
-Dalam MLOps, terdapat proses-proses tertentu yang spesifik untuk domain pengembangan sistem pembelajaran mesin (\cite{mlops}).\@
+Dalam MLOps, terdapat proses-proses tertentu yang spesifik untuk domain pengembangan sistem pemelajaran mesin (\cite{mlops}).\@
 MLOps ini merupakan bidang yang masih baru karena baru-baru ini teknologi kecerdasan buatan mulai diterapkan dalam perusahaan yang mulai merambah ke layanan dengan kecerdasan buatan.
-Tujuan dari MLOps adalah untuk melakukan manajemen dari eksperimen dalam proses pengembangan sistem pembelajaran mesin.
+Tujuan dari MLOps adalah untuk melakukan manajemen dari eksperimen dalam proses pengembangan sistem pemelajaran mesin.
 Saat ini, metodologi MLOps juga sudah diterapkan pada berbagai perusahaan besar di dunia, seperti Facebook, Google, AirBnB, dan Uber.
 
 \subsection{Alasan MLOps Diperlukan}
 
-Hal ini patut menjadi pertanyaan; apakah MLOps benar-benar diperlukan dalam pengembangan sistem pembelajaran mesin?
-Seiring berjalannya waktu, kebutuhan terhadap pembelajaran mesin semakin meluas.
+Hal ini patut menjadi pertanyaan, "apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?"
+Seiring berjalannya waktu, kebutuhan terhadap pemelajaran mesin semakin meluas.
 Berbagai eksperimentasi, pemrosesan data, dan pemodelan dilakukan dengan cepat dan dengan terus menerus dikembangkan versi yang lebih baru.
 Bisa jadi, model yang dibuat sudah bisa berjalan dalam eksperimen.
 Hal yang menjadi pertanyaan sekarang adalah bagaimana cara memberikan layanan dari model tersebut kepada khalayak umum.
@@ -28,32 +28,33 @@ Hal yang menjadi pertanyaan sekarang adalah bagaimana cara memberikan layanan da
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.8\textwidth]{02-ml-system.png}
-  \caption{Gambaran umum komponenen sistem pembelajaran mesin (Sumber:~\cite{NIPS2015_86df7dcf})}\label{fig:ml-system}
+  \captionsetup{justification=centering}
+  \caption{Gambaran umum komponenen sistem pemelajaran mesin (Sumber:~\cite{NIPS2015_86df7dcf})}\label{fig:ml-system}
 \end{figure}
 
 Ternyata, model ML hanya menjadi sebagian kecil saja dari suatu sistem (\cite{NIPS2015_86df7dcf}).
-Bagian yang mendefinisikan model tersebut pada akhirnya hanya menjadi sebagian kecil dari sistem, dan merupakan yang paling kecil dibandingkan bagian lainnya (lihat Gambar~\ref{fig:ml-system}).
-Hal-hal lain seperti bagaimana melakukan ekstraksi fitur, analisis terhadap data, metode pemberian layanan, dan pengawasan terhadap data menjadi bagian yang lebih utama dalam sebuah sistem.
+Bagian yang mendefinisikan model tersebut pada akhirnya hanya menjadi sebagian kecil dari sistem dan merupakan yang paling kecil dibandingkan bagian lainnya (lihat Gambar~\ref{fig:ml-system}).
+Hal-hal lain seperti bagaimana melakukan ekstraksi fitur, analisis terhadap data, metode pemberian layanan, dan pengawasan terhadap data menjadi bagian yang lebih besar dalam sebuah sistem pada umumnya.
 
-Oleh karena itu, di luar dari proses pengembangan dan eksperimentasi dari sebuah model, bagaimana sebuah model dapat diberikan lewat layanan juga perlu menjadi hal yang diperhatikan.
-Pada nyatanya, tidak semudah itu untuk memberikan layanan dengan teknologi pembelajaran mesin.
+Oleh karena itu, di luar dari proses pengembangan dan eksperimentasi dari sebuah model, bagaimana metode sebuah model dapat diberikan lewat layanan juga perlu menjadi hal yang diperhatikan.
+Pada nyatanya, pemberian layanan untuk sistem dengan teknologi pemelajaran mesin tidak semudah itu.
 Diperlukan perhatian khusus untuk proses pengembangan sistem, khususnya untuk memastikan sistem dapat berjalan dengan mulus.
 
 \subsection{Contoh Kakas MLOps}
 
-Di masa lampau, kebutuhan untuk sistem berbasis teknologi pembelajaran mesin tidak setinggi di masa kini. 
+Di masa lampau, kebutuhan untuk sistem berbasis teknologi pemelajaran mesin tidak setinggi di masa kini. 
 Perusahaan-perusahaan raksasa seperti Google membuat suatu \textit{framework} internal untuk kebutuhan mereka saat itu (\cite{mlops}).
 Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLOps mulai bermunculan.
 
 Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem ML dengan mudah (\cite{k8s}).
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
 Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas ML lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
-Dengan dibangunnyaKubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
+Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
 
-Dalam Kubeflow, terdapat suatu sistem yang menggunakan pipeline; serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
+Dalam Kubeflow, terdapat suatu sistem yang menggunakan\textit{pipeline}serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
 Pipeline pada Kubeflow dapat membentuk sebuah graf yang masing-masing langkah atau \textit{node}-nya mendefinisikan parameter masukan dan keluaran yang terdapat pada tiap langkahnya.
 Tiap langkah merepresentasikan suatu proses terhadap data yang dilakukan lewat Docker yang membungkus suatu kode Python.
-Pendekatan pipeline ini secara umum fleksibel dan bisa menjadi potensi pengembangan untuk MLOps.
+Pendekatan\textit{pipeline}ini secara umum fleksibel dan bisa menjadi potensi pengembangan untuk MLOps.
 
 \subsection{Alur Kerja MLOps}
 
@@ -65,65 +66,66 @@ Alur kerja tersebut adalah sebagai berikut:
   \item Code Engineering
 \end{enumerate}
 
-Dalam makalah ini, akan dibahas secara lebih mendetail pada tahap code engineering.
+Bagian ini akan membahas secara lebih rinci pada tahap code engineering.
 Untuk tahapan lainnya, akan dibahas beberapa hal yang relevan terhadap tahap code engineering.
 
 \subsubsection{Data Engineering}
 
 Tahapan awal dalam bidang ilmu data secara umum seharusnya meliputi pengumpulan data dan persiapan data untuk digunakan dalam analisis.
-Secara lebih detailnya, tahapan ini dibagi menjadi beberapa bagian:
+Secara lebih detailnya, langkah ini dibagi menjadi beberapa tahapan:
 \begin{enumerate}
-  \item Data Ingestion, yaitu mengumpulkan data dari berbagai sumber melalui framework yang ada. 
-  \item Data Exploration and Validation, yaitu melakukan EDA (\textit{Exploratory Data Analysis}) yang meliputi \textit{profiling}
-  \item Data Cleaning, yaitu melakukan proses lanjut pada data untuk memperbaiki kesalahan yang ada pada dataset.
+  \item Data Ingestion, yaitu pengumpulan data dari berbagai sumber melalui framework yang ada. 
+  \item Data Exploration and Validation, yaitu perlakuan EDA (\textit{Exploratory Data Analysis}) yang meliputi \textit{profiling} terhadap data.
+  \item Data Cleaning, yaitu pemrosesan lanjut pada data untuk memperbaiki kesalahan yang ada pada dataset.
   \item Data Labelling, yaitu melakukan labelling kepada dataset yang ada.
-  \item Data Splitting, yaitu memisahkan dataset menjadi beberapa bagian yang umumnya adalah untuk \textit{training}, \textit{testing}, dan \textit{validation}.
+  \item Data Splitting, yaitu pemisahan dataset menjadi beberapa bagian yang umumnya adalah untuk \textit{training}, \textit{testing}, dan \textit{validation}.
 \end{enumerate}
 
 \subsubsection{Model Engineering}
 
-Tahapan selanjutnya setelah melakukan pemrosesan terhadap data adalah melakukan pemodelan terhadap dataset yang sudah disiapkan.
+Setelah melakukan pemrosesan terhadap data, tahapan selanjutnya adalah melakukan pemodelan terhadap dataset yang sudah disiapkan.
 Untuk mendapatkan model yang optimal, biasanya tahap ini dibagi menjadi beberapa tahapan yang lebih kecil lagi, yaitu:
 \begin{enumerate}
   \item Model Training, yaitu sebuah proses untuk mengaplikasikan algoritma machine learning terhadap training dataset yang ada.
-  \item Model Evaluation, yaitu melakukan evaluasi terhadap model yang dibuat dengan validation dataset atau untuk memastikan apakah model sesuai standar yang diharapkan
-  \item Model Testing, yaitu melakukan testing terhadap test dataset atau data yang sengaja disembunyikan untuk menguji kasus-kasus tertentu.
-  \item Model Packaging, yaitu melakukan penyimpanan model yang sudah dibuat dan diuji dalam suatu format file yang bisa digunakan kembali tanpa perlu melakukan training.
+  \item Model Evaluation, yaitu proses evaluasi terhadap model yang dibuat dengan validation dataset atau untuk memastikan apakah model sesuai standar yang diharapkan
+  \item Model Testing, yaitu proses \textit{testing} terhadap test dataset atau data yang sengaja disembunyikan untuk menguji kasus-kasus tertentu.
+  \item Model Packaging, yaitu proses penyimpanan model yang sudah dibuat dan diuji dalam suatu format file yang bisa digunakan kembali tanpa perlu melakukan pelatihan ulang.
 \end{enumerate}
 
-Lewat framework-framework machine learning seperti Kubeflow, biasanya akan dilakukan versioning terhadap model.
-Hal ini dilakukan untuk melakukan eksperimen dan melakukan pencatatan terhadap hyperparameter yang unik untuk masing-masing model.
+Melalui \textit{framework-framework} pemelajaran mesin seperti Kubeflow, biasanya terdapat fitur untuk melakukan \textit{model versioning}.
+Hal ini dilakukan untuk melakukan eksperimen dan pencatatan terhadap \textit{hyperparameter} yang hendak dicoba untuk masing-masing model.
 Nantinya, model dengan parameter dan hasil terbaik akan dipilih dan digunakan.
 
 Tahapan ini cukup berpengaruh terhadap tahapan selanjutnya.
-Dalam tahapan ini, akan dibahas terkait model packaging secara lebih mendalam.
-Bila layanan akan diberikan kepada pelanggan secara masal, biasanya teknologi web akan dipilih untuk memberikan layanan tersebut.
-Jadi, akan dibuat sebuah API agar model tersebut bisa dimanfaatkan untuk layanan lain dengan tujuan akhir untuk pelanggan. Detail lengkapnya akan dibahas pada bagian berikutnya. 
+Tahapan ini mencakup metode untuk membungkus model atau yang dikenal sebagai \textit{model packaging}.
+Bila layanan akan diberikan kepada pihak luar secara masal, biasanya teknologi web akan dipilih untuk melakukan \textit{delivery} bagi layanan tersebut.
+Umumnya akan dibuat sebuah API sebagai \textit{interface} agar model dapat dimanfaatkan untuk layanan lain dengan tujuan akhir untuk pelanggan. Detail lengkapnya akan dibahas pada bagian berikutnya. 
 
 \subsubsection{Code Engineering}
 
-Tahapan terakhir dalam MLOps adalah untuk melakukan code engineering.
+Tahapan terakhir dalam MLOps adalah untuk melakukan \textit{code engineering}.
 Model yang sudah siap digunakan akan dihubungkan dengan program atau sistem yang ada atau akan ada.
 Tahap ini dibagi dalam beberapa tahapan, yaitu:
 
 \begin{enumerate}
-  \item Model Serving, yaitu terkait metode bagaimana model yang dibuat di-\textit{deploy} agar bisa diakses pelanggan.
-  \item Model Performance Monitoring, yaitu terkait metode melakukan monitoring terhadap kinerja model bila diberikan data yang sesungguhnya
-  \item Model Performance Logging, yaitu metode pilihan untuk menyimpan log dari request yang diberikan.
+  \item Model Serving, yaitu metode agar model yang dibuat dapat di-\textit{deploy} agar bisa diakses pelanggan.
+  \item Model Performance Monitoring, yaitu metode untuk melakukan \textit{monitoring} terhadap kinerja model bila diberikan data yang sesungguhnya.
+  \item Model Performance Logging, yaitu metode untuk menyimpan \textit{log} dari \textit{request} yang diberikan.
 \end{enumerate}
 
-Hal yang menjadi perhatian utama dalam tahap ini adalah model serving.Banyak pilihan dan \textit{pattern} yang bisa digunakan untuk melakukan serving, serta pilihan teknologi yang digunakan untuk \textit{deployment}.
-Model Serving akan dibahas pada bagian berikutnya secara lebih mendalam.
+Hal yang menjadi perhatian utama dalam tahap ini adalah metode untuk melakukan \textit{delivery} terhadap model atau yang biasa dikenal sebagai \textit{model serving}.
+Banyak pilihan dan \textit{pattern} yang bisa digunakan untuk melakukan \textit{serving}, serta pilihan teknologi yang digunakan untuk \textit{deployment} yang hanya akan dibahas sedikit dalam makalah ini.
+\textit{Pattern} untuk melakukan Model Serving akan dibahas pada bagian berikutnya.
 
-\subsection{Kakas \textit{Serving} Model Pembelajaran Mesin}
+\subsection{Kakas \textit{Serving} Model Pemelajaran Mesin}
 
 Dalam proses melakukan \textit{deployment} terhadap model yang sudah menjadi sistem secara utuh, seringkali dibutuhkan suatu kakas untuk membantu proses tersebut.
 Salah satu kakas terkait yang dapat membantu proses \textit{deployment} adalah Tensorflow Serving (\href{https://github.com/tensorflow/serving}{https://github.com/tensorflow/serving}).
 
-Kakas ini adalah kakas yang digunakan untuk membantu proses \textit{deployment} pada model pembelajaran mesin yang dibuat dengan Tensorflow.
+Kakas ini adalah kakas yang digunakan untuk membantu proses \textit{deployment} pada model pemelajaran mesin yang dibuat dengan Tensorflow.
 Secara sederhana, kakas ini menyediakan kemampuan untuk membungkus model Tensorflow yang ada lewat metode komunikasi yang umum seperti gRPC dan REST.\@
-Cara menjalankannya juga cukup mudah, yaitu hanya dengan menggunakan Docker untuk melakukan mounting terhadap model.
+Cara menjalankannya juga cukup mudah, yaitu hanya dengan menggunakan Docker untuk melakukan \textit{mounting} terhadap model.
 
 Kakas ini cukup membantu dalam proses \textit{deployment} yang cepat untuk mendapatkan prototipe dari layanan yang seutuhnya.
-Kakas ini hanya berfokus pada bagaimana model dapat diakses oleh metode komunikasi umum.
-Terdapat beberapa hal yang tidak diatasi oleh kakas ini dari sisi pengembangan sistem, seperti bagaimana dokumentasi API dapat dibentuk berdasarkan masukan yang ada dan ketiadaan fitur untuk menggunakan model sebagai \textit{dependency} dari sistem.
+Kakas ini hanya berfokus pada cara model dapat diakses oleh metode komunikasi umum.
+Terdapat beberapa hal yang tidak diatasi oleh kakas ini dari sisi pengembangan sistem, seperti pembuatan dokumentasi API dapat dibentuk berdasarkan masukan yang ada dan ketiadaan fitur untuk menggunakan model sebagai \textit{dependency} dari sistem.

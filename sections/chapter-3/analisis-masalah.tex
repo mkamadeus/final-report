@@ -2,17 +2,17 @@
 
 Saat ini, konversi dari eksperimen ke sistem yang \textit{production-ready} masih dilakukan secara manual.
 Dari ekperimen tersebut, biasanya terdapat proses-proses untuk melakukan pemrosesan data.
-Pemrosesan data bisa dilakukan secara langsung sebelum dimasukkan ke dalam model, maupun dilakukan prekomputasi untuk mempercepat proses inferensi dengan mengabaikan faktor masukan data.
-Dalam percobaan-percobaan yang memanfaatkan teknologi seperti Kubeflow, dapat digunakan sistem pipeline yang tersedia untuk melakukan eksperimentasi.
+Pemrosesan data bisa dilakukan secara langsung sebelum dimasukkan ke dalam model, ataupun dilakukan prekomputasi untuk mempercepat proses inferensi dengan mengabaikan faktor masukan data.
+Dalam percobaan-percobaan yang memanfaatkan teknologi seperti Kubeflow, dapat digunakan sistem \textit{pipeline} yang tersedia untuk melakukan eksperimentasi.
 
-Dengan penggunaan pipeline dalam eksperimen pembelajaran mesin, proses eksperimen bisa dilakukan dengan lebih cepat.
-Hal tersebut karena pipeline didesain agar bisa digunakan kembali di beberapa proses yang serupa.
+Dengan penggunaan \textit{pipeline} dalam eksperimen pemelajaran mesin, proses eksperimen bisa dilakukan dengan lebih cepat.
+Hal tersebut karena \textit{pipeline} didesain agar bisa digunakan kembali di beberapa proses yang serupa.
 Proses yang dirujuk dapat berupa proses untuk melakukan pemrosesan pada data, atau bisa untuk melakukan proses pelatihan model.
-Pembuatannya yang membutuhkan script Python secara umum membuat proses pada pipeline ini bersifat atomik serta fleksibel untuk digunakan dalam pelatihan model yang berbeda.
+Pembuatannya yang membutuhkan script Python secara umum membuat proses pada \textit{pipeline} ini bersifat atomik serta fleksibel untuk digunakan dalam pelatihan model yang berbeda.
 
-Namun, penggunaan pipeline ini biasanya hanya digunakan untuk eksperimen saja.
+Sejauh dari hasil pencarian penulis, penggunaan \textit{pipeline} ini biasanya sebatas  untuk digunakan dalam eksperimen saja.
 Pipeline yang dibuat untuk eksperimen ini biasanya tidak digunakan lagi dalam proses pembuatan sistem inferensi, karena hasil eksperimen biasanya akan disimpan dalam sebuah file yang hanya perlu dibungkus lewat suatu metode komunikasi, seperti yang telah dibahas pada bagian~\ref{chap:model-serving}.
-Dengan penggunaan pipeline ini ada kemungkinan proses pembuatan sistem dapat dilakukan secara lebih mulus.
+Dengan penggunaan\textit{pipeline}ini ada kemungkinan proses pembuatan sistem dapat dilakukan secara lebih mulus.
 Pipeline yang didefinisikan dapat membantu untuk membangun bagian-bagian kecil dari sistem khususnya dalam pemrosesan data. 
 
 Selain itu, model hasil eksperimen yang sukses biasanya hanya hanya perlu untuk dibungkus dalam sebuah metode komunikasi sesuai dengan kebutuhan arsitektur, misalnya dengan gRPC atau REST.\@

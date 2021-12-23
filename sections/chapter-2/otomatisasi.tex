@@ -1,12 +1,12 @@
 \section{Otomatisasi}\label{automation}
 
-Dalam bagian ini, akan dibahas terkait prinsip dan konsep yang secara umum diterapkan dalam melakukan otomatisasi sistem.
+Dalam bagian ini, akan dibahas prinsip dan konsep yang secara umum diterapkan dalam melakukan otomatisasi sistem.
 Selain itu, akan dibahas terkait aspek apa saja dari sebuah sistem yang diotomatisasi.
 Hal yang akan dibahas pada bagian ini adalah hal-hal yang sudah terbukti efektif untuk diotomatisasi.
 
 \subsection{Alasan Melakukan Otomatisasi}
 Otomatisasi di masa ini menjadi hal yang diusahakan oleh tim pengembang sistem dan perangkat lunak, terutama pada tim yang besar.
-Walaupun begitu, terkadang otomatisasi menjadi hal yang dikesampingkan dalam proses pengembangan, yang seharusnya dapat mengingkatkan produktivitas pengembangan.
+Walaupun begitu, kadang otomatisasi menjadi hal yang dikesampingkan dalam proses pengembangan, padahal ada kemungkinan otomatisasi dapat mengingkatkan produktivitas pengembangan.
 
 Pada sub bagian ini, penulis akan membahas terkait beberapa alasan untuk melakukan otomatisasi (\cite{beyer2016site}), yaitu sebagai berikut:
 
@@ -27,7 +27,7 @@ Tentu tujuannya untuk mempermudah tim dalam melakukan otomatisasi, sehingga semu
 Hal ini membawa dampak positif juga, karena semua masalah bisa ditelusuri dari platform tersebut.
 
 Perbaikan sistem menjadi hal umum yang dilakukan di setiap proses pengembangan.
-Oleh karena itu, otomatisasi tentunya dapat membantu proses perbaikan agar lebih efisien, sehingga waktu ynag tersisa bisa digunakan untuk tugas atau kegiatan lain yang lebih produktif untuk pengembangan sistem.
+Oleh karena itu, otomatisasi tentunya dapat membantu proses perbaikan agar lebih efisien, sehingga waktu yang tersisa bisa digunakan untuk tugas atau kegiatan lain yang lebih produktif untuk pengembangan sistem.
 
 Seperti dituliskan sebelumnya, mengurangi kegiatan yang repetitif dengan otomatisasi bisa menambah waktu untuk pengembangan sistem.
 Dalam kata lain, aksi-aksi tertentu juga dapat dilakukan lebih cepat lewat proses otomatisasi ini.
@@ -35,29 +35,30 @@ Tentu saja, salah satu tujuan utamanya untuk menghemat waktu dari proses pengemb
 Walaupun mungkin tidak begitu terasa di awal dan mungkin malah menambah \textit{overhead} dalam proses awal pengembangan, semakin lama nilai yang didapatkan dari otomatisasi semakin besar.
 
 \subsection{Aspek Otomatisasi}
-Dalam bagian ini tidak akan dibahas secara menyeluruh terkait aspek apa saja yang dapat diotomatisasi, karena pada dasarnya apapun bisa diotomatisasi dalam sebuah sistem, namun dampak yang diberikan bisa jadi belum tentu positif.
-Oleh karena itu, pada bagian ini aspek-aspek yang sudah terbukti dapat diotomatisasi.
+Dalam bagian ini tidak akan dibahas secara menyeluruh terkait aspek apa saja yang dapat diotomatisasi, karena pada dasarnya apapun bisa diotomatisasi dalam sebuah sistem, namun belum tentu berdampak secara signifikan terhadap sistem.
+Oleh karena itu, bagian ini akan membahas aspek-aspek yang sudah terbukti dapat diotomatisasi dan memberi dampak terhadap sistem.
 
 Beberapa hal yang bisa dilakukan seputar otomatisasi sistem adalah sebagai berikut (\cite{beyer2016site}):
 \begin{itemize}
-  \item Pembuatan user account baru
-  \item Melakukan turnup dan turndown pada sebuah layanan di cluster
-  \item Melakukan rilis versi baru
-  \item Menginstall software dengan versi yang lebih baru
+  \item Pembuatan \textit{user account} baru.
+  \item Melakukan \textit{turnup} dan \textit{turndown} pada sebuah layanan di kluster.
+  \item Melakukan rilis versi baru.
+  \item Melakukan instalasi perangkat lunak dengan versi yang lebih baru
 \end{itemize}
 
 Tentunya, masih banyak hal yang bisa diotomatisasi di luar hal yang disebutkan di atas.
 Daftar tersebut hanya daftar singkat dari apa yang bisa diotomatisasi dari sistem secara umum. 
-Perlu kita ingat bahwa otomatisasi yang dilakukan belum tentu efektif, sehingga kita perlu mengkaji lebih lanjut untuk melihat apakah \textit{feasible} dan efektif untuk mengotomatisasikan hal tersebut.
+Perlu kita ingat bahwa otomatisasi yang dilakukan belum tentu efektif, sehingga kita perlu mengkaji lebih lanjut untuk mengetahui seberapa\textit{feasible} dan efektif untuk mengotomatisasikan suatu hal.
 Masalah-masalah yang ada dalam sebuah sistem dapat menjadi pedoman untuk membuat otomatisasi pada sistem lewat teknologi-teknologi yang ada.
 
 \section{Potensi Otomatisasi dalam MLOps}
 
 Seperti yang telah dibahas pada bagian sebelumnya, MLOps terdiri dari tiga tahapan utama, yaitu Data Engineering, Model Engineering, dan Code Engineering.
-Dalam praktiknya, bagian yang merupakan \textit{toil} dalam ketiga proses ini berada paling banyak dalam tahap data engineering.
-Preprocessing dan eksplorasi data umumnya perlu butuh waktu yang lama karena melibatkan beberapa domain dan beberapa faktor lainnya.
-Sehingga, perlu metodologi tertentu untuk membantu dalam proses preprocessing data baik secara infrastruktur dan metode pemrosesannya.
-
-Selain tahap tersebut, dalam tahap lain juga terdapat potensi untuk melakukan otomatisasi.
-Di masa ini, banyak kakas-kakas yang tersedia untuk membantu dalam proses MLOps.
+Dalam praktiknya, bagian yang merupakan \textit{toil} dalam ketiga proses ini berada paling banyak dalam tahap Data Engineering.
+\textit{Preprocessing} dan eksplorasi data umumnya perlu butuh waktu yang lama karena melibatkan beberapa domain dan beberapa faktor lainnya.
+Perlu metodologi tertentu untuk membantu dalam proses preprocessing data baik secara infrastruktur dan metode pemrosesannya.
 Contohnya, dalam Kubeflow terdapat fitur melakukan pipelining untuk melakukan proses-proses tertentu dalam langkah yang berbeda-beda.
+
+Selain tahap tersebut, dalam tahap lain juga terdapat potensi untuk melakukan otomatisasi, seperti dalam proses pembuatan sistem inferensinya.
+Seperti yang disinggung sebelumnya, sudah tersedia kakas bantuan untuk melakukan \textit{serving} terhadap model.
+Masih terdapat ruang untuk melakukan pengembangan kakas yang dapat meningkatkan produktivitas pembuatan sistem.
