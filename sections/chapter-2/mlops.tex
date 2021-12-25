@@ -3,7 +3,7 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{02-mlops.png}
-  \caption{Siklus Hidup MLOps (Sumber:~\cite{mlops})}
+  \caption{Siklus hidup MLOps (Sumber:~\cite{mlops})}
 \end{figure}
 
 \subsection{Definisi MLOps}
@@ -19,11 +19,11 @@ Saat ini, metodologi MLOps juga sudah diterapkan pada berbagai perusahaan besar 
 
 \subsection{Alasan MLOps Diperlukan}
 
-Hal ini patut menjadi pertanyaan, "apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?"
+Hal ini patut menjadi pertanyaan, `'apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?`'
 Seiring berjalannya waktu, kebutuhan terhadap pemelajaran mesin semakin meluas.
 Berbagai eksperimentasi, pemrosesan data, dan pemodelan dilakukan dengan cepat dan dengan terus menerus dikembangkan versi yang lebih baru.
 Bisa jadi, model yang dibuat sudah bisa berjalan dalam eksperimen.
-Hal yang menjadi pertanyaan sekarang adalah bagaimana cara memberikan layanan dari model tersebut kepada khalayak umum.
+Langkah selanjutnya adalah metode untuk memberikan komputasi model tersebut kepada layanan lain atau kepada pihak luar.
 
 \begin{figure}[ht]
   \centering
@@ -32,12 +32,12 @@ Hal yang menjadi pertanyaan sekarang adalah bagaimana cara memberikan layanan da
   \caption{Gambaran umum komponenen sistem pemelajaran mesin (Sumber:~\cite{NIPS2015_86df7dcf})}\label{fig:ml-system}
 \end{figure}
 
-Ternyata, model ML hanya menjadi sebagian kecil saja dari suatu sistem (\cite{NIPS2015_86df7dcf}).
+Ternyata, model pemelajaran mesin hanya menjadi sebagian kecil saja dari suatu sistem (\cite{NIPS2015_86df7dcf}).
 Bagian yang mendefinisikan model tersebut pada akhirnya hanya menjadi sebagian kecil dari sistem dan merupakan yang paling kecil dibandingkan bagian lainnya (lihat Gambar~\ref{fig:ml-system}).
 Hal-hal lain seperti bagaimana melakukan ekstraksi fitur, analisis terhadap data, metode pemberian layanan, dan pengawasan terhadap data menjadi bagian yang lebih besar dalam sebuah sistem pada umumnya.
 
-Oleh karena itu, di luar dari proses pengembangan dan eksperimentasi dari sebuah model, bagaimana metode sebuah model dapat diberikan lewat layanan juga perlu menjadi hal yang diperhatikan.
-Pada nyatanya, pemberian layanan untuk sistem dengan teknologi pemelajaran mesin tidak semudah itu.
+Oleh karena itu, selain proses pengembangan dan eksperimentasi dari sebuah model, metode sebuah model dapat diberikan lewat layanan juga perlu menjadi hal yang diperhatikan.
+Pada praktiknya, pemberian layanan untuk sistem dengan teknologi pemelajaran mesin tidak semudah itu.
 Diperlukan perhatian khusus untuk proses pengembangan sistem, khususnya untuk memastikan sistem dapat berjalan dengan mulus.
 
 \subsection{Contoh Kakas MLOps}
@@ -46,9 +46,9 @@ Di masa lampau, kebutuhan untuk sistem berbasis teknologi pemelajaran mesin tida
 Perusahaan-perusahaan raksasa seperti Google membuat suatu \textit{framework} internal untuk kebutuhan mereka saat itu (\cite{mlops}).
 Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLOps mulai bermunculan.
 
-Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem ML dengan mudah (\cite{k8s}).
+Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem pemelajaran mesin dengan mudah (\cite{k8s}).
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
-Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas ML lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
+Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas pemelajaran mesin lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
 Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
 
 Dalam Kubeflow, terdapat suatu sistem yang menggunakan \textit{pipeline} serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
@@ -57,6 +57,13 @@ Tiap langkah merepresentasikan suatu proses terhadap data yang dilakukan lewat D
 Pendekatan \textit{pipeline} ini secara umum fleksibel dan bisa menjadi potensi pengembangan untuk MLOps.
 
 \subsection{Alur Kerja MLOps}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{02-ml-engineering.jpg}
+  \captionsetup{justification=centering}
+  \caption{Alur kerja umum dalam pembuatan sistem pemelajaran mesin (Sumber:~\cite{mlopsorg}}\
+\end{figure}
 
 Terdapat tiga tahapan utama dalam alur kerja MLOps (\cite{mlopsorg}).
 Alur kerja tersebut adalah sebagai berikut:
