@@ -9,20 +9,20 @@
   "latex-workshop.synctex.afterBuild.enabled": true,
 
   // enable auto build
-  "latex-workshop.latex.autoBuild.run": "onSave", 
+  "latex-workshop.latex.autoBuild.run": "onSave",
 
   // enable chktex linting
   "latex-workshop.chktex.enabled": true,
 
   // enable autoclean on recipe run
-  "latex-workshop.latex.autoClean.run":"onBuilt",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
 
   // latex workshop recipes
   "latex-workshop.latex.recipes": [
     {
       "name": "Build using latexmk 🌵",
-      "tools": ["latexmk"],
-    },
+      "tools": ["latexmk"]
+    }
   ],
 
   // latex workshop tools
@@ -31,6 +31,7 @@
       "name": "latexmk",
       "command": "latexmk",
       "args": [
+        "-shell-escape",
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
@@ -39,9 +40,9 @@
         "%DOC%"
       ],
       "env": {}
-    },
+    }
   ],
   "files.associations": {
-    "*.lbx": "latex",
+    "*.lbx": "latex"
   }
 }

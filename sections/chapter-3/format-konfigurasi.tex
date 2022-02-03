@@ -1,0 +1,46 @@
+\section{Format Konfigurasi}
+
+Seperti yang disinggung pada bagian sebelumnya, kakas ini akan menerima masukan berupa \textit{markup file} yang menjadi konfigurasi dari sistem.
+\textit{File} ini tentunya mengandung pengaturan yang diperlukan dalam membangun suatu kode sistem.
+Beberapa hal yang terdapat dari konfigurasi berdasarkan pertimbangan penulis untuk menyelesaikan masalah adalah sebagai berikut:
+
+\begin{enumerate}
+	\item Format masukan
+	
+	Sistem pemelajaran mesin saat ini memiliki banyak bentuk masukan.
+	Salah satu bentuk masukan yang umum digunakan adalah bentuk yang berupa tabel atau tabular.
+	Tidak menutup kemungkinan masukan dengan bentuk lain bisa digunakan dalam model, contohnya seperti masukan yang berupa gambar atau masukan yang berupa deret waktu (\textit{timeseries}).
+	Format masukan yang beragam perlu didefinisikan untuk membantu dalam proses pembuatan kode khususnya terkait dengan \textit{interface}.
+
+	\item Format keluaran
+	
+	Serupa dengan bagaimana format masukan didefinisikan, format keluaran perlu didefinisikan juga.
+	Format keluaran tidak memiliki variasi lebih banyak dari format masukan.
+	Format keluaran bergantung dari domain permasalahan serta teknik-teknik pembelajaran mesin yang digunakan.
+	Misalnya, dalam permasalahan klasifikasi format keluaran akan berupa sekumpulan prediksi dari model yang mungkin disertai dengan derajat kepercayaan dari prediksi tersebut.
+	Permasalahan regresi juga akan mengembalikan suatu nilai numerik.
+	Tidak sebatas dalam teknik-teknik \textit{supervised} saja, teknik \textit{unsupervised} seperti \textit{clustering} yang memiliki keluaran yang serupa dengan klasifikasi.
+
+	\item Format model
+	
+	Eksperimen untuk membuat model pembelajaran mesin menerapkan penggunaan banyak kakas-kakas bantuan yang umum digunakan, seperti Tensorflow, SKLearn, Catboost, dan banyak kakas-kakas lainnya.
+	Akibat kakas-kakas yang beragam, secara umum model yang telah dilatih akan disimpan dalam sebuah \textit{file} dengan format ekstensi tertentu.
+	Format yang penulis pilih adalah format ONNX (Open Neural Network Exchange) karena memiliki banyak integrasi dengan kakas-kakas yang bermacam-macam jenisnya.
+	ONNX juga memiliki kemampuan untuk melakukan inferensi dengan cara yang seragam untuk kakas-kakas yang berbeda jenis. 
+
+	\item Alur pemrosesan
+	
+	Secara umum, terkadang perlu tahapan-tahapan tertentu dari masukan yang diberikan terhadap sistem.
+	Misalnya, dalam data tabular kadang dilakukan proses \textit{scaling} terhadap data atau melakukan reduksi dimensi dengan menggunakan teknik seperti PCA dan LDA.
+	Masukan berupa gambar kadang diperlukan untuk melakukan tahap \textit{image processing} untuk memastikan gambar yang dimasukkan cocok untuk sistem.
+	Kakas ini akan menerima konfigurasi untuk melakukan hal-hal tersebut lewat modul-modul yang didefinisikan dalam konfigurasi.
+
+	\item \textit{Interface} yang disediakan
+
+	Sistem secara umum akan menggunakan salah satu atau kedua dari \textit{interface}, yaitu REST atau gRPC.
+	Dengan mempertimbangkan kedua hal tersebut, kakas ini akan berfokus pada kedua \textit{interface} tersebut.
+	Kode dari sistem yang dibangkitkan tentunya dapat dimodifikasi sesuai kebutuhan dari sistem bila diperlukan perubahan terhadap \textit{interface}.
+
+\end{enumerate}
+
+Sebagai catatan, format masukan dan keluaran yang dimaksudkan adalah untuk pengunaan sistem secara \textit{interface} dan bukan untuk model yang menjadi bagian dari sistem.
