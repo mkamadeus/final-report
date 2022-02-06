@@ -24,8 +24,10 @@ Check it out here: https://report.mkamadeus.dev
 To use this, install from `texlive-full` for getting all required packages.
 
 ```sh
-sudo apt install texlive-full
+sudo apt install texlive-full python3-pygments
 ```
+
+Setup `PATH` for Pygments
 
 Using VSCode, install some extensions for better experience:
 
