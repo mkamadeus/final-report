@@ -6,12 +6,6 @@ Beberapa hal yang terdapat dari konfigurasi berdasarkan pertimbangan penulis unt
 
 \begin{enumerate}
 	\item Format masukan
-	
-	Sistem pemelajaran mesin saat ini memiliki banyak bentuk masukan.
-	Salah satu bentuk masukan yang umum digunakan adalah bentuk yang berupa tabel atau tabular.
-	Tidak menutup kemungkinan masukan dengan bentuk lain bisa digunakan dalam model, contohnya seperti masukan yang berupa gambar atau masukan yang berupa deret waktu (\textit{timeseries}).
-	Format masukan yang beragam perlu didefinisikan untuk membantu dalam proses pembuatan kode khususnya terkait dengan \textit{interface}.
-
 	\item Format keluaran
 	
 	Serupa dengan bagaimana format masukan didefinisikan, format keluaran perlu didefinisikan juga.
@@ -44,3 +38,12 @@ Beberapa hal yang terdapat dari konfigurasi berdasarkan pertimbangan penulis unt
 \end{enumerate}
 
 Sebagai catatan, format masukan dan keluaran yang dimaksudkan adalah untuk pengunaan sistem secara \textit{interface} dan bukan untuk model yang menjadi bagian dari sistem.
+
+\subsection{Konfigurasi Format Masukan}
+
+Sistem pemelajaran mesin saat ini memiliki banyak bentuk masukan.
+Salah satu bentuk masukan yang umum digunakan adalah bentuk yang berupa tabel atau tabular.
+Tidak menutup kemungkinan masukan dengan bentuk lain bisa digunakan dalam model, contohnya seperti masukan yang berupa gambar atau masukan yang berupa deret waktu (\textit{timeseries}).
+Format masukan yang beragam perlu didefinisikan untuk membantu dalam proses pembuatan kode khususnya terkait dengan \textit{interface}.
+Berikut adalah gambaran dari konfigurasi untuk bagian masukan:
+\yamlcode{resources/files/configurations/input0.yml}
