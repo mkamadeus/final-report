@@ -1,0 +1,9 @@
+input:
+  format: tabular
+  meta:
+    - name: gender
+      type: categorical
+      preprocessed: true
+    - name: embarked
+      type: float
+      preprocessed: true

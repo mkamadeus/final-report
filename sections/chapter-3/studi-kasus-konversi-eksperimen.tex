@@ -1,0 +1,42 @@
+\section{Studi Kasus Konversi Eksperimen}
+
+Untuk merancang sebuah kakas, penulis telah melakukan konversi eksperimen dari awal hingga menjadi sebuah kode sistem.
+Eksperimen pemelajaran mesin dilakukan sedemikian sehingga penulis mendapatkan hal-hal yang dibutuhkan untuk membangun sebuah sistem pemelajaran mesin.
+Dalam proses konversi ini, penulis menggunakan bahasa Python dengan kakas-kakas pemelajaran mesin dan pembuatan API.
+
+\subsection{Eksperimen Data Tabular}
+Eksperimen ini dilakukan dengan menggunakan kakas scikit-learn.
+Untuk API, penulis menggunakan kakas FastAPI dengan tujuan akhir membuat sistem dengan aristektur REST sederhana.
+API hanya terdiri dari satu endpoint saja, yaitu untuk melakukan prediksi terhadap suatu data masukan.
+
+Penulis mengambil dari salah satu contoh eksperimen pemelajaran mesin yang paling sederhana, yaitu melakukan prediksi terhadap data dari penumpang Titanic; apakah penumpang tersebut akan selamat atau tidak dari data yang diketahui dari kecelakaan kapal tersebut.
+Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data diproses dan bagaimana model hasil eksperimen disimpan.
+Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang perlu diperhatikan dalam merancang kakas yaitu sebagai berikut:
+
+\begin{enumerate}
+	\item Fitur model dan masukan data pada sistem bersifat independen
+	
+	Salah satu yang menjadi poin penting dalam melakukan konversi adalah mengetahui bahwa fitur dari masukan model dan masukan untuk sistem bisa jadi perlu berbeda.
+	Sangat mungkin masukan sebuah model lebih banyak daripada masukan pada sistem.
+	Selain itu, pada akhirnya data masukan secara umum perlu dilakukan pemetaan karena kedua masukan ini bersifat independen.
+	Terkait hal ini ebih rincinya dibahas dalam poin-poin berikutnya.
+
+	\item Perlu dilakukan pemrosesan terhadap data masukan
+	
+	Beberapa tahapan pemrosesan data terkadang diperlukan setelah data masukan diberikan.
+	Misalnya, dalam ekesperimen ini terdapat salah satu fitur yang dilakukan \textit{scaling} terhadap data.
+	Model pemelajaran mesin memerlukan data yang sudah diterapkan \textit{scaling}, namun kemungkinan besar agar API bisa digunakan secara intuitif, masukan seharusnya berupa nilai aslinya sebelum dilakukan \textit{scaling}.
+	Pemrosesan data ini bergantung pada data yang digunakan pada proses pelatihan, sehingga tentunya pada setiap eksperimen proses tersebut akan berbeda-beda.
+	
+	\item Jumlah masukan dapat berbeda dengan masukan model
+	
+	Berkaitan dengan poin sebelumnya, masukan untuk API mungkin berbeda dengan masukan model.
+	Hal ini terjadi secara umum karena pemrosesan data yang dilakukan dalam sistem.
+	Terdapat metode pemrosesan data seperti \textit{one-hot encoding} yang membuat dimensi dari fitur bertambah untuk model.
+	Dari sudut pandang API hal tersebut kurang baik untuk diterapkan karena akan mempersulit masukan terhadap sistem.
+\end{enumerate}
+
+Berdasarkan studi kasus sederhana ini, penulis membuat format konfigurasi kakas untuk studi kasus ini.
+Berikut adalah format konfigurasinya:
+
+\yamlcode{resources/files/configurations/titanic_full.yml}

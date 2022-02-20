@@ -3,10 +3,10 @@ input:
   meta:
     - name: age
       type: float
-      target: 0 # maps to 1st column in model
+      target: 0
     - name: gender
       type: categorical
-      target: [1, 2] # maps to 2nd & 3rd column in model
+      target: [1, 2]
     - name: embarked
       type: float
       target: 3

@@ -1,0 +1,45 @@
+input:
+  format: tabular
+  meta:
+    - name: pclass
+      type: int
+      target: 0
+    - name: sibsp
+      type: int
+      target: 1
+    - name: parch
+      type: int
+      target: 2
+    - name: age
+      type: float
+      target: 3
+    - name: gender
+      type: categorical
+      preprocessed: true
+    - name: embarked
+      type: float
+      preprocessed: true
+output:
+  - name: prediction
+    type: float
+pipeline:
+  - module: preprocessing/scale
+    for: age
+    meta:
+      path: age.scaler
+  - module: preprocessing/onehot
+    for: gender
+    meta:
+      values: ["M", "F"]
+      target: [4, 5]
+  - module: preprocessing/onehot
+    for: embarked
+    meta:
+      values: ["C", "Q", "S"]
+      target: [6, 7, 8]
+model:
+  format: onnx
+  path: titanic.onnx
+interface:
+  - type: rest
+    port: 8080
