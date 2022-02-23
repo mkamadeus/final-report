@@ -1,0 +1,3 @@
+model:
+  format: keras
+  path: mnist.h5

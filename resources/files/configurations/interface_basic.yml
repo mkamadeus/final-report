@@ -1,0 +1,3 @@
+interface:
+  - type: rest
+    port: 8080

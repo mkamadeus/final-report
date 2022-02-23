@@ -57,15 +57,33 @@ ONNX juga memiliki kemampuan untuk melakukan inferensi dengan cara yang seragam 
 Walaupun begitu, tidak menutup kemungkinan untuk konfigurasi tidak menggunakan format lain.
 Misalnya, pada kakas Tensorflow disediakan sebuah cara untuk menyimpan model dalam sebuah file lewat \mintinline{python}{save_model()}.
 Oleh karena itu, konfigurasi format model harus bisa menerima jenis model yang berbeda-beda.
-Berikut ini adalah contoh konfigurasi sederhana untuk format model
+Berikut ini beberapa contoh konfigurasi sederhana untuk model dengan format yang berbeda:
+
+\yamlcode{resources/files/configurations/model_basic.yml}
+\yamlcode{resources/files/configurations/model_keras.yml}
 
 \subsection{Konfigurasi Alur Pemrosesan}
 Secara umum, terkadang perlu tahapan-tahapan tertentu dari masukan yang diberikan terhadap sistem.
 Misalnya, dalam data tabular kadang dilakukan proses \textit{scaling} terhadap data atau melakukan reduksi dimensi dengan menggunakan teknik seperti PCA dan LDA.
 Masukan berupa gambar kadang diperlukan untuk melakukan tahap \textit{image processing} untuk memastikan gambar yang dimasukkan cocok untuk sistem.
 Kakas ini akan menerima konfigurasi untuk melakukan hal-hal tersebut lewat modul-modul yang didefinisikan dalam konfigurasi.
+Berikut adalah rancangan konfigurasi untuk alur pemrosesan masukan sistem:
+
+\yamlcode{resources/files/configurations/pipeline_basic.yml}
+
+Sebagai penjelasan singkat, dalam konfigurasi ini terdapat masukan untuk jenis pemrosesan yang akan dilakukan terhadap suatu format tabular.
+Selain itu, terdapat konfigurasi untuk memilih data masukan mana yang ingin diproses disertai dengan tujuan.
+Informasi lainnya adalah untuk menjadi parameter bagi modul pemrosesan data. 
 
 \subsection{Konfigurasi \textit{Interface}}
 Sistem secara umum akan menggunakan salah satu atau kedua dari \textit{interface}, yaitu REST atau gRPC.
 Dengan mempertimbangkan kedua hal tersebut, kakas ini akan berfokus pada kedua \textit{interface} tersebut.
 Kode dari sistem yang dibangkitkan tentunya dapat dimodifikasi sesuai kebutuhan dari sistem bila diperlukan perubahan terhadap \textit{interface}.
+Berikut adalah contoh konfigurasi \textit{interface} sederhana:
+
+\yamlcode{resources/files/configurations/interface_basic.yml}
+
+Konfigurasi ini tidak menutup kemungkinan untuk memiliki dua \textit{interface} sekaligus.
+Berikut adalah contoh konfigurasi sistem dengan dua \textit{interface}
+
+\yamlcode{resources/files/configurations/interface_multiple.yml}

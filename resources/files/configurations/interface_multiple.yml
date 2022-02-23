@@ -1,0 +1,5 @@
+interface:
+  - type: rest
+    port: 8080
+  - type: grpc
+    port: 8081

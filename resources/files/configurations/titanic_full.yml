@@ -12,7 +12,7 @@ input:
       target: 2
     - name: age
       type: float
-      target: 3
+      preprocessed: true
     - name: gender
       type: categorical
       preprocessed: true
@@ -25,18 +25,19 @@ output:
 pipeline:
   - module: preprocessing/scale
     for: age
+    target: 3
     meta:
       path: age.scaler
   - module: preprocessing/onehot
     for: gender
+    target: [4, 5]
     meta:
       values: ["M", "F"]
-      target: [4, 5]
   - module: preprocessing/onehot
     for: embarked
+    target: [6, 7, 8]
     meta:
       values: ["C", "Q", "S"]
-      target: [6, 7, 8]
 model:
   format: onnx
   path: titanic.onnx

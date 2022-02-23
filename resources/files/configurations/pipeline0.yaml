@@ -1,7 +1,0 @@
-pipeline:
-  - module: preprocessing/scale
-    meta:
-      target: age
-  - module: preprocessing/onehot
-    meta:
-      target: gender
