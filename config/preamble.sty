@@ -59,6 +59,7 @@
 \usepackage[section]{minted}
 \setminted{fontsize=\small,baselinestretch=1}
 \newmintedfile[yamlcode]{yaml}{
+breaklines=true,
 fontfamily=tt,
 linenos=true,
 numberblanklines=true,
@@ -70,8 +71,27 @@ framesep=10pt,
 funcnamehighlighting=true,
 tabsize=2,
 obeytabs=false,
-mathescape=false
-samepage=false, %with this setting you can force the list to appear on the same page
+mathescape=false,
+samepage=false, 
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+\newmintedfile[pycode]{python}{
+breaklines=true,
+fontfamily=tt,
+linenos=true,
+numberblanklines=true,
+numbersep=5pt,
+gobble=0,
+frame=single,
+framerule=0.4pt,
+framesep=10pt,
+funcnamehighlighting=true,
+tabsize=2,
+obeytabs=false,
+mathescape=false,
+samepage=false, 
 showspaces=false,
 showtabs =false,
 texcl=false,
