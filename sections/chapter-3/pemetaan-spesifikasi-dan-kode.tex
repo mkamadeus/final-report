@@ -32,7 +32,7 @@ Berikut adalah contoh hasil dari konversi spesifikasi untuk bagian keluaran.
 
 \subsection{Konversi Spesifikasi Model}
 
-Bagian spesifikasi model mendefinsikan jenis model yang digunakan sebagaimana tertulis pada bagian \ref{section:03-model-format}.
+Bagian spesifikasi model mendefinsikan jenis model yang digunakan sebagaimana tertulis pada bagian~\ref{section:03-model-format}.
 Kode yang dihasilkan dari spesifikasi ini terkait dengan bagaimana model dibangun kembali dalam sistem untuk dilakukan inferensi serta melakukan prediksi menggunakan model tersebut.
 Cara membangun model dalam sistem berbeda-beda untuk tiap kakas yang digunakan, sehingga bagian ini diperlukan juga.
 Berikut adalah contoh dari konversi spesifikasi untuk bagian model yang menggunakan format ONNX.
@@ -46,9 +46,15 @@ Dalam bagian ini, terdapat proses pemetaan dari masukan untuk sistem menjadi mas
 Bagi masukan yang berupa tabular, pemrosesan bisa di sebagian kolom saja, sedangkan untuk masukan berupa citra, pemrosesan dilakukan kepada gambar masukan.
 Setelah melakukan pemetaan terhadap masukan yang diproses, modul yang bersangkutan akan digunakan untuk membangun sebuah masukan yang sesuai dengan model.
 
-Berikut adalah contoh yang mungkin dihasilkan oleh tahap ini.
+Berikut adalah contoh kode yang mungkin dihasilkan oleh tahap ini.
 Diperlihatkan dalam hasil tersebut terdapat pengabungan dari hasil pemetaan masukan dan pemrosesan model.
+Kode yang dihasilkan juga akan menjadi pertimbangan utama dalam merancang bagaimana kakas akan membuat kode dari spesifikasi.
 
 \pycode{resources/files/code/pipeline_sample.py}
 
 \subsection{Konversi Spesifikasi \textit{Interface}}
+
+Bagian ini akan bertanggung jawab terhadap \textit{interface} yang disediakan oleh sistem.
+Bagian ini akan menjadi konsiderasi utama dalam menentukan bentuk dasar dari kode sistem.
+Misalnya, kode sistem yang berarsitektur REST tentunya akan berbeda dengan sistem yang menggunakan gRPC dalam bagaimana data masukan ke sistem diterima.
+Kakas yang dibuat penulis akan menghasilkan kode sedemikian agar dapat menjalankan kode untuk sistem berasistektur REST.
