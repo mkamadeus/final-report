@@ -2,12 +2,12 @@
 
 Saat ini, konversi dari eksperimen ke sistem yang \textit{production-ready} masih dilakukan secara manual.
 Dari ekperimen tersebut, biasanya terdapat proses-proses untuk melakukan pemrosesan data.
-Pemrosesan data bisa dilakukan secara langsung sebelum dimasukkan ke dalam model, ataupun dilakukan prekomputasi untuk mempercepat proses inferensi dengan mengabaikan faktor masukan data.
+Pemrosesan data dapat dilakukan secara langsung sebelum dimasukkan ke dalam model, ataupun dilakukan prekomputasi untuk mempercepat proses inferensi dengan mengabaikan faktor masukan data.
 Dalam percobaan-percobaan yang memanfaatkan teknologi seperti Kubeflow, dapat digunakan sistem \textit{pipeline} yang tersedia untuk melakukan eksperimentasi.
 
-Dengan penggunaan \textit{pipeline} dalam eksperimen pemelajaran mesin, proses eksperimen bisa dilakukan dengan lebih cepat.
-Hal tersebut karena \textit{pipeline} didesain agar bisa digunakan kembali di beberapa proses yang serupa.
-Proses yang dirujuk dapat berupa proses untuk melakukan pemrosesan pada data, atau bisa untuk melakukan proses pelatihan model.
+Dengan penggunaan \textit{pipeline} dalam eksperimen pemelajaran mesin, proses eksperimen dapat dilakukan dengan lebih cepat.
+Hal tersebut karena \textit{pipeline} didesain agar dapat digunakan kembali di beberapa proses yang serupa.
+Proses yang dirujuk dapat berupa proses untuk melakukan pemrosesan pada data, atau dapat untuk melakukan proses pelatihan model.
 Pembuatannya yang membutuhkan script Python secara umum membuat proses pada \textit{pipeline} ini bersifat atomik serta fleksibel untuk digunakan dalam pelatihan model yang berbeda.
 
 Sejauh dari hasil pencarian penulis, penggunaan \textit{pipeline} ini biasanya sebatas  untuk digunakan dalam eksperimen saja.

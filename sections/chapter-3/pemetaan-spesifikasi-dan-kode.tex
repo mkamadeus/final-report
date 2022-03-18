@@ -1,21 +1,24 @@
 \section{Pemetaan Spesifikasi dan Kode}
 
-Bagian ini akan menjelaskan bagaimana pemrosesan terhadap spesifikasi \textit{markup} dilakukan, seperti pada alur yang digambarkan dalam Gambar \ref{fig:03-tool}.
-Penjelasan tentang alur konversi mencakup bagaimana suatu bagian dalam spesifikasi berkorespondensi dengan hasil akhir dari kode sistem yang dibangkitkan.
-Selain itu, penjelasan ini juga akan mencakup bagaimana urutan pembangkitan spesifikasi dilakukan.
+Bagian ini akan menjelaskan bagaimana suatu bagian dalam spesifikasi berkorespondensi dengan hasil akhir dari kode sistem yang dibangkitkan, seperti pada alur yang digambarkan dalam Gambar~\ref{fig:03-tool}.
+Hal mengenai urutan pembangkitan spesifikasi akan dibahas lebih lanjut pada bagian berikutnya.
 
 \subsection{Konversi Spesifikasi Masukan}
 
-Dalam bagian \ref{section:03-input-format}, dijelaskan bahwa jenis masukan bisa beragam.
+Dalam bagian~\ref{section:03-input-format}, dijelaskan bahwa jenis masukan dapat beragam.
 Oleh karena itu, proses konversi dari spesifikasi masukan akan bergantung kepada format masukan yang diperlukan.
 Sebagai contoh, untuk data tabular, akan terdapat masukan berupa kolom-kolom yang perlu diubah menjadi bentuk masukan yang sesuai dengan spesifikasi model.
 Lain halnya untuk data citra, secara umum hanya diperlukan satu gambar yang perlu diberikan ke dalam sistem untuk diproses, atau banyak gambar yang diproses secara terpisah tanpa terkait satu sama lain.
 
 Dalam rancangan yang dibuat penulis, spesifikasi masukan dalam data tabular bertanggung jawab terhadap bagaimana format masukan didefinisikan secara \textit{one-to-one}.
 Bagian yang perlu dilakukan pemrosesan tersebut akan diubah ketika data diterima oleh sistem.
-Berikut adalah contoh hasil dari konversi spesifikasi untuk bagian masukan.
+Berikut adalah contoh hasil dari konversi spesifikasi untuk bagian masukan berdasarkan contoh pada bagian~\ref{section:03-input-format}.
 
-\pycode{resources/files/code/input_sample.py}
+\begin{listing}[H]
+	\pycode{resources/files/code/input_sample.py}
+	\caption{Contoh hasil kode masukan sistem}
+	\label{listing:10}
+\end{listing}
 
 Pada data citra, masukan akan berupa sebuah gambar yang diunggah ke sistem.
 Format masukan menjadi tidak begitu relevan dalam data citra.
@@ -26,31 +29,43 @@ Pemrosesan lanjut pada suatu bagian dibahas pada bagian berikutnya dalam spesifi
 Bentuk keluaran didefinisikan secara sederhana dalam kasus-kasus yang akan dibahas penulis.
 Sistem akan mengeluarkan sama halnya seperti apa yang dikeluarkan oleh model, hanya dikemas dalam bentuk yang lebih rapi.
 Misalnya, untuk data tabular model akan mengeluarkan suatu hasil prediksi terhadap suatu kelas, atau mungkin melakukan prediksi terhadap hasil pengelompokan data.
-Berikut adalah contoh hasil dari konversi spesifikasi untuk bagian keluaran.
+Berikut adalah contoh hasil dari konversi spesifikasi untuk bagian keluaran berdasarkan pada bagian~\ref{section:03-output-format}.
 
-\pycode{resources/files/code/output_sample.py}
+\begin{listing}[H]
+	\pycode{resources/files/code/output_sample.py}
+	\caption{Contoh hasil kode keluaran sistem}
+	\label{listing:11}
+\end{listing}
 
 \subsection{Konversi Spesifikasi Model}
 
 Bagian spesifikasi model mendefinsikan jenis model yang digunakan sebagaimana tertulis pada bagian~\ref{section:03-model-format}.
 Kode yang dihasilkan dari spesifikasi ini terkait dengan bagaimana model dibangun kembali dalam sistem untuk dilakukan inferensi serta melakukan prediksi menggunakan model tersebut.
 Cara membangun model dalam sistem berbeda-beda untuk tiap kakas yang digunakan, sehingga bagian ini diperlukan juga.
-Berikut adalah contoh dari konversi spesifikasi untuk bagian model yang menggunakan format ONNX.
+Berikut adalah contoh dari konversi spesifikasi untuk bagian model yang menggunakan format ONNX seperti yang tertulis pada bagian~\ref{section:03-model-format}.
 
-\pycode{resources/files/code/model_sample.py}
+\begin{listing}[H]
+	\pycode{resources/files/code/model_sample.py}
+	\caption{Contoh hasil kode model dan inferensinya}
+	\label{listing:12}
+\end{listing}
 
 \subsection{Konversi Spesifikasi Alur Pemrosesan}
 
 Bagian ini adalah salah satu bagian yang utama dalam proses konversi ini.
 Dalam bagian ini, terdapat proses pemetaan dari masukan untuk sistem menjadi masukan untuk model.
-Bagi masukan yang berupa tabular, pemrosesan bisa di sebagian kolom saja, sedangkan untuk masukan berupa citra, pemrosesan dilakukan kepada gambar masukan.
+Bagi masukan yang berupa tabular, pemrosesan dapat di sebagian kolom saja, sedangkan untuk masukan berupa citra, pemrosesan dilakukan kepada gambar masukan.
 Setelah melakukan pemetaan terhadap masukan yang diproses, modul yang bersangkutan akan digunakan untuk membangun sebuah masukan yang sesuai dengan model.
 
-Berikut adalah contoh kode yang mungkin dihasilkan oleh tahap ini.
+Berikut adalah contoh kode yang mungkin dihasilkan oleh tahap ini berdasarkan contoh pada bagian~\ref{section:03-processing-pipeline}.
 Diperlihatkan dalam hasil tersebut terdapat pengabungan dari hasil pemetaan masukan dan pemrosesan model.
 Kode yang dihasilkan juga akan menjadi pertimbangan utama dalam merancang bagaimana kakas akan membuat kode dari spesifikasi.
 
-\pycode{resources/files/code/pipeline_sample.py}
+\begin{listing}[H]
+	\pycode{resources/files/code/pipeline_sample.py}
+	\caption{Contoh hasil kode pemrosesan data}
+	\label{listing:13}
+\end{listing}
 
 \subsection{Konversi Spesifikasi \textit{Interface}}
 

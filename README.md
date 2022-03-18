@@ -90,7 +90,7 @@ Untuk TA 1:
    5. Metodologi
    6. Jadwal Pelaksanaan
 7. Studi Literatur/Dasar Teori (subbab disesuaikan dengan hal-hal yang akan dibahas)
-8. Rencana Penyelesaian Masalah (judul bisa disesuaikan dengan rancangan)
+8. Rencana Penyelesaian Masalah (judul dapat disesuaikan dengan rancangan)
    1. Analisis Masalah
    2. Solusi Umum
    3. Rancangan Solusi

@@ -1,16 +1,17 @@
 \section{Studi Kasus Konversi Eksperimen}
 
 Untuk merancang sebuah kakas, penulis telah melakukan konversi eksperimen dari awal hingga menjadi sebuah kode sistem.
-Eksperimen pemelajaran mesin dilakukan sedemikian sehingga penulis mendapatkan hal-hal yang dibutuhkan untuk membangun sebuah sistem pemelajaran mesin.
-Dalam proses konversi ini, penulis menggunakan bahasa Python dengan kakas-kakas pemelajaran mesin dan pembuatan API.
+Eksperimen pemelajaran mesin dilakukan sedemikian sehingga penulis mendapatkan hal-hal yang menjadi titik penting dalam pembangunan sebuah sistem pemelajaran mesin.
+Dalam proses konversi ini, penulis menggunakan bahasa Python dengan kakas-kakas pemelajaran mesin dan pembuatan API\@.
+Makalah ini akan membahas dua jenis eksperimen dengan data yang berbeda, yaitu eksperimen data tabular serta data citra.
 
 \subsection{Eksperimen Data Tabular}
 Eksperimen ini dilakukan dengan menggunakan kakas scikit-learn.
 Untuk API, penulis menggunakan kakas FastAPI dengan tujuan akhir membuat sistem dengan arsitektur REST sederhana.
-API hanya terdiri dari satu endpoint saja, yaitu untuk melakukan prediksi terhadap suatu data masukan.
+API hanya terdiri dari satu \textit{endpoint} saja, yaitu untuk melakukan prediksi terhadap suatu data masukan.
 
 Penulis mengambil dari salah satu contoh eksperimen pemelajaran mesin yang paling sederhana, yaitu melakukan prediksi terhadap data dari penumpang Titanic; apakah penumpang tersebut akan selamat atau tidak dari data yang diketahui dari kecelakaan kapal tersebut.
-Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data diproses dan bagaimana model hasil eksperimen disimpan.
+Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data tavykar diproses dan bagaimana model hasil eksperimen disimpan.
 Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang perlu diperhatikan dalam merancang kakas yaitu sebagai berikut:
 
 \begin{enumerate}
@@ -25,7 +26,7 @@ Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang
 	
 	Beberapa tahapan pemrosesan data terkadang diperlukan setelah data masukan diberikan.
 	Misalnya, dalam ekesperimen ini terdapat salah satu fitur yang dilakukan \textit{scaling} terhadap data.
-	Model pemelajaran mesin memerlukan data yang sudah diterapkan \textit{scaling}, namun kemungkinan besar agar API bisa digunakan secara intuitif, masukan seharusnya berupa nilai aslinya sebelum dilakukan \textit{scaling}.
+	Model pemelajaran mesin memerlukan data yang sudah diterapkan \textit{scaling}, namun kemungkinan besar agar API dapat digunakan secara intuitif, masukan seharusnya berupa nilai aslinya sebelum dilakukan \textit{scaling}.
 	Pemrosesan data ini bergantung pada data yang digunakan pada proses pelatihan, sehingga tentunya pada setiap eksperimen proses tersebut akan berbeda-beda.
 	
 	\item Jumlah masukan dapat berbeda dengan masukan model
@@ -36,7 +37,67 @@ Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang
 	Dari sudut pandang API hal tersebut kurang baik untuk diterapkan karena akan mempersulit masukan terhadap sistem.
 \end{enumerate}
 
-Berdasarkan studi kasus sederhana ini, penulis membuat format konfigurasi kakas untuk studi kasus ini.
-Berikut adalah format konfigurasinya:
+Berdasarkan studi kasus sederhana ini, penulis telah melakukan implementasi terhadap kode yang mungkin dihasilkan oleh kakas.
+Penulis juga membuat format konfigurasi kakas untuk studi kasus ini berdasarkan kode sistem yang dibuat.
+Berikut ini adalah kode serta konfigurasinya.
 
-\yamlcode{resources/files/configurations/titanic_full.yml}
+\begin{listing}[H]
+	\yamlcode{resources/files/configurations/titanic_full.yml}
+	\caption{Contoh spesifikasi sistem Titanic}
+	\label{listing:14}
+\end{listing}
+
+\begin{listing}[H]
+	\pycode{resources/files/code/titanic_full.py}
+	\caption{Contoh kode sistem Titanic}
+	\label{listing:15}
+\end{listing}
+
+\subsection{Eksperimen Data Tabular}
+Eksperimen ini dilakukan dengan menggunakan kakas Tensorflow dan Keras, mengingat pendekatan menggunakan pemelajaran mendalam (\textit{deep learning}) semakin populer.
+Sama seperti eksperimen sebelumnya, penulis menggunakan kakas FastAPI untuk membuat arsitektur REST sederhana.
+API yang dibuat terdiri dari satu \textit{endpoint} saja, yaitu untuk melakukan prediksi terhadap suatu data citra masukan yang diunggah ke sistem.
+
+Penulis memilih untuk menggunakan data MNIST, yaitu data tulisan tangan untuk memprediksi angka.
+Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data citra diproses dan bagaimana model hasil eksperimen pemelajaran mendalam disimpan.
+Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang perlu diperhatikan dalam merancang kakas untuk data citra yaitu sebagai berikut:
+
+\begin{enumerate}
+	\item Pemrosesan data dilakukan secara menyeluruh
+	
+	Berbeda dengan data tabular yang memiliki beberapa kolom, data citra hanya berupa \textit{file} yang independen.
+	Hal ini menyebabkan pemrosesan citra dilakukan secara menyeluruh terhadap \textit{file} tersebut.
+	Pemrosesan terhadap suatu bagian dari citra tidak umum dilakukan.
+	Oleh karena itu, \textit{pipeline} dilakukan terhadap keseluruhan citra dibandingkan kepada suatu bagian saja. 
+
+	\item Tidak diperlukannya bentuk masukan
+	
+	Secara umum, lebih baik untuk sistem menerima data citra dibandingkan data untuk masing-masing pixel dari gambar.
+	Oleh karena itu, penulis memutuskan bahwa model masukan tidak menjadi hal yang terlalu diperlukan karena \textit{endpoint} hanya menerima data masukan citra saja.
+	Walau begitu, hal ini bersifat cukup subjektif dan bergantung keperluan.
+	
+	\item Pemrosesan keluaran model
+	
+	Model-model pemelajaran mesin berbasis pemelajaran mendalam berdasarkan pada aljabar linear dan matriks.
+	Data masukan dan keluaran dari model merupakan angka yang bila tidak memiliki konteks akan tidak memiliki makna.
+	Oleh karena itu, mungkin perlu dilakukan pemrosesan lanjut terhadap data keluaran dari model-model yang berbasis pemelajaran mendalam.
+	Pemrosesan ini dapat dilakukan di luar sistem atau di sini pengguna sistem selama angka yang dihasilkan model diketahui konteksnya.
+
+\end{enumerate}
+
+Berdasarkan studi kasus ini, penulis telah melakukan implementasi terhadap kode yang mungkin dihasilkan oleh kakas.
+Penulis juga membuat format konfigurasi kakas untuk studi kasus ini berdasarkan kode sistem yang dibuat.
+Berikut ini adalah kode serta konfigurasinya.
+
+\begin{listing}[H]
+	\yamlcode{resources/files/configurations/mnist_full.yml}
+	\caption{Contoh spesifikasi sistem MNIST berdasarkan eksperimen}
+	\label{listing:16}
+\end{listing}
+
+\begin{listing}[H]
+	\pycode{resources/files/code/mnist_full.py}
+	\caption{Contoh kode sistem MNIST}
+	\label{listing:17}
+\end{listing}
+

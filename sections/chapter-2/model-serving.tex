@@ -22,7 +22,7 @@ Terdapat lima jenis \textit{serving pattern} yang umum digunakan untuk membuat l
 
 \textit{Serving pattern} ini adalah metode yang paling sederhana.
 Pada dasarnya, model yang sudah ada akan dibungkus dengan sebuah \textit{interface} agar dapat dilakukan RPC terhadap model tersebut (lihat Gambar~\ref{fig:model-as-service}).
-Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-metode RPC lainnya bisa juga digunakan.
+Teknologi yang umum digunakan biasanya seperti REST API dan gRPC, namun metode-metode RPC lainnya dapat juga digunakan.
 
 \subsection{Model-as-Dependency}
 
@@ -57,8 +57,8 @@ Model tidak perlu dijalankan terus menerus, melainkan hanya perlu dijalankan bil
 
 Pada dasarnya, \textit{pattern} ini memiliki karakteristik yang serupa dengan Model-as-Service dengan perbedaan dalam infrastruktur pembentuk sistem.
 Perbedaan utamanya adalah dalam Model-as-Service, \textit{request} dijalankan secara sinkron.
-Dalam \textit{pattern} Model-on-Demand, terdapat penggunaan broker sehingga request terhadap model bisa dibuat asinkron (lihat Gambar~\ref{fig:model-on-demand}).
-Waktu prediksi juga bisa diatur lewat broker atau model yang digunakan.
+Dalam \textit{pattern} Model-on-Demand, terdapat penggunaan broker sehingga request terhadap model dapat dibuat asinkron (lihat Gambar~\ref{fig:model-on-demand}).
+Waktu prediksi juga dapat diatur lewat broker atau model yang digunakan.
 
 \subsection{Hybrid Serving}
 

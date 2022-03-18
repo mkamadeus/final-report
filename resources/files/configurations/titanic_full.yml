@@ -23,20 +23,20 @@ output:
   - name: prediction
     type: float
 pipeline:
-  - module: preprocessing/scale
-    for: age
-    target: 3
+  - module: preprocessing/column/scale
     meta:
+      for: age
+      target: 3
       path: age.scaler
-  - module: preprocessing/onehot
-    for: gender
-    target: [4, 5]
+  - module: preprocessing/column/onehot
     meta:
+      for: gender
+      target: [4, 5]
       values: ["M", "F"]
-  - module: preprocessing/onehot
-    for: embarked
-    target: [6, 7, 8]
+  - module: preprocessing/column/onehot
     meta:
+      for: embarked
+      target: [6, 7, 8]
       values: ["C", "Q", "S"]
 model:
   format: onnx

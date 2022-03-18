@@ -1,11 +1,11 @@
 pipeline:
   - module: preprocessing/scale
-    for: age
-    target: 3
     meta:
+      for: age
+      target: 3
       path: age.scaler
   - module: preprocessing/onehot
-    for: gender
-    target: [4, 5]
     meta:
+      for: gender
+      target: [4, 5]
       values: ["M", "F"]

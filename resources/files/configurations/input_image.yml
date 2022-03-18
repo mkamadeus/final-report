@@ -1,5 +1,4 @@
 input:
   format: image
   meta:
-    width: 28
-    height: 28
+    channel: 1

@@ -22,7 +22,7 @@ Saat ini, metodologi MLOps juga sudah diterapkan pada berbagai perusahaan besar 
 Hal ini patut menjadi pertanyaan, `'apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?`'
 Seiring berjalannya waktu, kebutuhan terhadap pemelajaran mesin semakin meluas.
 Berbagai eksperimentasi, pemrosesan data, dan pemodelan dilakukan dengan cepat dan dengan terus menerus dikembangkan versi yang lebih baru.
-Bisa jadi, model yang dibuat sudah bisa berjalan dalam eksperimen.
+Bisa jadi, model yang dibuat sudah dapat berjalan dalam eksperimen.
 Langkah selanjutnya adalah metode untuk memberikan komputasi model tersebut kepada layanan lain atau kepada pihak luar.
 
 \begin{figure}[ht]
@@ -54,7 +54,7 @@ Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \texti
 Dalam Kubeflow, terdapat suatu sistem yang menggunakan \textit{pipeline} serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
 Pipeline pada Kubeflow dapat membentuk sebuah graf yang masing-masing langkah atau \textit{node}-nya mendefinisikan parameter masukan dan keluaran yang terdapat pada tiap langkahnya.
 Tiap langkah merepresentasikan suatu proses terhadap data yang dilakukan lewat Docker yang membungkus suatu kode Python.
-Pendekatan \textit{pipeline} ini secara umum fleksibel dan bisa menjadi potensi pengembangan untuk MLOps.
+Pendekatan \textit{pipeline} ini secara umum fleksibel dan dapat menjadi potensi pengembangan untuk MLOps.
 
 \subsection{Alur Kerja MLOps}
 
@@ -96,7 +96,7 @@ Untuk mendapatkan model yang optimal, biasanya tahap ini dibagi menjadi beberapa
   \item Model Training, yaitu sebuah proses untuk mengaplikasikan algoritma machine learning terhadap training dataset yang ada.
   \item Model Evaluation, yaitu proses evaluasi terhadap model yang dibuat dengan validation dataset atau untuk memastikan apakah model sesuai standar yang diharapkan
   \item Model Testing, yaitu proses \textit{testing} terhadap test dataset atau data yang sengaja disembunyikan untuk menguji kasus-kasus tertentu.
-  \item Model Packaging, yaitu proses penyimpanan model yang sudah dibuat dan diuji dalam suatu format file yang bisa digunakan kembali tanpa perlu melakukan pelatihan ulang.
+  \item Model Packaging, yaitu proses penyimpanan model yang sudah dibuat dan diuji dalam suatu format file yang dapat digunakan kembali tanpa perlu melakukan pelatihan ulang.
 \end{enumerate}
 
 Melalui \textit{framework-framework} pemelajaran mesin seperti Kubeflow, biasanya terdapat fitur untuk melakukan \textit{model versioning}.
@@ -115,13 +115,13 @@ Model yang sudah siap digunakan akan dihubungkan dengan program atau sistem yang
 Tahap ini dibagi dalam beberapa tahapan, yaitu:
 
 \begin{enumerate}
-  \item Model Serving, yaitu metode agar model yang dibuat dapat di-\textit{deploy} agar bisa diakses pelanggan.
+  \item Model Serving, yaitu metode agar model yang dibuat dapat di-\textit{deploy} agar dapat diakses pelanggan.
   \item Model Performance Monitoring, yaitu metode untuk melakukan \textit{monitoring} terhadap kinerja model bila diberikan data yang sesungguhnya.
   \item Model Performance Logging, yaitu metode untuk menyimpan \textit{log} dari \textit{request} yang diberikan.
 \end{enumerate}
 
 Hal yang menjadi perhatian utama dalam tahap ini adalah metode untuk melakukan \textit{delivery} terhadap model atau yang biasa dikenal sebagai \textit{model serving}.
-Banyak pilihan dan \textit{pattern} yang bisa digunakan untuk melakukan \textit{serving}, serta pilihan teknologi yang digunakan untuk \textit{deployment} yang hanya akan dibahas sedikit dalam makalah ini.
+Banyak pilihan dan \textit{pattern} yang dapat digunakan untuk melakukan \textit{serving}, serta pilihan teknologi yang digunakan untuk \textit{deployment} yang hanya akan dibahas sedikit dalam makalah ini.
 \textit{Pattern} untuk melakukan Model Serving akan dibahas pada bagian berikutnya.
 
 \subsection{Kakas \textit{Serving} Model Pemelajaran Mesin}

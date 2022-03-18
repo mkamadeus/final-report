@@ -1,11 +1,11 @@
 % margin settings
 \usepackage[top=3cm,bottom=2.5cm,left=4cm,right=2.5cm]{geometry}
 
+% float
+\usepackage{float}
+
 % hypenation
 \usepackage[none]{hyphenat}
-
-% supress hbox warning
-\hbadness=99999
 
 % bahasa indo
 \usepackage[bahasai]{babel}
@@ -47,6 +47,7 @@
 
 % caption
 \usepackage{caption}
+\usepackage{subcaption}
 
 % title, author, date, thanks
 \usepackage{titling}
@@ -57,8 +58,15 @@
 
 \usepackage{sectsty}
 
+
+% toc settings
+\usepackage[titles]{tocloft}
+\newlistof{listing}{lol}{Daftar Kode}
+\cftsetindents{figure}{0em}{3.5em}
+\cftsetindents{table}{0em}{3.5em}
+
 % minted
-\usepackage[section]{minted}
+\usepackage[newfloat]{minted}
 \setminted{fontsize=\small,baselinestretch=1}
 \newmintedfile[yamlcode]{yaml}{
 breaklines=true,
@@ -99,14 +107,6 @@ showtabs =false,
 texcl=false,
 }
 
-
-% counter
-\usepackage{chngcntr}
-
-% toc settings
-\usepackage[titles]{tocloft}
-\cftsetindents{figure}{0em}{3.5em}
-\cftsetindents{table}{0em}{3.5em}
 
 % defining newcommand and stuff
 \usepackage{etoolbox}
@@ -165,7 +165,6 @@ texcl=false,
 \newcommand{\midsepdefault}{\aboverulesep = 0.605mm \belowrulesep = 0.984mm}
 \midsepdefault
 
-
 % set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
 \graphicspath{ {./resources/images/}{./resources/images/chapter-1/}{./resources/images/chapter-2/}{./resources/images/chapter-3/} }
@@ -173,9 +172,11 @@ texcl=false,
 % subsubsubsub-section
 \setcounter{secnumdepth}{3}
 
-% figures and tables counter
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
+% counter
+\usepackage{chngcntr}
+\counterwithin{listing}{chapter}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
 
 % blankpage command
 \newcommand*{\blankpage}{\afterpage{\null\newpage}}
@@ -189,3 +190,17 @@ Desember\fi~\number\year}
 \makeatletter
 \renewcommand{\@dotsep}{10000} 
 \makeatother
+
+% supress hbox warning
+\hbadness=99999
+
+
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{
+    name={Kode},
+    fileext=lol
+}
+
+\renewcommand{\cftlistingpresnum}{Kode~}
+\setlength{\cftlistingnumwidth}{2cm}
