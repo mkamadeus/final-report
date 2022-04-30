@@ -11,13 +11,22 @@ Hal ini dilakukan karena rata-rata kakas untuk banyak hal diimplementasikan untu
 Selain itu, bahasa Go merupakan bahasa yang \textit{strongly typed}, sehingga dapat memudahkan perbaikan atau penambahan fitur ke depannya.
 Walaupun Python adalah bahasa yang umum digunakan dalam eksperimen pemelajaran mesin, kakas ini tidak terkait dengan penggunaan kakas-kakas yang spesifik hanya ada di Python saja, sehingga penggunaan bahasa lain tidak menjadi masalah.
 
+Kakas ini akan menghasilkan kode Python yang siap dijalankan.
+Kode juga mencakup file-file lain yang diperlukan.
+Kode yang dihasilkan akan menggunakan \textit{framework} FastAPI, yaitu \textit{framework} aplikasi web yang umum digunakan.
+
+Kakas ini diuji dalam sistem berbasis kernel Linux.
+Walau begitu, dengan implementasi dan bahasa Go yang digunakan seharusnya kakas ini dapat digunakan dalam lingkungan sistem yang berbeda.
+Untuk menggunakan kakas ini, Python juga diperlukan untuk melakukan instalasi \textit{library} yang diperlukan agar sistem dapat berjalan.
+\textit{Library} akan disiapkan dalam sebuah \textit{virtual environment}.
+
 \subsection{Pembacaan Konfigurasi}
 
 Sesuai yang telah dibahas pada bagian sebelumnya, masing-masing bagian konfigurasi bertanggung jawab atas suatu bagian dalam kode.
 Konfigurasi mengatur juga alur pembangkitan kode dilakukan.
 Berikut ini adalah alur pembacaan konfigurasi oleh kakas hingga terbentuknya kode sistem.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{04-alur-pembacaan-konfigurasi.drawio.png}
     \caption{Alur Pembacaan Konfigurasi oleh Kakas}\label{fig:04-flowchart-config-read}
@@ -30,19 +39,20 @@ Konfigurasi juga didefinisikan seumum mungkin agar mudah untuk melakukan penamba
 
 \subsection{Pembangkitan dan Penggabungan Kode}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{04-alur-pembangkitan-umum.drawio.png}
     \caption{Alur Pembangkitan oleh Kakas}\label{fig:04-flowchart-code-generation}
 \end{figure}
 
-Secara umum, pembangkitan kode dilakukan dalam beberapa tahap seperti yang dideskripsikan pada Gambar~\ref{fig:04-flowchart-code-generation} :
+Secara umum, pembangkitan kode dilakukan dalam beberapa tahap seperti yang dideskripsikan pada Gambar~\ref{fig:04-flowchart-code-generation}:
 \begin{enumerate}
     \item Penentuan jenis \textit{interface}
     \item Pembangkitan kode masukan
     \item Pembangkitan kode keluaran
     \item Pembangkitan kode model
     \item Pembangkitan kode pemrosesan data
+    \item Agregasi kode
 \end{enumerate}
 
 Keseluruhan proses pembangkitan kode ini dilakukan melalui penerimaan masukan yang diperlukan untuk masing-masing bagian kode.
@@ -52,12 +62,17 @@ Sepotong kode akan dikembalikan oleh fungsi dan disimpan untuk digabungkan.
 Bagian sebelumnya telah membahas lebih detail tentang bagaimana bagian-bagian konfigurasi bertanggung jawab terhadap bagian kode dan keterkaitannya dengan masing-masing kode.
 Bila disederhanakan, kelima tahapan tersebut dapat mencakup seluruh proses pembangkitan kode.
 Akibat dibangkitkan secara terpisah, diperlukan tahapan tambahan untuk menggabungkan kode.
+
 Agregasi kode pada dasarnya menggunakan implementasi yang serupa pada pembangkitan bagian-bagian kode, yaitu menerima masukan nilai-nilai yang diperlukan; dalam hal ini adalah kode yang telah dibangkitkan, serta \textit{template} yang membentuk kode utama sistem.
+Segala hal yang berkaitan bagaimana \textit{framework} yang dipilih dibangun berada dalam tahapan ini.
+\textit{Endpoint} didefinisikan dalam tahapan ini.
+Sebuah \textit{endpoint} dibangun dari potongan-potongan kode yang telah dibangun sebelumnya.
 
 \subsection{Pembangkitan File Terkait}
 
 Selain dari membangkitkan kode, diperlukan beberapa file lagi untuk memastikan sistem ini dapat berjalan.
 Beberapa file yang penulis tetapkan untuk dibuat adalah seperti berikut:
+
 \begin{enumerate}
     \item File Dockerfile; dibuat agar sistem bisa dijalankan melalui \textit{container}.
     \item File Gitignore; dibuat untuk memudahkan pengguna bila kode akan dimasukkan ke dalam \textit{version control system}.
