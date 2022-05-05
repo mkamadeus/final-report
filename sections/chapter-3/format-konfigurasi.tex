@@ -23,32 +23,32 @@ Salah satu bentuk masukan yang umum digunakan adalah bentuk yang berupa tabel at
 Format masukan perlu didefinisikan untuk membantu dalam proses pembuatan kode khususnya terkait dengan \textit{interface}.
 Berikut adalah contoh konfigurasi untuk bagian masukan sistem yang berupa data tabular.
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/input_basic.yml}
 	\caption{Contoh spesifikasi masukan tabular untuk kakas}
 	\label{listing:1}
-\end{listing}
+\end{code}
 
 Mengingat jenis masukan dapat beragam, tidak menutup kemungkinan masukan dengan bentuk lain dapat digunakan dalam model, contohnya seperti masukan yang berupa citra.
 Masukan citra memiliki aturan-aturan seperti layaknya data tabular, seperti panjang dan lebar dari sebuah citra.
 Berikut adalah contoh konfigurasi untuk masukan yang berupa data citra.
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/input_image.yml}
 	\caption{Contoh spesifikasi masukan citra untuk kakas}
 	\label{listing:2}
-\end{listing}
+\end{code}
 
 Selain dari format masukan yang beragam, terkadang masukan kepada sistem dapat berbeda dengan masukan pada model.
 Alasan dari perbedaan tersebut adalah terdapat pemrosesan data yang dilakukan oleh sistem untuk membuat masukan pada sistem lebih intuitif.
 Oleh karena itu, konfigurasi dari format masukan juga perlu menangani hal tersebut.
 Berikut adalah contoh konfigurasi untuk masukan yang ditandai untuk dilakukan pemrosesan data.
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/input_preprocessed.yml}
 	\caption{Contoh spesifikasi masukan yang perlu pemrosesan lanjut}
 	\label{listing:3}
-\end{listing}
+\end{code}
 
 \subsection{Konfigurasi Format Keluaran}\label{section:03-output-format}
 
@@ -60,11 +60,11 @@ Permasalahan regresi juga akan mengembalikan suatu nilai numerik.
 Tidak sebatas dalam teknik-teknik \textit{supervised} saja, teknik \textit{unsupervised} seperti \textit{clustering} yang memiliki keluaran yang serupa dengan klasifikasi.
 Berikut adalah contoh konfigurasi untuk keluaran sederhana:
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/output_basic.yml}
 	\caption{Contoh spesifikasi keluaran untuk sistem}
 	\label{listing:4}
-\end{listing}
+\end{code}
 
 \subsection{Konfigurasi Format Model}\label{section:03-model-format}
 
@@ -78,16 +78,16 @@ Misalnya, pada kakas Tensorflow disediakan sebuah cara untuk menyimpan model dal
 Oleh karena itu, konfigurasi format model harus dapat menerima jenis model yang berbeda-beda.
 Berikut ini beberapa contoh konfigurasi sederhana untuk model dengan format yang berbeda:
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/model_basic.yml}
 	\caption{Contoh spesifikasi model dengan ONNX}
 	\label{listing:5}
-\end{listing}
-\begin{listing}[H]
+\end{code}
+\begin{code}
 	\yamlcode{resources/files/configurations/model_keras.yml}
 	\caption{Contoh spesifikasi model dengan Keras}
 	\label{listing:6}
-\end{listing}
+\end{code}
 
 \subsection{Konfigurasi Alur Pemrosesan}\label{section:03-processing-pipeline}
 Secara umum, terkadang perlu tahapan-tahapan tertentu dari masukan yang diberikan terhadap sistem.
@@ -96,11 +96,11 @@ Masukan berupa citra kadang diperlukan untuk melakukan tahap \textit{image proce
 Kakas ini akan menerima konfigurasi untuk melakukan hal-hal tersebut lewat modul-modul yang didefinisikan dalam konfigurasi.
 Berikut adalah rancangan konfigurasi untuk alur pemrosesan masukan sistem:
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/pipeline_basic.yml}
 	\caption{Contoh spesifikasi pemrosesan data}
 	\label{listing:7}
-\end{listing}
+\end{code}
 
 Sebagai penjelasan singkat, dalam konfigurasi ini terdapat masukan untuk jenis pemrosesan yang akan dilakukan terhadap suatu format tabular.
 Selain itu, terdapat konfigurasi untuk memilih data masukan mana yang ingin diproses disertai dengan tujuan.
@@ -112,17 +112,17 @@ Dengan mempertimbangkan kedua hal tersebut, kakas ini akan berfokus pada kedua \
 Kode dari sistem yang dibangkitkan tentunya dapat dimodifikasi sesuai kebutuhan dari sistem bila diperlukan perubahan terhadap \textit{interface}.
 Berikut adalah contoh konfigurasi \textit{interface} sederhana:
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/interface_basic.yml}
 	\caption{Contoh spesifikasi sistem dengan \textit{interface} REST}
 	\label{listing:8}
-\end{listing}
+\end{code}
 
 Konfigurasi ini tidak menutup kemungkinan untuk memiliki dua \textit{interface} sekaligus.
 Berikut adalah contoh konfigurasi sistem dengan dua \textit{interface} sekaligus, misalnya REST dan gRPC.
 
-\begin{listing}[H]
+\begin{code}
 	\yamlcode{resources/files/configurations/interface_multiple.yml}
 	\caption{Contoh spesifikasi sistem dengan beberapa \textit{interface}}
 	\label{listing:9}
-\end{listing}
+\end{code}

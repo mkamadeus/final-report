@@ -3,21 +3,102 @@
 Bagian ini akan membahas pengujian apa saja yang telah dilakukan penulis.
 Pengujian yang dilakukan akan membahas kasus-kasus yang diimplementasikan dalam kasus, yaitu data tabular dan data citra.
 Pengujian akan dilakukan terhadap eksperimen dan konfigurasi yang berbeda.
-bagian ini akan membahas juga bagaimana konfigurasi kakas yang akan dibuat
+Bagian ini juga akan membahas konfigurasi kakas masing-masing eksperimene yang akan dibuat untuk diberikan kepada kakas.
 
-\subsection{Kasus Data Tabular}
+\subsection{Kasus Data Titanic}
+
+Dataset ini merupakan permasalahan klasik yang digunakan untuk mencoba algoritma pemelajaran mesin pada data tabular.
+Informasi mengenai penumpang dari kapal Titanic tertera dalam dataset ini.
+Penulis melakukan eksperimen secara pribadi menggunakan kakas \mintinline{bash}{scikit-learn} untuk menguji kakas pada eksperimen pemelajaran mesin berbasis \textit{shallow learning}.
+Model hasil eksperimen yang dilakukan akan dikonversikan dengan format ONNX.\@
+
+Dalam eksperimen ini, dilakukan pemrosesan terhadap dataset yang diberikan.
+Rincian lebih lengkapnya bisa dilihat pada lampiran.
+Berikut adalah beberapa poin penting pemrosesan data yang dilakukan dalam eksprimen ini.
+
+\begin{enumerate}
+	\item Melakukan \textit{feature scaling} dengan melakukan standardisasi terhadap fitur umur.
+	\item Melakukan \textit{feature selection} dengan membuang kolom-kolom yang tidak begitu relevan terhadap hasil prediksi menurut pandangan penulis dengan tujuan mengurangi dimensi juga.
+	\item Melakukan \textit{one-hot encoding} terhadap beberap fitur seperti jenis kelamin dan tempat keberangkatan penumpang.
+\end{enumerate}
+
+Berikut ini adalah konfigurasi yang dirancang oleh penulis.
+
+\begin{code}
+	\yamlcode{resources/files/configurations/titanic_full.yml}
+	\caption{Konfigurasi sistem eksperimen Titanic}
+	\label{listing:18}
+\end{code}
+
+Selain konfigurasi, file model dan file lainnya yang diperlukan untuk melakukan pemrosesan data juga diperlukan.
+Dalam eksperimen ini, terdapat tiga file utama berdasarkan eksperimen yang dilakukan, yaitu file konfigurasi, file model, dan file \textit{scaler} yang digunakan untuk melakukan scaling terhadap umur.
+Hasil \textit{scaler} pada tahapaan pelatihan seharusnya digunakan kembali untuk menjamin scaling dilakukan dengan tepat berdasarkan data pelatihan.
+
+Kakas dapat dijalankan dengan menggunakan perintah \mintinline{bash}{./myx -o ./ spec.yaml}, yang artinya memberikan hasil pada direktori ini berdasarkan konfigurasi yang terdapat dalam file \mintinline{bash}{spec.yaml}.
+Berikut adalah kode yang dihasilkan oleh kakas.
+Selain dari kode, dihasilkan juga file-file lainnya seperti yang disinggung sebelumnya.
+
+\begin{code}
+	\pycode{resources/files/code/titanic_result.py}
+	\caption{Hasil kode sistem oleh kakas untuk eksperimen Titanic}
+	\label{listing:19}
+\end{code}
+
+Menggunakan salah satu data uji secara acak, diberikan masukan kepada sistem yang dijalankan.
+Berikut ini masukan yang diberikan serta keluaran yang diberikan.
+
+\begin{code}
+	\jsoncode{resources/files/tests/titanic_input.json}
+	\caption{Masukan sistem eksperimen Titanic}
+	\label{listing:20}
+\end{code}
+
+\begin{code}
+	\jsoncode{resources/files/tests/titanic_output.json}
+	\caption{Keluaran sistem eksperimen Titanic}
+	\label{listing:21}
+\end{code}
+
+\subsection{Kasus Data Churn Rate Karyawan}
+
+Dataset ini adalah dataset yang dipilih penulis yang juga merupakan dataset tabular.
+Dataset ini memiliki data karyawan dengan indikator apakah karyawan tersebut akan keluar atau tidak (\textit{churn rate}).
+Permasalahan ini serupa dengan permasalahan pada dataset Titanic yang merupakan permasalahan klasifikasi.
+
+Dalam pengujian ini, dilakukan pemrosesan data terhadap beberapa fitur.
+Berikut ini adalah daftar pemrosesan terhadap fitur yang dilakukan.
+
+\begin{enumerate}
+	\item Melakukan \textit{feature scaling} terhadap beberapa fitur: skor kredit, umur, saldo, jumlah kepemilikan bangunan, jumlah produk, dan perkiraan gaji.
+	\item Melakukan \textit{one-hot encoding} terhadap satu fitur, yaitu lokasi.
+	\item Melakukan \textit{label encoding} terhadap satu fitur, yaitu jenis kelamin.
+\end{enumerate}
+
+Berikut ini adalah konfigurasi yang dirancang oleh penulis.
+
+\begin{code}
+	\yamlcode{resources/files/configurations/churn_full.yml}
+	\caption{Konfigurasi sistem eksperimen Churn Rate}\label{listing:22}
+\end{code}
+
+Seperti sebelumnya, kakas dijalankan dengan cara yang sama.
+Direktori mengandung file-file yang diperlukan untuk melakukan \textit{encoding} dan \textit{scaling}.
+Kode yang dihasilkan akan menghasilkan kode sistem yang dapat dijalankan.
+Berikut ini adalah masukan dan keluaran untuk sistem ini.
+
+\subsection{Kasus Data MNIST}
 
 penjelasan
 Konfigurasi
 hasil
 
-\subsection{Kasus Data Gambar}
+\subsection{Kasus Data Citra Anjing dan Kucing}
 
 penjelasan
 Konfigurasi
 hasil
 
-\subsection{Catatan Pengujian}
+\subsection{Catatan Tambahan Pengujian}
 
 hal yang diuji menyeluruh
 temuan lainnya

@@ -1,0 +1,64 @@
+input:
+  format: tabular
+  meta:
+    columns:
+      - name: credit_score
+        type: float
+        preprocessed: true
+      - name: geography
+        type: categorical
+        preprocessed: true
+      - name: gender
+        type: categorical
+        preprocessed: true
+      - name: tenure
+        type: float
+        preprocessed: true
+      - name: balance
+        type: float
+        preprocessed: true
+      - name: num_of_products
+        type: int
+        preprocessed: true
+      - name: has_credit_card
+        type: int
+        target: 9
+      - name: is_active_member
+        type: int
+        target: 10
+      - name: estimated_salary
+        type: float
+        preprocessed: true
+output:
+  - name: prediction
+    type: float
+pipeline:
+  - module: preprocessing/scale
+    meta:
+      for:
+        [
+          "credit_score",
+          "age",
+          "tenure",
+          "balance",
+          "num_of_products",
+          "estimated_salary",
+        ]
+      target: [0, 5, 6, 7, 8, 11]
+      path: churn.scaler
+  - module: preprocessing/onehot
+    meta:
+      for: geography
+      target: [1, 2, 3]
+      values: ["Germany", "Spain", "France"]
+  - module: preprocessing/label
+    meta:
+      path: geo.encoder
+      for: ["gender"]
+      target: [4]
+model:
+  format: keras
+  path: churn.h5
+interface:
+  - type: rest
+    port: 8080

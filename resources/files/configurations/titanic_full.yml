@@ -1,39 +1,40 @@
 input:
   format: tabular
   meta:
-    - name: pclass
-      type: int
-      target: 0
-    - name: sibsp
-      type: int
-      target: 1
-    - name: parch
-      type: int
-      target: 2
-    - name: age
-      type: float
-      preprocessed: true
-    - name: gender
-      type: categorical
-      preprocessed: true
-    - name: embarked
-      type: float
-      preprocessed: true
+    columns:
+      - name: pclass
+        type: int
+        target: 0
+      - name: sibsp
+        type: int
+        target: 1
+      - name: parch
+        type: int
+        target: 2
+      - name: age
+        type: float
+        preprocessed: true
+      - name: gender
+        type: categorical
+        preprocessed: true
+      - name: embarked
+        type: categorical
+        preprocessed: true
 output:
   - name: prediction
     type: float
 pipeline:
-  - module: preprocessing/column/scale
+  - module: preprocessing/scale
     meta:
-      for: age
-      target: 3
+      for: ["age"]
+      target: [3]
       path: age.scaler
-  - module: preprocessing/column/onehot
+  - module: preprocessing/onehot
     meta:
       for: gender
       target: [4, 5]
       values: ["M", "F"]
-  - module: preprocessing/column/onehot
+  - module: preprocessing/onehot
     meta:
       for: embarked
       target: [6, 7, 8]

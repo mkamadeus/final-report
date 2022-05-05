@@ -67,8 +67,10 @@
 
 % minted
 \usepackage[newfloat]{minted}
+
 \setminted{fontsize=\small,baselinestretch=1}
 \newmintedfile[yamlcode]{yaml}{
+autogobble,
 breaklines=true,
 fontfamily=tt,
 linenos=true,
@@ -88,6 +90,27 @@ showtabs =false,
 texcl=false,
 }
 \newmintedfile[pycode]{python}{
+autogobble,
+breaklines=true,
+fontfamily=tt,
+linenos=true,
+numberblanklines=true,
+numbersep=5pt,
+gobble=0,
+frame=single,
+framerule=0.4pt,
+framesep=10pt,
+funcnamehighlighting=true,
+tabsize=2,
+obeytabs=false,
+mathescape=false,
+samepage=false, 
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+\newmintedfile[jsoncode]{json}{
+autogobble,
 breaklines=true,
 fontfamily=tt,
 linenos=true,
