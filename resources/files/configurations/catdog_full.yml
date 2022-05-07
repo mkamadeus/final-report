@@ -1,0 +1,20 @@
+input:
+  format: image
+  meta:
+    channel: 3
+    width: 160
+    height: 160
+output:
+  - name: prediction
+    type: float[]
+pipeline:
+  - module: preprocessing/image/resize
+    meta:
+      width: 160
+      height: 160
+model:
+  format: keras
+  path: catdog.h5
+interface:
+  - type: rest
+    port: 8080

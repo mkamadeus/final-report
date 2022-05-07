@@ -1,0 +1,12 @@
+{
+    "credit_score": 608,
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 39,
+    "tenure": 6,
+    "balance": 125510.82,
+    "num_of_products": 3,
+    "has_credit_card": 1,
+    "is_active_member": 1,
+    "estimated_salary": 101348.88
+}

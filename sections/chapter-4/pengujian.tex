@@ -84,21 +84,75 @@ Berikut ini adalah konfigurasi yang dirancang oleh penulis.
 Seperti sebelumnya, kakas dijalankan dengan cara yang sama.
 Direktori mengandung file-file yang diperlukan untuk melakukan \textit{encoding} dan \textit{scaling}.
 Kode yang dihasilkan akan menghasilkan kode sistem yang dapat dijalankan.
-Berikut ini adalah masukan dan keluaran untuk sistem ini.
+Berikut adalah hasil kode sistem oleh kakas.
+
+\begin{code}
+	\pycode{resources/files/code/churn_result.py}
+	\caption{Kode sistem eksperimen Churn Rate}\label{listing:23}
+\end{code}
+
+Berikut ini masukan yang diberikan serta keluaran yang diberikan.
+
+\begin{code}
+	\jsoncode{resources/files/tests/churn_input.json}
+	\caption{Masukan sistem eksperimen Churn Rate}\label{listing:24}
+\end{code}
+
+\begin{code}
+	\jsoncode{resources/files/tests/churn_output.json}
+	\caption{Keluaran sistem eksperimen Churn Rate}\label{listing:25}
+\end{code}
 
 \subsection{Kasus Data MNIST}
 
-penjelasan
-Konfigurasi
-hasil
+Dataset ini adalah permasalahan klasik untuk mengklasifikasikan tulisan angka-angka dalam bentuk gambar.
+Dataset ini terdiri dari kumpulan citra angka dari nol sampai sembilan yang berukuran 27\(\times\)27 pixel.
+Dalam eksperimen ini, penulis menggunakan \textit{Convolutional Neural Network} (CNN) menggunakan kakas Tensorflow dan Keras.
+Arsitektur yang digunakan adalah arsitektur LeNet5 yang sudah diuji.
+
+Dalam eksperimen ini, tidak dilakukan pemrosesan data lebih lanjut terhadap citra karena citra sudah cukup terproses dengan satu \textit{channel}.
+Namun, untuk sistem, perlu diberikan mekanisme tambahan untuk melakukan penskalaan pada citra.
+Oleh karena itu, perlu ditambahkan konfigurasi untuk melakukan hal tersebut dalam sistem.
+Berikut ini konfigurasi yang dirancang oleh penulis.
+
+\begin{code}
+	\yamlcode{resources/files/configurations/mnist_full.yml}
+	\caption{Konfigurasi sistem eksperimen MNIST}\label{listing:26}
+\end{code}
+
+Kode sistem yang dihasilkan dijalankan untuk pengujian ini.
+Sistem ini memerlukan masukan berupa data citra yang biasanya berupa sebuah file.
+Oleh karena itu, sistem ini menggunakan \textit{form data} untuk mengirimkan citra.
+Berikut ini adalah masukan citra yang diberikan kepada sistem dan hasil prediksi yang dihasilkan sistem.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{mnist_input.png}
+    \caption{Masukan sistem eksperimen MNIST}\label{fig:mnist-input}
+\end{figure}
+
+\begin{code}
+	\jsoncode{resources/files/tests/mnist_output.json}
+	\caption{Keluaran sistem eksperimen MNIST}\label{listing:27}
+\end{code}
 
 \subsection{Kasus Data Citra Anjing dan Kucing}
 
-penjelasan
-Konfigurasi
-hasil
+Eksperimen berikut ini ditujukan untuk menguji kakas pada hasil eksperimen yang telah dibuat oleh orang lain sebelumnya tanpa adaptasi.
+Dataset dalam eksperimen ini dataset yang berisi citra anjing dan kucing.
+Eksperimen yang dibangun ini menggunakan metode \textit{transfer learning} dengan memanfaatkan model MobileNetV2.
+MobileNetV2 menerima masukan berupa citra yang berukuran 160\(\times\)160, sehingga perlu ada tahapan tambahan untuk melakukan pemrosesan data.
+
+Konfigurasi yang dibangun untuk sistem ini akan serupa dengan konfigurasi pada eksperimen sebelumnya.
+Berikut ini adalah konfigurasi yang dibuat oleh penulis untuk sistem ini.
+
+\begin{code}
+	\yamlcode{resources/files/configurations/catdog_full.yml}
+	\caption{Konfigurasi sistem eksperimen Anjing dan Kucing}\label{listing:28}
+\end{code}
 
 \subsection{Catatan Tambahan Pengujian}
 
-hal yang diuji menyeluruh
-temuan lainnya
+Uji kasus yang diambil penulis terbatas dalam permasalahan klasifikasi saja.
+Namun, tidak menutup kemungkinan kakas ini dapat digunakan dalam permasalahan lainnya seperti regresi atau \textit{clustering}.
+Bila diperlukan, kode untuk kakas dapat ditambah fungsionalitasnya untuk mengatasi kasus-kasus yang belum teratasi.
