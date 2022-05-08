@@ -35,14 +35,7 @@ Dalam eksperimen ini, terdapat tiga file utama berdasarkan eksperimen yang dilak
 Hasil \textit{scaler} pada tahapaan pelatihan seharusnya digunakan kembali untuk menjamin scaling dilakukan dengan tepat berdasarkan data pelatihan.
 
 Kakas dapat dijalankan dengan menggunakan perintah \mintinline{bash}{./myx -o ./ spec.yaml}, yang artinya memberikan hasil pada direktori ini berdasarkan konfigurasi yang terdapat dalam file \mintinline{bash}{spec.yaml}.
-Berikut adalah kode yang dihasilkan oleh kakas.
 Selain dari kode, dihasilkan juga file-file lainnya seperti yang disinggung sebelumnya.
-
-\begin{code}
-	\pycode{resources/files/code/titanic_result.py}
-	\caption{Hasil kode sistem oleh kakas untuk eksperimen Titanic}
-	\label{listing:19}
-\end{code}
 
 Menggunakan salah satu data uji secara acak, diberikan masukan kepada sistem yang dijalankan.
 Berikut ini masukan yang diberikan serta keluaran yang diberikan.
@@ -84,13 +77,6 @@ Berikut ini adalah konfigurasi yang dirancang oleh penulis.
 Seperti sebelumnya, kakas dijalankan dengan cara yang sama.
 Direktori mengandung file-file yang diperlukan untuk melakukan \textit{encoding} dan \textit{scaling}.
 Kode yang dihasilkan akan menghasilkan kode sistem yang dapat dijalankan.
-Berikut adalah hasil kode sistem oleh kakas.
-
-\begin{code}
-	\pycode{resources/files/code/churn_result.py}
-	\caption{Kode sistem eksperimen Churn Rate}\label{listing:23}
-\end{code}
-
 Berikut ini masukan yang diberikan serta keluaran yang diberikan.
 
 \begin{code}
@@ -148,7 +134,22 @@ Berikut ini adalah konfigurasi yang dibuat oleh penulis untuk sistem ini.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/catdog_full.yml}
-	\caption{Konfigurasi sistem eksperimen Anjing dan Kucing}\label{listing:28}
+	\caption{Konfigurasi sistem eksperimen citra anjing dan kucing}\label{listing:28}
+\end{code}
+
+Berikut ini masukan serta hasil prediksi yang dihasilkan oleh sistem.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{catdog_input_01.jpeg}
+    \includegraphics[width=0.3\textwidth]{catdog_input_02.jpg}
+    \caption{Masukan sistem eksperimen citra anjing dan kucing}\label{fig:catdog-input}
+\end{figure}
+
+\begin{code}
+	\jsoncode{resources/files/tests/catdog_output_01.json}
+	\jsoncode{resources/files/tests/catdog_output_02.json}
+	\caption{Keluaran sistem eksperimen citra anjing dan kucing}\label{listing:28}
 \end{code}
 
 \subsection{Catatan Tambahan Pengujian}
@@ -156,3 +157,7 @@ Berikut ini adalah konfigurasi yang dibuat oleh penulis untuk sistem ini.
 Uji kasus yang diambil penulis terbatas dalam permasalahan klasifikasi saja.
 Namun, tidak menutup kemungkinan kakas ini dapat digunakan dalam permasalahan lainnya seperti regresi atau \textit{clustering}.
 Bila diperlukan, kode untuk kakas dapat ditambah fungsionalitasnya untuk mengatasi kasus-kasus yang belum teratasi.
+
+Kakas ini juga belum mengatasi bagaimana hasil prediksi dikeluarkan.
+Pengguna diberi kebebasan untuk memproses lebih lanjut hasil prediksi dari sistem, karena tiap keluaran model memiliki makna yang berbeda-beda tergantung dari arsitektur suatu model.
+Misalnya, dalam permasalahan MNIST yang dibahas sebelumnya keluaran berupa \textit{array} dengan panjang 10 yang merepresentasikan angka dari nol hingga sembilan.
