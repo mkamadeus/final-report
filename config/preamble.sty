@@ -9,6 +9,7 @@
 
 % bahasa indo
 \usepackage[bahasai]{babel}
+\usepackage{csquotes}
 
 % math support with Times font
 \usepackage{mathptmx}
@@ -24,20 +25,20 @@
 
 % glossary
 \usepackage{glossaries}
-\makeglossaries
+% \makeglossaries
 
-\newglossaryentry{latex}
-{
-    name=latex,
-    description={Is a markup language specially suited 
-    for scientific documents}
-}
+% \newglossaryentry{latex}
+% {
+%     name=latex,
+%     description={Is a markup language specially suited 
+%     for scientific documents}
+% }
 
-\newglossaryentry{maths}
-{
-    name=mathematics,
-    description={Mathematics is what mathematicians do}
-}
+% \newglossaryentry{maths}
+% {
+%     name=mathematics,
+%     description={Mathematics is what mathematicians do}
+% }
 
 % use utf8 characters
 \usepackage[utf8]{inputenc}
@@ -230,3 +231,5 @@ Desember\fi~\number\year}
 
 \renewcommand{\cftlistingpresnum}{Kode~}
 \setlength{\cftlistingnumwidth}{2cm}
+
+\newcommand{\monospace}[1]{\texttt{#1}}

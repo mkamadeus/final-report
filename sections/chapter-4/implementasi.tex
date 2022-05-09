@@ -6,25 +6,25 @@ Rincian implementasi dapat dilihat pada \url{https://github.com/mkamadeus/myx}.
 
 \subsection{Spesifikasi Umum Kakas}
 
-Penulis memilih untuk mengimplementasikan kakas ini pada bahasa pemrograman Go.
+Kakas ini diimplementasikan pada bahasa pemrograman Go.
 Hal ini dilakukan karena rata-rata kakas untuk banyak hal diimplementasikan untuk bahasa Go yang \textit{executable}-nya cukup kecil.
 Selain itu, bahasa Go merupakan bahasa yang \textit{strongly typed}, sehingga dapat memudahkan perbaikan atau penambahan fitur ke depannya.
 Walaupun Python adalah bahasa yang umum digunakan dalam eksperimen pemelajaran mesin, kakas ini tidak terkait dengan penggunaan kakas-kakas yang spesifik hanya ada di Python saja, sehingga penggunaan bahasa lain tidak menjadi masalah.
 
 Kakas ini akan menghasilkan kode Python yang siap dijalankan.
 Kode juga mencakup file-file lain yang diperlukan.
-Kode yang dihasilkan akan menggunakan \textit{framework} FastAPI, yaitu \textit{framework} aplikasi web yang umum digunakan.
+Kode yang dihasilkan akan menggunakan \textit{framework} \monospace{FastAPI}, yaitu \textit{framework} aplikasi web yang umum digunakan.
 
 Kakas ini diuji dalam sistem berbasis kernel Linux.
 Walau begitu, dengan implementasi dan bahasa Go yang digunakan seharusnya kakas ini dapat digunakan dalam lingkungan sistem yang berbeda.
 Untuk menggunakan kakas ini, Python juga diperlukan untuk melakukan instalasi \textit{library} yang diperlukan agar sistem dapat berjalan.
-\textit{Library} akan disiapkan dalam sebuah \textit{virtual environment}.
+\textit{Library} yang diinstalasi akan disiapkan dalam sebuah \textit{virtual environment}.
 
 \subsection{Pembacaan Konfigurasi}
 
 Sesuai yang telah dibahas pada bagian sebelumnya, masing-masing bagian konfigurasi bertanggung jawab atas suatu bagian dalam kode.
 Konfigurasi mengatur juga alur pembangkitan kode dilakukan.
-Berikut ini adalah alur pembacaan konfigurasi oleh kakas hingga terbentuknya kode sistem.
+Gambar~\ref{fig:04-flowchart-config-read} menunjukan alur pembacaan konfigurasi oleh kakas hingga terbentuknya kode sistem.
 
 \begin{figure}[H]
     \centering
@@ -32,9 +32,9 @@ Berikut ini adalah alur pembacaan konfigurasi oleh kakas hingga terbentuknya kod
     \caption{Alur Pembacaan Konfigurasi oleh Kakas}\label{fig:04-flowchart-config-read}
 \end{figure}
 
-Berdasarkan bagian sebelumnya, kakas memodelkan konfigurasi kakas secara internal.
+Berdasarkan bagian sebelumnya, kakas memodelkan konfigurasi secara internal; artinya tipe dari kakas akan diperiksa ketika kakas akan di-\textit{compile} dan dalam \textit{runtime}.
 Masing-masing bagian konfigurasi dimodelkan secara terpisah untuk tiap bagian dari konfigurasi.
-Konfigurasi juga didefinisikan seumum mungkin agar mudah untuk melakukan penambahan pada fungsionalitas kakas secara mudah.
+Konfigurasi juga didefinisikan seumum mungkin agar mudah untuk melakukan penambahan fungsionalitas kakas secara mudah.
 
 
 \subsection{Pembangkitan dan Penggabungan Kode}
@@ -68,18 +68,22 @@ Segala hal yang berkaitan bagaimana \textit{framework} yang dipilih dibangun ber
 \textit{Endpoint} didefinisikan dalam tahapan ini.
 Sebuah \textit{endpoint} dibangun dari potongan-potongan kode yang telah dibangun sebelumnya.
 
+Dalam tahapan agregasi kode, terdapat suatu tahapan yang menggabungkan definisi \textit{import} yang diperlukan dari berbagai bagian kode.
+Suatu tahapan diperlukan untuk melakukan analisis kode untuk melakukan instalasi \textit{library} yang diperlukan.
+
 \subsection{Pembangkitan File Terkait}
 
-Selain dari membangkitkan kode, diperlukan beberapa file lagi untuk memastikan sistem ini dapat berjalan.
+Selain dari membangkitkan kode, diperlukan beberapa \textit{file} lagi untuk memastikan sistem ini dapat berjalan.
 Beberapa file yang penulis tetapkan untuk dibuat adalah seperti berikut:
 
 \begin{enumerate}
-    \item File Dockerfile; dibuat agar sistem bisa dijalankan melalui \textit{container}.
-    \item File Gitignore; dibuat untuk memudahkan pengguna bila kode akan dimasukkan ke dalam \textit{version control system}.
-    \item File Kakas Python/requirements.txt; dibuat agar diketahui apa saja kakas-kakas yang diperlukan.
+    \item \textit{File} Dockerfile; dibuat agar sistem bisa dijalankan melalui \textit{container}.
+    \item \textit{File} Gitignore; dibuat untuk memudahkan pengguna bila kode akan dimasukkan ke dalam \textit{version control system}.
+    \item \textit{File library} Python/\monospace{requirements.txt}; dibuat agar diketahui apa saja kakas-kakas yang diperlukan.
 \end{enumerate}
 
-Pembangkitan file-file ini dilakukan oleh penulis dengan mekanisme yang sederhana untuk kakas ini.
-Dibuat \textit{template} dari file-file yang diperlukan yang akan dibaca oleh kakas dan dibangkitkan setelah semua proses sebelumnya selesai.
-Pendekatan ini memiliki kelemahan karena proses ini tidak dilakukan secara modular.
-Implementasi kakas menekankan pada pembangkitan kode yang modular saja.
+Secara umum, pembangkitan \textit{file-file} ini dilakukan oleh penulis dengan mekanisme yang sederhana untuk kakas ini.
+Dibuat \textit{template} dari \textit{file-file} yang diperlukan yang akan dibaca oleh kakas dan dibangkitkan setelah semua proses sebelumnya selesai.
+Bila diperlukan, dapat didefinisikan kode tambahan untuk melakukan penambahan \textit{file}.
+
+Pengecualian untuk \textit{file library} Python/\monospace{requirements.txt}, diperlukan 

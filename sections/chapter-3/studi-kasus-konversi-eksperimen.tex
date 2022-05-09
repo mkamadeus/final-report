@@ -5,13 +5,17 @@ Eksperimen pemelajaran mesin dilakukan sedemikian sehingga penulis mendapatkan h
 Dalam proses konversi ini, penulis menggunakan bahasa Python dengan kakas-kakas pemelajaran mesin dan pembuatan API\@.
 Makalah ini akan membahas dua jenis eksperimen dengan data yang berbeda, yaitu eksperimen data tabular serta data citra.
 
-\subsection{Eksperimen Data Tabular}
-Eksperimen ini dilakukan dengan menggunakan kakas scikit-learn.
-Untuk API, penulis menggunakan kakas FastAPI dengan tujuan akhir membuat sistem dengan arsitektur REST sederhana.
+\subsection{Eksperimen Data Tabular}\label{section:03-tabular-experiment}
+
+Eksperimen ini dilakukan dengan menggunakan kakas \monospace{scikit-learn}.
+Untuk API, penulis menggunakan kakas \monospace{FastAPI} dengan tujuan akhir membuat sistem dengan arsitektur REST sederhana.
 API hanya terdiri dari satu \textit{endpoint} saja, yaitu untuk melakukan prediksi terhadap suatu data masukan.
 
 Penulis mengambil dari salah satu contoh eksperimen pemelajaran mesin yang paling sederhana, yaitu melakukan prediksi terhadap data dari penumpang Titanic; apakah penumpang tersebut akan selamat atau tidak dari data yang diketahui dari kecelakaan kapal tersebut.
-Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data tavykar diproses dan bagaimana model hasil eksperimen disimpan.
+Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data tabular diproses dan bagaimana model hasil eksperimen disimpan.
+
+Eksperimen yang dilakukan terdapat pada \url{https://www.kaggle.com/code/mkamadeus/titanic-skl2onnx}.
+Metode pemelajaran mesin yang digunakan adalah pemelajaran mesin dasar (bukan pemelajaran mendalam/\textit{deep learning}).
 Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang perlu diperhatikan dalam merancang kakas yaitu sebagai berikut:
 
 \begin{enumerate}
@@ -39,28 +43,27 @@ Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang
 
 Berdasarkan studi kasus sederhana ini, penulis telah melakukan implementasi terhadap kode yang mungkin dihasilkan oleh kakas.
 Penulis juga membuat format konfigurasi kakas untuk studi kasus ini berdasarkan kode sistem yang dibuat.
-Berikut ini adalah kode serta konfigurasinya.
+Kode~\ref{listing:15} menunjukan hasil kode penulis dan Kode~\ref{listing:14} menunjukan bagaimana konfigurasi yang perlu dibangun untuk kakas dapat membuat kode seperti yang terdapat pada Kode~\ref{listing:15}.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/titanic_full.yml}
-	\caption{Contoh spesifikasi sistem Titanic}
-	\label{listing:14}
+	\caption{Contoh konfigurasi sistem Titanic}\label{listing:14}
 \end{code}
 
 \begin{code}
 	\pycode{resources/files/code/titanic_full.py}
-	\caption{Contoh kode sistem Titanic}
-	\label{listing:15}
+	\caption{Contoh kode sistem Titanic}\label{listing:15}
 \end{code}
 
-\subsection{Eksperimen Data Citra}
-Eksperimen ini dilakukan dengan menggunakan kakas Tensorflow dan Keras, mengingat pendekatan menggunakan pemelajaran mendalam (\textit{deep learning}) populer digunakan sebagai pendekatan dalam banyak permasalahan pemelajaran mesin.
-Sama seperti eksperimen sebelumnya, penulis menggunakan kakas FastAPI untuk membuat arsitektur REST sederhana.
-API yang dibuat terdiri dari satu \textit{endpoint} saja, yaitu untuk melakukan prediksi terhadap suatu data citra masukan yang diunggah ke sistem.
+\subsection{Eksperimen Data Citra}\label{section:03-image-experiment}
 
-Penulis memilih untuk menggunakan data MNIST, yaitu data tulisan tangan untuk memprediksi angka.
-Penulis melakukan eksperimen seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data citra diproses dan bagaimana model hasil eksperimen pemelajaran mendalam disimpan.
-Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang perlu diperhatikan dalam merancang kakas untuk data citra yaitu sebagai berikut:
+Eksperimen ini dilakukan dengan menggunakan kakas \monospace{tensorflow} dan \monospace{keras}, mengingat pendekatan menggunakan pemelajaran mendalam (\textit{deep learning}) populer digunakan sebagai pendekatan dalam banyak permasalahan pemelajaran mesin.
+Sama seperti eksperimen sebelumnya, penulis menggunakan kakas \monospace{FastAPI} untuk membuat arsitektur REST sederhana.
+Sistem yang dibuat terdiri dari satu \textit{endpoint} saja, yaitu untuk melakukan prediksi terhadap suatu data citra masukan yang diunggah ke sistem.
+
+Penulis memilih data MNIST untuk melakukan eksperimen, yaitu melakukan prediksi angka untuk data tulisan tangan.
+Eksperimen dilakukan seperti biasa, dengan fokus eksperimen adalah dengan memperhatikan bagaimana data citra diproses dan bagaimana model hasil eksperimen pemelajaran mendalam disimpan.
+Setelah melakukan eksperimen, penulis mengambil beberapa hal dan poin penting yang perlu diperhatikan dalam merancang kakas untuk data citra yaitu sebagai berikut:
 
 \begin{enumerate}
 	\item Pemrosesan data dilakukan secara menyeluruh
@@ -68,7 +71,7 @@ Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang
 	Berbeda dengan data tabular yang memiliki beberapa kolom, data citra hanya berupa \textit{file} yang independen.
 	Hal ini menyebabkan pemrosesan citra dilakukan secara menyeluruh terhadap \textit{file} tersebut.
 	Pemrosesan terhadap suatu bagian dari citra tidak umum dilakukan.
-	Oleh karena itu, \textit{pipeline} dilakukan terhadap keseluruhan citra dibandingkan kepada suatu bagian saja. 
+	Oleh karena itu, \textit{pipeline} dilakukan terhadap keseluruhan citra dibandingkan kepada suatu bagian dari masukan saja. 
 
 	\item Tidak diperlukannya bentuk masukan
 	
@@ -78,26 +81,24 @@ Setelah melakukan eksperimen, penulis mengambil beberapa hal dan kata kunci yang
 	
 	\item Pemrosesan keluaran model
 	
-	Model-model pemelajaran mesin berbasis pemelajaran mendalam berdasarkan pada aljabar linear dan matriks.
+	Model-model pemelajaran mesin berbasis pemelajaran mendalam berdasarkan pada kalkulus, aljabar linear, dan matriks.
 	Data masukan dan keluaran dari model merupakan angka yang bila tidak memiliki konteks akan tidak memiliki makna.
 	Oleh karena itu, mungkin perlu dilakukan pemrosesan lanjut terhadap data keluaran dari model-model yang berbasis pemelajaran mendalam.
-	Pemrosesan ini dapat dilakukan di luar sistem atau di sini pengguna sistem selama angka yang dihasilkan model diketahui konteksnya.
+	Pemrosesan ini dapat dilakukan di luar sistem atau dari sisi pengguna sistem selama konteks dari angka yang dihasilkan sistem diketahui.
 
 \end{enumerate}
 
 Berdasarkan studi kasus ini, penulis telah melakukan implementasi terhadap kode yang mungkin dihasilkan oleh kakas.
 Penulis juga membuat format konfigurasi kakas untuk studi kasus ini berdasarkan kode sistem yang dibuat.
-Berikut ini adalah kode serta konfigurasinya.
+Kode~\ref{listing:16} menunjukan spesifikasi yang perlu dibentuk untuk membangun sistem dan Kode~\ref{listing:17} menunjukan kode yang dibuat penulis sebagai gambaran.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/mnist_full.yml}
-	\caption{Contoh spesifikasi sistem MNIST berdasarkan eksperimen}
-	\label{listing:16}
+	\caption{Contoh spesifikasi sistem MNIST berdasarkan eksperimen}\label{listing:16}
 \end{code}
 
 \begin{code}
 	\pycode{resources/files/code/mnist_full.py}
-	\caption{Contoh kode sistem MNIST}
-	\label{listing:17}
+	\caption{Contoh kode sistem MNIST}\label{listing:17}
 \end{code}
 
