@@ -1,12 +1,13 @@
 input:
   format: tabular
   meta:
-    - name: age
-      type: float
-      target: 0
-    - name: gender
-      type: categorical
-      target: [1, 2]
-    - name: embarked
-      type: float
-      target: 3
+    columns:
+      - name: pclass
+        type: int
+        target: 0
+      - name: sibsp
+        type: int
+        target: 1
+      - name: parch
+        type: int
+        target: 2

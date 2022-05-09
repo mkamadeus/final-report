@@ -3,8 +3,7 @@
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\textwidth]{03-rancangan-solusi.drawio.png}
-  \caption{Rancangan Solusi Konversi Eksperimen}
-  \label{fig:03-tool}
+  \caption{Rancangan Solusi Konversi Eksperimen}\label{fig:03-tool}
 \end{figure}
 
 Dalam makalah ini, dibuat suatu prototipe kakas yang dapat menganalisis suatu eksperimen dan mengubahnya menjadi suatu sistem yang siap (lihat Gambar~\ref{fig:03-tool}).
@@ -12,15 +11,18 @@ Definisi dari perjanjian data yang menjadi masukan dan keluaran akan dibuat oleh
 Alur pemrosesan yang didefinisikan dapat dibuat lewat \textit{markup file} seperti JSON atau YAML yang formatnya sudah ditentukan untuk kakas tersebut.
 Alur didefinisikan lewat pemanggilan modul-modul yang diimplementasikan lebih dulu yang nantinya dapat memanggil sebuah model yang biasanya sudah siap dan disimpan dalam sebuah file.
 
+Modul yang dimaksud berupa potongan program yang siap untuk disatukan dengan potongan program lainnya untuk membentuk suatu sistem yang berjalan.
 Modul dapat diimplementasikan dalam bahasa apapun selama semua modul yang digunakan menggunakan bahasa yang sama.
-Dalam pendekatan yang umum, digunakan Docker sebagai bantuan untuk melakukan pemrosesan terhadap data, karena hal ini diterapkan dalam sebuah \textit{pipeline} eksperimen.
-Dalam sebuah sistem yang berjalan, hal ini menjadi kurang baik karena akan memerlukan komputasi yang lebih berat akibat penggunaan virtualisasi.
+Dalam pendekatan yang umum, digunakan Docker sebagai bantuan untuk melakukan pemrosesan terhadap data.
+Metode ini diterapkan dalam pengembangan eksperimen yang iteratif.
+Dalam pengembangan sistem pemelajaran mesin, hal ini menjadi kurang baik karena akan memerlukan komputasi yang lebih berat akibat penggunaan \textit{containerization} yang pada dasarnya tidak diperlukan.
 
-Hasil akhir dari kakas ini adalah sebuah kode sistem yang siap digunakan untuk \textit{production}.
-Kakas ini tentunya bersifat \textit{non-domain specific} atau dapat digunakan untuk kasus pembuatan sistem inferensi secara umum.
+Hasil akhir dari kakas ini adalah sebuah kode sistem yang siap digunakan untuk \textit{production} yang terbentuk dari konfigurasi masukan seperti modul-modul yang dinginkan.
+Kakas ini bersifat \textit{non-domain specific} atau dapat digunakan untuk kasus pembuatan sistem inferensi secara umum.
 Pemilihan \textit{interface} untuk model ditentukan lewat \textit{markup file} yang telah dibuat.
 Metode komunikasi yang akan diimplementasikan adalah REST sebagai contoh dari \textit{interface} yang umum digunakan dalam sistem.
 
 Penulis mengimplementasikan kakas ini dalam bahasa Go.
+Pemilihan bahasa didasarkan kepada \textit{library} yang tersedia dalam bahasa tersebut dan bahasa Go yang bersifat \textit{strong-typing} untuk memastikan struktur program yang baik.
 Hasil dari proses konversi yang dilakukan kakas akan berupa kode program dalam bahasa Python dengan \textit{FastAPI}.
 

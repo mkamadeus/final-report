@@ -2,3 +2,5 @@ input:
   format: image
   meta:
     channel: 1
+    width: 32
+    height: 32

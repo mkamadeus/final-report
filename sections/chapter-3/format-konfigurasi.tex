@@ -1,4 +1,5 @@
 \section{Format Konfigurasi}
+% chktex-file 36
 
 Seperti yang disinggung pada bagian sebelumnya, kakas ini akan menerima masukan berupa \textit{markup file} yang menjadi konfigurasi dari sistem.
 \textit{File} ini mengandung pengaturan yang diperlukan dalam membangun suatu kode sistem.
@@ -14,40 +15,50 @@ Beberapa hal yang terdapat dari konfigurasi berdasarkan pertimbangan penulis unt
 
 Sebagai catatan, format masukan dan keluaran yang dimaksudkan adalah untuk pengunaan sistem secara \textit{interface} dan bukan untuk model yang menjadi bagian dari sistem.
 Dalam bagian ini, akan dibahas mengenai masing-masing komponen yang terdapat dalam konfigurasi secara singkat.
-Mengenai bagaimana kakas akan menggunakan konfigurasi ini akan dibahas pada bagian berikutnya.
+Rancangan konfigurasi ini adalah bayangan penulis dalam membuat konfigurasi yang intuitif serta dapat dikembangkan lebih lanjut.
+Bagaimana kakas akan menggunakan konfigurasi ini akan dibahas pada bagian berikutnya.
 
 \subsection{Konfigurasi Format Masukan}\label{section:03-input-format}
 
 Sistem pemelajaran mesin saat ini memiliki banyak bentuk masukan.
 Salah satu bentuk masukan yang umum digunakan adalah bentuk yang berupa tabel atau tabular.
 Format masukan perlu didefinisikan untuk membantu dalam proses pembuatan kode khususnya terkait dengan \textit{interface}.
-Berikut adalah contoh konfigurasi untuk bagian masukan sistem yang berupa data tabular.
+Kode~\ref{listing:1} merupakan contoh konfigurasi untuk bagian masukan sistem yang berupa data tabular.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/input_basic.yml}
-	\caption{Contoh spesifikasi masukan tabular untuk kakas}
-	\label{listing:1}
+	\caption{Contoh spesifikasi masukan tabular untuk kakas}\label{listing:1}
 \end{code}
+
+Untuk data tabular, terdapat beberapa parameter yang bisa dikonfigurasi.
+Parameter ``name'' pada konfigurasi menjadi nama masukan pada file JSON yang menjadi masukan sistem.
+Parameter ``type'' mendefinisikan tipe masukan data kepada sistem.
+Parameter ``target'' mendefinisikan ke kolom mana masukan ini akan digunakan dalam masukan model.
 
 Mengingat jenis masukan dapat beragam, tidak menutup kemungkinan masukan dengan bentuk lain dapat digunakan dalam model, contohnya seperti masukan yang berupa citra.
 Masukan citra memiliki aturan-aturan seperti layaknya data tabular, seperti panjang dan lebar dari sebuah citra.
-Berikut adalah contoh konfigurasi untuk masukan yang berupa data citra.
+Kode~\ref{listing:2} merupakan contoh konfigurasi untuk masukan yang berupa data citra.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/input_image.yml}
-	\caption{Contoh spesifikasi masukan citra untuk kakas}
-	\label{listing:2}
+	\caption{Contoh spesifikasi masukan citra untuk kakas}\label{listing:2}
 \end{code}
 
-Selain dari format masukan yang beragam, terkadang masukan kepada sistem dapat berbeda dengan masukan pada model.
+Serupa pada format data tabular, data citra juga memiliki beberapa parameter yang bisa diatur.
+Misalnya, parameter ``channel'' yang mendefinisikan berapa \textit{channel} yang terdapat pada citra.
+Terdapat juga parameter yang mendefinisikan ukuran citra yang dimasukkan ke dalam model.
+
+Selain dari format masukan yang beragam, terkadang masukan kepada sistem dapat berbeda dengan masukan pada model seperti halnya dalam beberapa kasus di permasalahan data tabular.
 Alasan dari perbedaan tersebut adalah terdapat pemrosesan data yang dilakukan oleh sistem untuk membuat masukan pada sistem lebih intuitif.
+Tidak semua masukan dapat diketahui nilai yang perlu dimasukan ke dalam model tanpa melalui pemrosean yang sama seperti dalam eksperimen.
+
 Oleh karena itu, konfigurasi dari format masukan juga perlu menangani hal tersebut.
-Berikut adalah contoh konfigurasi untuk masukan yang ditandai untuk dilakukan pemrosesan data.
+Kolom yang perlu dilakukan pemrosesan tambahan ditandai untuk dilihat lebih lanjut dalam bagian pemrosesan data.
+Kode~\ref{listing:3} merupakan contoh konfigurasi untuk masukan yang ditandai untuk dilakukan pemrosesan data.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/input_preprocessed.yml}
-	\caption{Contoh spesifikasi masukan yang perlu pemrosesan lanjut}
-	\label{listing:3}
+	\caption{Contoh spesifikasi masukan yang perlu pemrosesan lanjut}\label{listing:3}
 \end{code}
 
 \subsection{Konfigurasi Format Keluaran}\label{section:03-output-format}
@@ -58,12 +69,11 @@ Format keluaran bergantung dari domain permasalahan serta teknik-teknik pembelaj
 Misalnya, dalam permasalahan klasifikasi format keluaran akan berupa sekumpulan prediksi dari model yang mungkin disertai dengan derajat kepercayaan dari prediksi tersebut.
 Permasalahan regresi juga akan mengembalikan suatu nilai numerik.
 Tidak sebatas dalam teknik-teknik \textit{supervised} saja, teknik \textit{unsupervised} seperti \textit{clustering} yang memiliki keluaran yang serupa dengan klasifikasi.
-Berikut adalah contoh konfigurasi untuk keluaran sederhana:
+Kode~\ref{listing:4} merupakan contoh konfigurasi untuk keluaran sederhana:
 
 \begin{code}
 	\yamlcode{resources/files/configurations/output_basic.yml}
-	\caption{Contoh spesifikasi keluaran untuk sistem}
-	\label{listing:4}
+	\caption{Contoh spesifikasi keluaran untuk sistem}\label{listing:4}
 \end{code}
 
 \subsection{Konfigurasi Format Model}\label{section:03-model-format}
@@ -76,53 +86,54 @@ ONNX juga memiliki kemampuan untuk melakukan inferensi dengan cara yang seragam 
 Walaupun begitu, tidak menutup kemungkinan untuk konfigurasi tidak menggunakan format lain.
 Misalnya, pada kakas Tensorflow disediakan sebuah cara untuk menyimpan model dalam sebuah file lewat \mintinline{python}{save_model()}.
 Oleh karena itu, konfigurasi format model harus dapat menerima jenis model yang berbeda-beda.
-Berikut ini beberapa contoh konfigurasi sederhana untuk model dengan format yang berbeda:
+Kode~\ref{listing:5} dan Kode~\ref{listing:6} merupakan merupakan beberapa contoh konfigurasi sederhana untuk model dengan format yang berbeda:
 
 \begin{code}
 	\yamlcode{resources/files/configurations/model_basic.yml}
-	\caption{Contoh spesifikasi model dengan ONNX}
-	\label{listing:5}
+	\caption{Contoh spesifikasi model dengan ONNX}\label{listing:5}
 \end{code}
 \begin{code}
 	\yamlcode{resources/files/configurations/model_keras.yml}
-	\caption{Contoh spesifikasi model dengan Keras}
-	\label{listing:6}
+	\caption{Contoh spesifikasi model dengan Keras}\label{listing:6}
 \end{code}
 
+Dalam rancangan konfigurasi ini, keduanya memiliki parameter yang serupa.
+Model yang telah disimpan pada suatu lokasi akan diberikan letak/\textit{path}-nya dalam parameter ``path''.
+Penentuan format dalam parameter ``format'' akan menentukan bagaimana kode yang dibangun akan membaca model yang diberikan dengan cara yang sesuai.
+
 \subsection{Konfigurasi Alur Pemrosesan}\label{section:03-processing-pipeline}
+
 Secara umum, terkadang perlu tahapan-tahapan tertentu dari masukan yang diberikan terhadap sistem.
-Misalnya, dalam data tabular kadang dilakukan proses \textit{scaling} terhadap data atau melakukan reduksi dimensi dengan menggunakan teknik seperti PCA dan LDA.
+Misalnya, dalam data tabular kadang dilakukan proses \textit{scaling} terhadap data atau melakukan reduksi dimensi dengan menggunakan teknik seperti PCA dan LDA.\@
 Masukan berupa citra kadang diperlukan untuk melakukan tahap \textit{image processing} untuk memastikan citra yang dimasukkan cocok untuk sistem.
 Kakas ini akan menerima konfigurasi untuk melakukan hal-hal tersebut lewat modul-modul yang didefinisikan dalam konfigurasi.
-Berikut adalah rancangan konfigurasi untuk alur pemrosesan masukan sistem:
+Kode~\ref{listing:7} merupakan rancangan konfigurasi untuk alur pemrosesan masukan sistem:
 
 \begin{code}
 	\yamlcode{resources/files/configurations/pipeline_basic.yml}
-	\caption{Contoh spesifikasi pemrosesan data}
-	\label{listing:7}
+	\caption{Contoh spesifikasi pemrosesan data}\label{listing:7}
 \end{code}
 
 Sebagai penjelasan singkat, dalam konfigurasi ini terdapat masukan untuk jenis pemrosesan yang akan dilakukan terhadap suatu format tabular.
 Selain itu, terdapat konfigurasi untuk memilih data masukan mana yang ingin diproses disertai dengan tujuan.
-Informasi lainnya adalah untuk menjadi parameter bagi modul pemrosesan data. 
+Informasi lainnya adalah untuk menjadi parameter bagi modul pemrosesan data.
+Parameter tersebut akan beragam bergantung pada modul pemrosesan data yang digunakan.
 
 \subsection{Konfigurasi \textit{Interface}}\label{section:03-interface-config}
-Sistem secara umum akan menggunakan salah satu atau kedua dari \textit{interface}, yaitu REST atau gRPC.
+Sistem secara umum akan menggunakan salah satu atau kedua dari \textit{interface}, yaitu REST atau gRPC.\@
 Dengan mempertimbangkan kedua hal tersebut, kakas ini akan berfokus pada kedua \textit{interface} tersebut.
 Kode dari sistem yang dibangkitkan tentunya dapat dimodifikasi sesuai kebutuhan dari sistem bila diperlukan perubahan terhadap \textit{interface}.
-Berikut adalah contoh konfigurasi \textit{interface} sederhana:
+Kode~\ref{listing:8} merupakan contoh konfigurasi \textit{interface} sederhana.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/interface_basic.yml}
-	\caption{Contoh spesifikasi sistem dengan \textit{interface} REST}
-	\label{listing:8}
+	\caption{Contoh spesifikasi sistem dengan \textit{interface} REST}\label{listing:8}
 \end{code}
 
 Konfigurasi ini tidak menutup kemungkinan untuk memiliki dua \textit{interface} sekaligus.
-Berikut adalah contoh konfigurasi sistem dengan dua \textit{interface} sekaligus, misalnya REST dan gRPC.
+Kode~\ref{listing:9} merupakan contoh konfigurasi sistem dengan dua \textit{interface} sekaligus: REST dan gRPC.\@
 
 \begin{code}
 	\yamlcode{resources/files/configurations/interface_multiple.yml}
-	\caption{Contoh spesifikasi sistem dengan beberapa \textit{interface}}
-	\label{listing:9}
+	\caption{Contoh spesifikasi sistem dengan beberapa \textit{interface}}\label{listing:9}
 \end{code}

@@ -1,6 +1,6 @@
 \section{MLOps}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{02-mlops.png}
   \caption{Siklus hidup MLOps (Sumber:~\cite{mlops})}
@@ -19,13 +19,13 @@ Saat ini, metodologi MLOps juga sudah diterapkan pada berbagai perusahaan besar 
 
 \subsection{Alasan MLOps Diperlukan}
 
-Hal ini patut menjadi pertanyaan, `'apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?`'
+Hal ini patut menjadi pertanyaan, ``apakah MLOps benar-benar diperlukan dalam pengembangan sistem pemelajaran mesin?''
 Seiring berjalannya waktu, kebutuhan terhadap pemelajaran mesin semakin meluas.
 Berbagai eksperimentasi, pemrosesan data, dan pemodelan dilakukan dengan cepat dan dengan terus menerus dikembangkan versi yang lebih baru.
 Bisa jadi, model yang dibuat sudah dapat berjalan dalam eksperimen.
 Langkah selanjutnya adalah metode untuk memberikan komputasi model tersebut kepada layanan lain atau kepada pihak luar.
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{02-ml-system.png}
   \captionsetup{justification=centering}
@@ -48,6 +48,7 @@ Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLO
 
 Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem pemelajaran mesin dengan mudah (\cite{k8s}).
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
+
 Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas pemelajaran mesin lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
 Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
 
@@ -58,7 +59,7 @@ Pendekatan \textit{pipeline} ini secara umum fleksibel dan dapat menjadi potensi
 
 \subsection{Alur Kerja MLOps}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{02-ml-engineering.jpg}
   \captionsetup{justification=centering}
