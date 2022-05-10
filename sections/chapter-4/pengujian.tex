@@ -41,6 +41,8 @@ Kakas dapat dijalankan dengan menggunakan perintah \monospace{./myx -o ./ spec.y
 Selain dari kode, dihasilkan juga \textit{file-file} lainnya seperti yang disinggung sebelumnya.
 
 Setelah kakas dijalankan, kode program akan dihasilkan.
+Kode~\ref{listing:19} menunjukkan hasil kode utama yang dihasilkan.
+Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini.
 
 \begin{code}
 	\pycode{resources/files/code/titanic_result.py}
@@ -88,6 +90,7 @@ Kakas dijalankan dengan cara yang sama dengan sebelumnya.
 Perbedaan kasus ini dengan kasus sebelumnya adalah direktori tempat konfigurasi ini berada mengandung \textit{file-file} yang diperlukan untuk melakukan \textit{encoding} dan \textit{scaling}.
 Kode yang dihasilkan akan menghasilkan kode sistem yang dapat dijalankan.
 Kode~\ref{listing:23} adalah hasil kode yang dibuat oleh kakas.
+Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini.
 
 \begin{code}
 	\pycode{resources/files/code/titanic_result.py}
@@ -118,6 +121,7 @@ Dalam eksperimen ini, tidak dilakukan pemrosesan data lebih lanjut terhadap citr
 Hal tersebut perlu ditambahkan pada konfigurasi untuk melakukan \textit{scaling} dalam sistem.
 Kode~\ref{listing:26} adalah konfigurasi yang dirancang oleh penulis untuk kasus ini.
 
+
 \begin{code}
 	\yamlcode{resources/files/configurations/mnist_full.yml}
 	\caption{Konfigurasi sistem eksperimen MNIST}\label{listing:26}
@@ -126,6 +130,9 @@ Kode~\ref{listing:26} adalah konfigurasi yang dirancang oleh penulis untuk kasus
 Kode sistem yang dihasilkan dijalankan untuk pengujian ini.
 Sistem ini memerlukan masukan berupa data citra yang biasanya berupa sebuah \textit{file}.
 Sistem akan ini menggunakan \monospace{FormData} untuk mengirimkan citra yang merupakan objek yang biasa dikirimkan dalam \textit{request} HTTP.\@
+
+Kode~\ref{listing:27} merupakan potongan kode hasil kakas.
+Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini.
 
 \begin{code}
 	\pycode{resources/files/code/mnist_result.py}
@@ -152,6 +159,7 @@ Dataset dalam eksperimen ini dataset yang berisi citra anjing dan kucing.
 Eksperimen yang dibangun ini menggunakan metode \textit{transfer learning} dengan memanfaatkan model \monospace{MobileNetV2}.
 \monospace{MobileNetV2} menerima masukan berupa citra yang berukuran 160\(\times\)160, sehingga perlu diadakan tahapan tambahan untuk melakukan pemrosesan data.
 
+Eksperimen yang dilakukan penulis dapat dilihat pada \url{https://www.kaggle.com/code/mkamadeus/transfer-learning} dengan datasetnya yang terdapat pada \url{https://www.kaggle.com/competitions/dogs-vs-cats}.
 Konfigurasi yang dibangun untuk sistem ini akan serupa dengan konfigurasi pada eksperimen sebelumnya.
 Kode~\ref{listing:29} adalah konfigurasi yang dibuat oleh penulis untuk sistem ini.
 
@@ -162,6 +170,7 @@ Kode~\ref{listing:29} adalah konfigurasi yang dibuat oleh penulis untuk sistem i
 
 Kode yang dihasilkan konfigurasi tersebut akan serupa dengan kode pada eksperimen sebelumnya dengan sedikit perbedaan.
 Kode~\ref{listing:30} merupakan potongan kode hasil kakas.
+Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini.
 
 \begin{code}
 	\pycode{resources/files/code/mnist_result.py}
@@ -177,16 +186,16 @@ Hasil prediksi yang dihasilkan oleh sistem ditunjukkan oleh Kode~\ref{listing:31
 	\caption{Masukan pertama sistem eksperimen citra anjing dan kucing}\label{fig:04-catdog-input-01}
 \end{figure}
 
+\begin{code}
+	\jsoncode{resources/files/tests/catdog_output_01.json}
+	\caption{Keluaran pertama sistem eksperimen citra anjing dan kucing}\label{listing:31}
+\end{code}
+
 \begin{figure}[H]
     \centering
 	\includegraphics[width=0.3\textwidth]{04-catdog_input_02.jpg}
 	\caption{Masukan kedua sistem eksperimen citra anjing dan kucing}\label{fig:04-catdog-input-02}
 \end{figure}
-
-\begin{code}
-	\jsoncode{resources/files/tests/catdog_output_01.json}
-	\caption{Keluaran pertama sistem eksperimen citra anjing dan kucing}\label{listing:31}
-\end{code}
 
 \begin{code}
 	\jsoncode{resources/files/tests/catdog_output_02.json}
