@@ -86,4 +86,32 @@ Secara umum, pembangkitan \textit{file-file} ini dilakukan oleh penulis dengan m
 Dibuat \textit{template} dari \textit{file-file} yang diperlukan yang akan dibaca oleh kakas dan dibangkitkan setelah semua proses sebelumnya selesai.
 Bila diperlukan, dapat didefinisikan kode tambahan untuk melakukan penambahan \textit{file}.
 
-Pengecualian untuk \textit{file library} Python/\monospace{requirements.txt}, diperlukan 
+Pengecualian untuk \textit{file library} Python \monospace{requirements.txt}; \textit{file} ini akan dihasilkan oleh kakas ketika melakukan instalasi \textit{library} yang diperlukan.
+Kakas akan melakukan analisis terhadap \textit{library-library} yang diperlukan berdasarkan \textit{import} yang dilakukan.
+Kakas kemudian akan mengunduh \textit{library} yang bersesuaian.
+Setelah semua \textit{library} berhasil diinstalasi, \textit{file} \monospace{requirements.txt} ini akan dibuat.
+
+\subsection{Modul Pemrosesan Data}
+
+Dalam kakas ini, sudah terbuat beberapa modul pemrosesan data untuk pemrosesan yang umum digunakan.
+Contoh modul pemrosesan data yang sudah ada seperti melakukan \textit{terhadap} data tabular, melakukan \textit{resizing} terhadap data citra, dan ada beberapa modul lainnya.
+Definisi modul dalam kakas ini adalah kumpulan \textit{template} kode yang modular yang bila digabungkan menjadi satu akan membentuk kesatuan kode yang menghasilkan data yang dapat diterima oleh model.
+
+Struktur suatu modul dalam kakas dapat direpresentasikan dalam beberapa hal seperti berikut:
+\begin{enumerate}
+    \item \textit{Template} kode
+    \item Nilai masukan untuk \textit{template}
+    \item Nama unik untuk modul
+\end{enumerate}
+
+\textit{Template} kode untuk modul merupakan kode Python yang dirancang sedemikian sehingga bila kode-kode tersebut diisi dengan nilai masukan yang bersesuaian untuk \textit{template} tersebut, akan menghasilkan alur pemrosesan data yang runtut.
+Bergantung dari jenis masukannya, urutan modul pada konfigurasi akan berpengaruh pada hasil akhir kode.
+Misalnya untuk data tabular, urutan tidak begitu menjadi perhatian karena biasanya akan dilakukan pemrosesan per kolom (kecuali untuk pemrosesan yang perlu dilakukan secara terurut).
+
+Nama unik untuk modul saat ini dikodekan secara langsung di dalam kakas, sehingga perlu didefinisikan sebuah nama yang unik dalam kakas.
+Kakas akan mencocokan nama yang ada dalam konfigurasi untuk membuat masukan \textit{template} yang akan dibuat menjadi kode sesungguhnya.
+Dalam implementasi kakas ini, karena modul dibuat berada dalam kakas, perlu dilakukan perubahan terhadap kakas untuk menambah modul.
+
+Berdasarkan hal-hal yang membentuk sebuah modul, pengguna dapat membuat modul baru bila diinginkan untuk kasus yang akan diuji.
+Penambahan modul baru dapat dilakukan melalui menambah ketiga hal tersebut di dalam kode.
+Untuk rinciannya, dapat dilihat pada kode kakas untuk melihat kode program yang perlu ditambah atau diubah.
