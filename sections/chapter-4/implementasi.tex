@@ -2,7 +2,7 @@
 
 Pada bagian ini, penulis membahas poin-poin penting dan spesifikasi implementasi kakas.
 Makalah ini membahas alur-alur implementasi yang penting, mulai dari bagaimana konfigurasi dibaca, bagaimana pembangkitan dan penggabungan kode dilakukan, serta hal-hal lain yang dilakukan oleh kakas ini.
-Rincian implementasi dapat dilihat pada \url{https://github.com/mkamadeus/myx}.
+Struktur kode dari implementasi penulis juga akan dibahas pada bagian ini.
 
 \subsection{Spesifikasi Umum Kakas}
 
@@ -19,6 +19,75 @@ Kakas ini diuji dalam sistem berbasis kernel Linux.
 Walau begitu, dengan implementasi dan bahasa Go yang digunakan seharusnya kakas ini dapat digunakan dalam lingkungan sistem yang berbeda.
 Untuk menggunakan kakas ini, Python juga diperlukan untuk melakukan instalasi \textit{library} yang diperlukan agar sistem dapat berjalan.
 \textit{Library} yang diinstalasi akan disiapkan dalam sebuah \textit{virtual environment}.
+
+\subsection{Struktur Direktori Kakas}
+
+Bagian ini akan menjelaskan mengenai struktur direktori dari kakas yang dibuat.
+Tujuan bagian ini adalah untuk memahami struktur kode yang dibuat penulis dalam mengembangkan kakas serta menambahkan fungsionalitas kepada kakas.
+Untuk rincian dari implementasi kode \url{https://github.com/mkamadeus/myx}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{resources/images/chapter-4/04-directory.png}
+    \caption{Struktur Direktori Kakas}\label{fig:04-directory}
+\end{figure}
+
+Gambar~\ref{fig:04-directory} menunjukkan bagaimana struktur direktori dari kakas.
+Masing-masing direktori dalam kakas ini bertanggung jawab untuk suatu hal.
+Berikut adalah penjelasan singkat masing-masing direktori yang ada.
+
+\begin{enumerate}
+    \item Direktori \monospace{cmd}
+
+    Direktori ini merupakan \textit{"main"} dari kakas.
+    Kakas yang menggunakan \textit{library} \monospace{cobra} menggunakan direktori ini untuk mengeksekusi satuan pekerjaan yang ada dalam kakas.
+    Untuk implementasi kakas ini saat ini hanya diimplementasikan untuk menghasilkan kode.
+
+    \item Direktori \monospace{pkg/config}
+    
+    Direktori ini bertanggung jawab atas konfigurasi dari kakas ketika dijalankan.
+    Konfigurasi yang diatur seperti apakah kakas akan mengeluarkan \textit{log} yang rinci dan mengatur di mana lokasi spesifikasi sistem berada.
+
+    \item Direktori \monospace{pkg/executor}
+    
+    Direktori ini bertanggung jawab untuk melakukan eksekusi terhadap \textit{shell} tempat kakas ini dijalankan.
+    Utamanya, \textit{executor} yang berada dalam kakas ini berfungsi untuk melakukan instalasi \textit{library} Python melalui pip.
+
+    \item Direktori \monospace{pkg/generator}
+    
+    Direktori ini merupakan direktori yang digunakan untuk menyimpan \textit{generator} penghasil kode.
+    Kode sistem akan digabungkan pada direktori ini; bergantung pada format masukan yang diinginkan untuk sistem.
+
+    \item Direktori \monospace{pkg/logger}
+    
+    Direktori ini menyimpan \textit{instance logger} untuk kakas ini.
+    Kakas ini menggunakan \textit{library} \monospace{logrus} untuk melakukan \textit{logging}.
+
+    \item Direktori \monospace{pkg/models}
+    
+    Direktori ini memodelkan model-model data yang diperlukan untuk kakas ini.
+    Salah satu model data yang disimpan dalam direktori ini adalah konfigurasi kakas yang akan dibaca dari YAML.
+    Selain itu, direktori ini juga dapat menyimpan pemetaan tipe data antara konfigurasi kakas ke tipe data dalam kode.
+
+    \item Direktori \monospace{pkg/template}
+    
+    Direktori ini menyimpan dan menghasilkan potongan kode dalam bentuk \textit{template}.
+    Potongan kode yang disimpan disimpan dalam \textit{file} terpisah yang nantinya akan digunakan dalam kakas menggunakan bantuan \textit{library} Go bawaan yaitu \monospace{embed}.
+    Potongan kode yang disimpan dibagai ke beberapa subdirektori untuk masing-masing jenis kode.
+    Secara rata-rata, kode dibangun untuk bisa diimplementasikan secara independen, tetapi terdapat sebuah pengecualian untuk direktori \monospace{pkg/template/pipeline}.
+
+    Direktori \monospace{pkg/template/pipeline} mendefinisikan modul-modul pemrosesan data yang ada.
+    Modul-modul ini berupa potongan kode yang bila digabungkan akan membentuk satu kesatuan pemrosesan data.
+    Oleh karena itu, \textit{template} dari modul ini perlu dipertimbangkan, apakah diimplementasikan secara independen atau tidak.
+    Rincian mengenai modul akan dibahas pada Bagian~\ref{section:04-module}.
+
+    \item Direktori \monospace{pkg/utils}
+    
+    Direktori ini adalah direktori yang menyimpan fungsi dan prosedur bantuan yang digunakan dalam seluruh program.
+    Fungsi dan prosedur bantuan tersebut meliputi operasi yang meliputi \textit{string} waktu itu.
+    
+\end{enumerate}
+
 
 \subsection{Pembacaan Konfigurasi}
 
@@ -91,7 +160,7 @@ Kakas akan melakukan analisis terhadap \textit{library-library} yang diperlukan 
 Kakas kemudian akan mengunduh \textit{library} yang bersesuaian.
 Setelah semua \textit{library} berhasil diinstalasi, \textit{file} \monospace{requirements.txt} ini akan dibuat.
 
-\subsection{Modul Pemrosesan Data}
+\subsection{Modul Pemrosesan Data}\label{section:04-module}
 
 Dalam kakas ini, sudah terbuat beberapa modul pemrosesan data untuk pemrosesan yang umum digunakan.
 Contoh modul pemrosesan data yang sudah ada seperti melakukan \textit{terhadap} data tabular, melakukan \textit{resizing} terhadap data citra, dan ada beberapa modul lainnya.
