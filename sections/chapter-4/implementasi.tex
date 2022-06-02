@@ -27,6 +27,7 @@ Tujuan bagian ini adalah untuk memahami struktur kode yang dibuat penulis dalam 
 Untuk rincian dari implementasi kode \url{https://github.com/mkamadeus/myx}.
 
 \begin{figure}[H]
+    \vspace{\baselineskip}
     \centering
     \includegraphics[width=0.4\textwidth]{resources/images/chapter-4/04-directory.png}
     \caption{Struktur Direktori Kakas}\label{fig:04-directory}
@@ -39,7 +40,7 @@ Berikut adalah penjelasan singkat masing-masing direktori yang ada.
 \begin{enumerate}
     \item Direktori \monospace{cmd}
 
-    Direktori ini merupakan \textit{"main"} dari kakas.
+    Direktori ini merupakan \textit{``main''} dari kakas.
     Kakas yang menggunakan \textit{library} \monospace{cobra} menggunakan direktori ini untuk mengeksekusi satuan pekerjaan yang ada dalam kakas.
     Untuk implementasi kakas ini saat ini hanya diimplementasikan untuk menghasilkan kode.
 
@@ -66,7 +67,7 @@ Berikut adalah penjelasan singkat masing-masing direktori yang ada.
     \item Direktori \monospace{pkg/models}
     
     Direktori ini memodelkan model-model data yang diperlukan untuk kakas ini.
-    Salah satu model data yang disimpan dalam direktori ini adalah konfigurasi kakas yang akan dibaca dari YAML.
+    Salah satu model data yang disimpan dalam direktori ini adalah konfigurasi kakas yang akan dibaca dari YAML.\@
     Selain itu, direktori ini juga dapat menyimpan pemetaan tipe data antara konfigurasi kakas ke tipe data dalam kode.
 
     \item Direktori \monospace{pkg/template}
@@ -96,6 +97,7 @@ Konfigurasi mengatur juga alur pembangkitan kode dilakukan.
 Gambar~\ref{fig:04-flowchart-config-read} menunjukan alur pembacaan konfigurasi oleh kakas hingga terbentuknya kode sistem.
 
 \begin{figure}[H]
+  \vspace{\baselineskip}
     \centering
     \includegraphics[width=\textwidth]{04-alur-pembacaan-konfigurasi.drawio.png}
     \caption{Alur Pembacaan Konfigurasi oleh Kakas}\label{fig:04-flowchart-config-read}
@@ -109,6 +111,7 @@ Konfigurasi juga didefinisikan seumum mungkin agar mudah untuk melakukan penamba
 \subsection{Pembangkitan dan Penggabungan Kode}
 
 \begin{figure}[H]
+  \vspace{\baselineskip}
     \centering
     \includegraphics[width=\textwidth]{04-alur-pembangkitan-umum.drawio.png}
     \caption{Alur Pembangkitan oleh Kakas}\label{fig:04-flowchart-code-generation}
