@@ -1,9 +1,4 @@
-# imports
-from fastapi import FastAPI
-from pydantic import BaseModel
-import joblib
-import onnxruntime as rt
-import numpy as np
+...
 
 # app
 app = FastAPI()

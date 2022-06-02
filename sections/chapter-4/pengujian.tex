@@ -79,11 +79,12 @@ Berikut ini adalah daftar pemrosesan terhadap fitur yang dilakukan.
 	\item Melakukan \textit{label encoding} terhadap satu fitur, yaitu jenis kelamin.
 \end{enumerate}
 
-Kode~\ref{listing:22} menunjukkan konfigurasi yang dirancang oleh penulis untuk kasus ini.
+Kode~\ref{listing:22} menunjukkan potongankonfigurasi yang dirancang oleh penulis untuk kasus ini.
+Bagian konfigurasi lainnya menyesuaikan dengan kebutuhan sistem.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/churn_full.yml}
-	\caption{Konfigurasi sistem eksperimen Churn Rate}\label{listing:22}
+	\caption{Potongan Konfigurasi sistem eksperimen Churn Rate}\label{listing:22}
 \end{code}
 
 Kakas dijalankan dengan cara yang sama dengan sebelumnya.
@@ -141,7 +142,7 @@ Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini
 
 Gambar~\ref{fig:04-mnist-input} masukan citra yang diberikan kepada sistem dan hasil prediksi yang dihasilkan sistem.
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \vspace{\baselineskip}
     \centering
     \includegraphics[width=0.3\textwidth]{04-mnist_input.png}
@@ -181,7 +182,7 @@ Terdapat 6 \textit{file} lain termasuk kode utama yang dihasilkan oleh kakas ini
 Gambar~\ref{fig:04-catdog-input-01} dan Gambar~\ref{fig:04-catdog-input-02} merupakan masukan citra kepada sistem.
 Hasil prediksi yang dihasilkan oleh sistem ditunjukkan oleh Kode~\ref{listing:31} dan Kode~\ref{listing:32} untuk masing-masing masukan secara berurutan.
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \vspace{\baselineskip}
     \centering
     \includegraphics[width=0.3\textwidth]{04-catdog_input_01.jpeg}
@@ -193,7 +194,7 @@ Hasil prediksi yang dihasilkan oleh sistem ditunjukkan oleh Kode~\ref{listing:31
 	\caption{Keluaran pertama sistem eksperimen citra anjing dan kucing}\label{listing:31}
 \end{code}
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \vspace{\baselineskip}
     \centering
 	\includegraphics[width=0.6\textwidth]{04-catdog_input_02.jpg}

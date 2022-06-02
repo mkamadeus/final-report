@@ -29,21 +29,10 @@ input:
       - name: estimated_salary
         type: float
         preprocessed: true
-output:
-  - name: prediction
-    type: float
 pipeline:
   - module: preprocessing/scale
     meta:
-      for:
-        [
-          "credit_score",
-          "age",
-          "tenure",
-          "balance",
-          "num_of_products",
-          "estimated_salary",
-        ]
+      for: [ "credit_score", "age", "tenure", "balance", "num_of_products", "estimated_salary" ]
       target: [0, 5, 6, 7, 8, 11]
       path: churn.scaler
   - module: preprocessing/onehot
@@ -56,9 +45,4 @@ pipeline:
       path: geo.encoder
       for: ["gender"]
       target: [4]
-model:
-  format: keras
-  path: churn.h5
-interface:
-  - type: rest
-    port: 8080
+...
