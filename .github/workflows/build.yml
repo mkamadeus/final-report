@@ -13,11 +13,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Generate PDF document
-        uses: hspaans/latexmk-action@v1.1.0
+      - name: Github Action for LaTeX
+        uses: xu-cheng/latex-action@v2
         with:
-          format: pdf
-          filename: main.tex
+          root_file: main.tex
+          latexmk_shell_escape: true
 
       - name: Archive pdf as artifact
         uses: actions/upload-artifact@v2
