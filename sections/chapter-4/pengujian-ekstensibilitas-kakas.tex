@@ -1,0 +1,21 @@
+% chktex-file 26
+% chktex-file 21
+
+\section{Pengujian Ekstensibilitas Kakas}
+
+Bagian ini akan membahas pengujian terhadap ekstensibilitas kakas.
+Pembahasan bagian ini akan terkait dengan bagaimana implementasi modul dalam kakas dilakukan.
+Bila seandaikan diperlukan fitur tambahan untuk kakas, secara teori dan desain dari implementasi kakas ini dimungkinkan untuk ditambahkan fungsionalitas dan modul baru.
+Pengujian bertujuan untuk melihat apakah rancangan implementasi yang dibuat berhasil diimplementasikan sehingga kakas dapat ditambahkan fungsionalitasnya, khususnya dalam hal penambahan modul pemrosesan data.
+
+Pengujian ini dilakukan melalui salah satu studi kasus yang telah dilakukan sebelumnya, yaitu kasus yang dibahas pada Bagian~\ref{section:churn-rate-case}.
+Terdapat salah satu modul yang belum diimplementasikan pada kakas tersebut, yaitu modul yang dapat melakukan \textit{label encoding}.
+Oleh karena itu, penulis menambahkan modul tersebut pada kakas.
+
+Langkah pertama yang dilakukan penulis adalah melihat bagaimana \textit{label encoding} dilakukan di dalam eksperimen.
+Dalam eksperimen tersebut, penulis menggunakan kakas \monospace{scikit-learn} yang umum digunakan untuk memproses data.
+Terdapat sebuah kelas yang mendefinisikan \textit{label encoding} dalam \textit{library} tersebut.
+Penulis mengambil kelas hasil data latih dan mengunduhnya untuk digunakan dalam kakas menggunakan metode yang disediakan oleh \textit{library} tersebut.
+
+Selanjutnya, penulis mencari tahu bagaimana kode untuk menggunakan 
+

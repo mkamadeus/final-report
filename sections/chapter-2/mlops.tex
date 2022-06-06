@@ -42,23 +42,6 @@ Oleh karena itu, selain proses pengembangan dan eksperimentasi dari sebuah model
 Pada praktiknya, pemberian layanan untuk sistem dengan teknologi pemelajaran mesin tidak semudah itu.
 Diperlukan perhatian khusus untuk proses pengembangan sistem, khususnya untuk memastikan sistem dapat berjalan dengan mulus.
 
-\subsection{Contoh Kakas MLOps}
-
-Di masa lampau, kebutuhan untuk sistem berbasis teknologi pemelajaran mesin tidak setinggi di masa kini. 
-Perusahaan-perusahaan raksasa seperti Google membuat suatu \textit{framework} internal untuk kebutuhan mereka saat itu (\cite{mlops}).
-Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLOps mulai bermunculan.
-
-Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem pemelajaran mesin dengan mudah (\cite{k8s}).
-Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
-
-Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas pemelajaran mesin lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
-Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
-
-Dalam Kubeflow, terdapat suatu sistem yang menggunakan \textit{pipeline} serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
-Pipeline pada Kubeflow dapat membentuk sebuah graf yang masing-masing langkah atau \textit{node}-nya mendefinisikan parameter masukan dan keluaran yang terdapat pada tiap langkahnya.
-Tiap langkah merepresentasikan suatu proses terhadap data yang dilakukan lewat Docker yang membungkus suatu kode Python.
-Pendekatan \textit{pipeline} ini secara umum fleksibel dan dapat menjadi potensi pengembangan untuk MLOps.
-
 \subsection{Alur Kerja MLOps}
 
 \begin{figure}[ht]
@@ -77,7 +60,7 @@ Alur kerja tersebut adalah sebagai berikut:
   \item Code Engineering
 \end{enumerate}
 
-Makalah ini akan membahas secara lebih rinci pada tahap code engineering.
+Tugas akhir ini akan membahas secara lebih rinci pada tahap code engineering.
 Untuk tahapan lainnya, akan dibahas beberapa hal yang relevan terhadap tahap code engineering.
 
 \subsubsection{Data Engineering}
@@ -125,18 +108,5 @@ Tahap ini dibagi dalam beberapa tahapan, yaitu:
 \end{enumerate}
 
 Hal yang menjadi perhatian utama dalam tahap ini adalah metode untuk melakukan \textit{delivery} terhadap model atau yang biasa dikenal sebagai \textit{model serving}.
-Banyak pilihan dan \textit{pattern} yang dapat digunakan untuk melakukan \textit{serving}, serta pilihan teknologi yang digunakan untuk \textit{deployment} yang hanya akan dibahas sedikit dalam makalah ini.
+Banyak pilihan dan \textit{pattern} yang dapat digunakan untuk melakukan \textit{serving}, serta pilihan teknologi yang digunakan untuk \textit{deployment} yang hanya akan dibahas sedikit dalam tugas akhir ini.
 \textit{Pattern} untuk melakukan Model Serving akan dibahas pada bagian berikutnya.
-
-\subsection{Kakas \textit{Serving} Model Pemelajaran Mesin}
-
-Dalam proses melakukan \textit{deployment} terhadap model yang sudah menjadi sistem secara utuh, seringkali dibutuhkan suatu kakas untuk membantu proses tersebut.
-Salah satu kakas terkait yang dapat membantu proses \textit{deployment} adalah Tensorflow Serving (\href{https://github.com/tensorflow/serving}{https://github.com/tensorflow/serving}).
-
-Kakas ini adalah kakas yang digunakan untuk membantu proses \textit{deployment} pada model pemelajaran mesin yang dibuat dengan Tensorflow.
-Secara sederhana, kakas ini menyediakan kemampuan untuk membungkus model Tensorflow yang ada lewat metode komunikasi yang umum seperti gRPC dan REST.\@
-Cara menjalankannya juga cukup mudah, yaitu hanya dengan menggunakan Docker untuk melakukan \textit{mounting} terhadap model.
-
-Kakas ini cukup membantu dalam proses \textit{deployment} yang cepat untuk mendapatkan prototipe dari layanan yang seutuhnya.
-Kakas ini hanya berfokus pada cara model dapat diakses oleh metode komunikasi umum.
-Terdapat beberapa hal yang tidak diatasi oleh kakas ini dari sisi pengembangan sistem, seperti pembuatan dokumentasi API dapat dibentuk berdasarkan masukan yang ada dan ketiadaan fitur untuk menggunakan model sebagai \textit{dependency} dari sistem.

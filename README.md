@@ -106,4 +106,4 @@ Untuk TA 2
 4. Pengujian/Evaluasi Hasil
 5. Kesimpulan dan Saran
 
-disertai software, paper, poster, dll. yang menunjang sidang dan makalah.
+disertai software, paper, poster, dll. yang menunjang sidang dan tugas akhir.
