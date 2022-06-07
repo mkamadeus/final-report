@@ -1,0 +1,2 @@
+labeller{{range .Names}}_{{.}}{{end}} = joblib.load('{{.Path}}')
+labelled =  labeller{{range .Names}}_{{.}}{{end}}.transform(np.array([[{{range .Names}}body.{{.}},{{end}}]]))

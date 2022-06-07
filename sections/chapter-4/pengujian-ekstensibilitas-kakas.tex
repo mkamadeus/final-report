@@ -7,6 +7,7 @@ Bagian ini akan membahas pengujian terhadap ekstensibilitas kakas.
 Pembahasan bagian ini akan terkait dengan bagaimana implementasi modul dalam kakas dilakukan.
 Bila seandaikan diperlukan fitur tambahan untuk kakas, secara teori dan desain dari implementasi kakas ini dimungkinkan untuk ditambahkan fungsionalitas dan modul baru.
 Pengujian bertujuan untuk melihat apakah rancangan implementasi yang dibuat berhasil diimplementasikan sehingga kakas dapat ditambahkan fungsionalitasnya, khususnya dalam hal penambahan modul pemrosesan data.
+Seperti yang disebut juga sebelumnya, \textit{repository} kakas dapat dilihat untuk mendapat gambaran yang lebih utuh mengenai proses ini.
 
 Pengujian ini dilakukan melalui salah satu studi kasus yang telah dilakukan sebelumnya, yaitu kasus yang dibahas pada Bagian~\ref{section:churn-rate-case}.
 Terdapat salah satu modul yang belum diimplementasikan pada kakas tersebut, yaitu modul yang dapat melakukan \textit{label encoding}.
@@ -15,7 +16,37 @@ Oleh karena itu, penulis menambahkan modul tersebut pada kakas.
 Langkah pertama yang dilakukan penulis adalah melihat bagaimana \textit{label encoding} dilakukan di dalam eksperimen.
 Dalam eksperimen tersebut, penulis menggunakan kakas \monospace{scikit-learn} yang umum digunakan untuk memproses data.
 Terdapat sebuah kelas yang mendefinisikan \textit{label encoding} dalam \textit{library} tersebut.
-Penulis mengambil kelas hasil data latih dan mengunduhnya untuk digunakan dalam kakas menggunakan metode yang disediakan oleh \textit{library} tersebut.
+Penulis mengambil kelas hasil data latih dan mengunduh \textit{encoder} yang dihasilkan untuk digunakan dalam kakas menggunakan metode yang disediakan oleh \textit{library} tersebut.
 
-Selanjutnya, penulis mencari tahu bagaimana kode untuk menggunakan 
+Selanjutnya, penulis mencari tahu bagaimana kode yang dibutuhkan untuk melakukan \textit{label encoding} mengunakan \textit{encoder} tersebut serta bagaimana \textit{encoder} tersebut dibaca dalam sistem.
+Kode tersebut harus disesuaikan dengan masukan dan diubah sesuai dengan format \textit{template} dari \textit{library} \monospace{text/template} yang dimiliki oleh Go.
+Lokasi template ini berada pada direktori \monospace{pkg/template/pipeline}.
+Kode~\ref{listing:33} adalah contoh \textit{template} kode yang dibuat oleh penulis dan Kode~\ref{listing:34} adalah contoh \textit{template} kode untuk mendapatkan hasil dari pemetaan \textit{encoder}.
 
+\begin{code}
+	\plaincode{resources/files/code/encoder_read.template}
+	\caption{\textit{Template} kode pembacaan \textit{label encoder}}\label{listing:33}
+\end{code}
+
+\begin{code}
+	\plaincode{resources/files/code/encoder_read.template}
+	\caption{\textit{Template} kode penggunaan \textit{label encoder}}\label{listing:34}
+\end{code}
+
+\textit{Template} tersebut kemudian akan dibaca oleh program dengan kodenya yang berada pada direktori yang sama.
+Contoh lebih detailnya dapat dilihat pada \textit{repository} kakas pada direktori \monospace{pkg/template/pipeline}.
+Kode pembacaan \textit{template} akan digunakan dalam kode pada direktori \monospace{pkg/generator} yang pada dasarnya menghasilkan kode yang utuh berdasarkan nilai yang didefinisikan.
+Kode~\ref{listing:35} menunjukkan contoh nilai masukan \textit{template} yang berupa \textit{struct} pada Go.
+
+\begin{code}
+	\gocode{resources/files/code/encoder_values.go}
+	\caption{Kode nilai masukan \textit{template} untuk \textit{label encoder}}\label{listing:35}
+\end{code}
+
+Langkah tambahan yang perlu dilakukan adalah mendaftarkan modul tersebut pada \textit{file} \monospace{pkg/generator/tabular/pipeline.go}.
+Hal ini dilakukan menyesuaikan dengan jenis masukannya.
+Penulis memberikan nama \monospace{preprocessing/label} untuk modul ini yang dapat dilihat pada \textit{repository} kakas.
+
+Kakas tersebut kemudian perlu di-\textit{compile} ulang.
+Setelah dijalankan, kode sistem untuk permasalahan tersebut seperti yang tertulis pada Bagian~\ref{section:churn-rate-case} berhasil dibuat dan dijalankan.
+Penulis berhasil mengimplementasikan modul ini dalam kasus tersebut.
