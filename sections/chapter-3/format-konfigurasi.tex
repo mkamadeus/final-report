@@ -69,7 +69,7 @@ Format keluaran bergantung dari domain permasalahan serta teknik-teknik pembelaj
 Misalnya, dalam permasalahan klasifikasi format keluaran akan berupa sekumpulan prediksi dari model yang mungkin disertai dengan derajat kepercayaan dari prediksi tersebut.
 Permasalahan regresi juga akan mengembalikan suatu nilai numerik.
 Tidak sebatas dalam teknik-teknik \textit{supervised} saja, teknik \textit{unsupervised} seperti \textit{clustering} yang memiliki keluaran yang serupa dengan klasifikasi.
-Kode~\ref{listing:4} merupakan contoh konfigurasi untuk keluaran sederhana:
+Kode~\ref{listing:4} merupakan contoh konfigurasi untuk keluaran sederhana.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/output_basic.yml}
@@ -107,7 +107,7 @@ Secara umum, terkadang perlu tahapan-tahapan tertentu dari masukan yang diberika
 Misalnya, dalam data tabular kadang dilakukan proses \textit{scaling} terhadap data atau melakukan reduksi dimensi dengan menggunakan teknik seperti PCA dan LDA.\@
 Masukan berupa citra kadang diperlukan untuk melakukan tahap \textit{image processing} untuk memastikan citra yang dimasukkan cocok untuk sistem.
 Kakas ini akan menerima konfigurasi untuk melakukan hal-hal tersebut lewat modul-modul yang didefinisikan dalam konfigurasi.
-Kode~\ref{listing:7} merupakan rancangan konfigurasi untuk alur pemrosesan masukan sistem:
+Kode~\ref{listing:7} merupakan rancangan konfigurasi untuk alur pemrosesan masukan sistem.
 
 \begin{code}
 	\yamlcode{resources/files/configurations/pipeline_basic.yml}

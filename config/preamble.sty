@@ -62,7 +62,6 @@
 
 % toc settings
 \usepackage[titles]{tocloft}
-\newlistof{listing}{lol}{Daftar Kode}
 \cftsetindents{figure}{0em}{3.5em}
 \cftsetindents{table}{0em}{3.5em}
 
@@ -261,17 +260,11 @@ Desember\fi~\number\year}
 % listing setup
 \newlistof{code}{loc}{Daftar Kode}
 \DeclareFloatingEnvironment[name=Kode,placement=ht,fileext=loc]{code}
-% \newenvironment{code}{%
-%     \captionsetup{type=listing}
-%     \begin{center}
-%         \vspace{\baselineskip}
-% }{\end{center}}
 \SetupFloatingEnvironment{listing}{
     name={Kode},
     fileext=loc
 }
-
 \renewcommand{\cftcodepresnum}{Kode~}
-\setlength{\cftlistingnumwidth}{2cm}
+\setlength{\cftcodenumwidth}{2cm}
 
 \newcommand{\monospace}[1]{\texttt{#1}}
