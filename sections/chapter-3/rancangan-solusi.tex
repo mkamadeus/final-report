@@ -11,6 +11,10 @@ Definisi dari perjanjian data yang menjadi masukan dan keluaran akan dibuat oleh
 Alur pemrosesan yang didefinisikan dapat dibuat lewat \textit{markup file} seperti JSON atau YAML yang formatnya sudah ditentukan untuk kakas tersebut.
 Alur didefinisikan lewat pemanggilan modul-modul yang diimplementasikan lebih dulu yang nantinya dapat memanggil sebuah model yang biasanya sudah siap dan disimpan dalam sebuah file.
 
+Selain dari konfigurasi yang didefinisikan, untuk menjalankan kakas diperlukan juga \textit{file-file} eksperimen terkait.
+\textit{File-file} eksperimen yang dimaksud salah satunya adalah model hasil eksperimen.
+Selain itu, \textit{file-file} eksperimen juga dapat berupa \textit{file} hasil dari eksperimen yang digunakan untuk melakukan transformasi terhadap data, misalnya seperti \textit{scaler} atau \textit{encoder} dalam eksperimen data tabular.
+
 Modul yang dimaksud berupa potongan program yang siap untuk disatukan dengan potongan program lainnya untuk membentuk suatu sistem yang berjalan.
 Modul dapat diimplementasikan dalam bahasa apapun selama semua modul yang digunakan menggunakan bahasa yang sama.
 Dalam pendekatan yang umum, digunakan Docker sebagai bantuan untuk melakukan pemrosesan terhadap data.
