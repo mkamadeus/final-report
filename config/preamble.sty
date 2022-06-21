@@ -186,7 +186,7 @@ texcl=false,
 % \chapterfont{\centering \MakeUppercase \Large}
 \titleformat{\chapter}[display]
     {\bfseries\large}
-    {\MakeUppercase{Bab~\thechapter} \centering}
+    {\MakeUppercase{\chaptertitlename{}~\thechapter} \centering}
     {0.0ex} % sep
     {
         \vspace{0ex}
@@ -204,6 +204,7 @@ texcl=false,
 {\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}
 {\normalfont\fontsize{12}{15}\bfseries}{\thesubsection}{1em}{}
+
 
 % paragraph line height
 \usepackage{parskip}
@@ -268,3 +269,6 @@ Desember\fi~\number\year}
 \setlength{\cftcodenumwidth}{2cm}
 
 \newcommand{\monospace}[1]{\texttt{#1}}
+
+% appendix setup
+\usepackage[toc]{appendix}
