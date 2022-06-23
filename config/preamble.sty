@@ -231,7 +231,7 @@ texcl=false,
 
 % set line height to 1.5
 \renewcommand{\baselinestretch}{1.5}
-\graphicspath{ {./resources/images/}{./resources/images/chapter-1/}{./resources/images/chapter-2/}{./resources/images/chapter-3/}{./resources/images/chapter-4/} }
+\graphicspath{ {./resources/images/}{./resources/images/chapter-1/}{./resources/images/chapter-2/}{./resources/images/chapter-3/}{./resources/images/chapter-4/}{./resources/images/appendix/} }
 
 % subsubsubsub-section
 \setcounter{secnumdepth}{3}
@@ -266,9 +266,59 @@ Desember\fi~\number\year}
     fileext=loc
 }
 \renewcommand{\cftcodepresnum}{Kode~}
-\setlength{\cftcodenumwidth}{2cm}
+\setlength{\cftcodenumwidth}{3cm}
 
 \newcommand{\monospace}[1]{\texttt{#1}}
 
 % appendix setup
 \usepackage[toc]{appendix}
+\newcommand\appendixchaptertitlename{Lampiran}
+
+\newlistof{appendix}{loa}{Daftar Lampiran}
+\newlistentry[appendix]{subappendix}{loa}{1}
+\newlistentry[subappendix]{subsubappendix}{loa}{2}
+\newlistentry[subsubappendix]{subsubsubappendix}{loa}{3}
+
+\renewcommand{\cftappendixpresnum}{Lampiran~}
+
+\setcounter{loadepth}{3}
+
+\renewcommand{\theappendix}{\Alph{appendix}}
+\renewcommand{\thesubappendix}{\theappendix.\arabic{subappendix}}
+\renewcommand{\thesubsubappendix}{\thesubappendix.\arabic{subsubappendix}}
+\renewcommand{\thesubsubsubappendix}{\thesubsubappendix.\arabic{subsubsubappendix}}
+
+\setlength{\cftbeforeappendixskip}{\baselineskip}
+\setlength{\cftappendixnumwidth}{3cm}
+\setlength{\cftappendixindent}{0em}
+
+\setlength{\cftsubappendixnumwidth}{1cm}
+\setlength{\cftsubappendixindent}{2em}
+
+\setlength{\cftsubsubappendixnumwidth}{1cm}
+\setlength{\cftsubsubappendixindent}{4em}
+
+\newcommand{\appendixchapter}[1]{%
+  \refstepcounter{appendix}%
+  \chapter{#1}%
+  \addcontentsline{loa}{appendix}{\protect\numberline{\theappendix}#1}%
+  \par
+}
+
+\newcommand{\appendixsection}[1]{%
+  \refstepcounter{subappendix}%
+  \section*{\thesubappendix\space #1}%
+  \addcontentsline{loa}{subappendix}{\protect\numberline{\thesubappendix}#1}%
+}
+
+\newcommand{\appendixsubsection}[1]{%
+  \refstepcounter{subsubappendix}%
+  \subsection*{\thesubsubappendix\space #1}%
+  \addcontentsline{loa}{subsubappendix}{\protect\numberline{\thesubsubappendix}#1}%
+}
+
+\newcommand{\appendixsubsubsection}[1]{%
+  \refstepcounter{subsubsubappendix}%
+  \subsubsection*{\thesubsubsubappendix\space #1}%
+  \addcontentsline{loa}{subsubsubappendix}{\protect\numberline{\thesubsubsubappendix}#1}%
+}

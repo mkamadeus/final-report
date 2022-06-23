@@ -1,22 +1,22 @@
 % chktex-file 44
-\chapter{Spesifikasi Kebutuhan Perangkat Lunak}
+\appendixchapter{Spesifikasi Kebutuhan Perangkat Lunak}\label{appendix:srs}
 
-\section{Pendahuluan}
+\appendixsection{Pendahuluan}
 
-\subsection{Tujuan Penulisan Dokumen}
+\appendixsubsection{Tujuan Penulisan Dokumen}
 
 Dokumen berikut ditulis untuk menggambarkan spesifikasi kakas untuk tugas akhir yang berjudul ``\thesistitle''.
 Dokumen ini akan menjelaskan secara ringkas pemodelan implementasi dari kakas yang hendak dirancang.
 Dokumen ini bertujuan untuk membantu penulis tugas akhir dalam memodelkan kakas serta membantu penulis dalam proses implementasi kakas.
 
-\subsection{Lingkup Masalah}
+\appendixsubsection{Lingkup Masalah}
 
 Pengembangan sistem pemelajaran mesin tidak terlepas dari otomatisasi pada sistem pada umumnya.
 Kakas bertujuan untuk membantu proses otomatisasi dalam pembangunan sistem pemelajaran mesin.
 Otomatisasi yang dilakukan akan membantu proses pembangunan sistem pemelajaran mesin dalam hal membentuk kode-kode yang diperlukan.
 Kode-kode yang diperlukan merujuk pada kode yang dibutuhkan sistem untuk dapat dilakukan inferensi terhadap model dari pihak luar.
 
-\subsection{Definisi, Istilah  dan Singkatan}
+\appendixsubsection{Definisi, Istilah  dan Singkatan}
 
 Bagian ini akan menuliskan beberapa hal yang memiliki domain yang spesifik terkait pada pengembangan kakas ini.
 Berikut ini adalah beberapa definisi, istilah, dan singkatan yang tertulis dalam dokumen ini.
@@ -27,10 +27,12 @@ Berikut ini adalah beberapa definisi, istilah, dan singkatan yang tertulis dalam
     \item \textbf{Pemelajaran Mesin}: dikenal juga sebagai \textit{machine learning}, suatu teknik untuk menghasilkan prediksi berdasarkan data yang diberikan kepada program yang berdasarkan pada teknik optimasi.
     \item \textbf{Eksperimen}: dalam dokumen ini, konteks eksperimen adalah kepada eksperimen pemelajaran mesin atau proses pelatihan serta evaluasi model.
     \item \textbf{Sistem Pemelajaran Mesin}: perangkat lunak yang menerima perintah berupa masukan data yang kemudian akan dihasilkan prediksi menggunakan model pemelajaran mesin, di mana prediksi tersebut dikembalikan melalui sistem.
+    \item \textbf{Konversi Eksperimen}: merujuk kepada proses pengubahan eksperimen pemelajaran mesin menjadi sebuah sistem yang dapat menerima permintaan dari pihak luar untuk melakukan inferensi terhadap model.
+    \item \textbf{\textit{File-File} Eksperimen}: merujuk kepada model pemelajaran mesin serta \textit{file-file} lainnya yang diperlukan untuk melakukan pemrosesan data.
     \item \textbf{CLI}: merupakan singkatan dari \textit{command-line interface} yang adalah salah satu jenis tampilan antarmuka yang memanfaatkan terminal atau \textit{command line} untuk berinteraksi dengan pihak eksternal.
 \end{itemize}
 
-\subsection{Aturan Penomoran}
+\appendixsubsection{Aturan Penomoran}
 
 Berikut ini adalah daftar beberapa aturan penomoran yang terdapat dalam dokumen ini.
 \begin{itemize}
@@ -38,15 +40,15 @@ Berikut ini adalah daftar beberapa aturan penomoran yang terdapat dalam dokumen 
     \item \textbf{NFRXXX}: menyimbolkan kebutuhan non-fungsional ke-XXX.
 \end{itemize}
 
-\subsection{Ikthisar Dokumen}
+\appendixsubsection{Ikthisar Dokumen}
 
 Bagian pertama dokumen ini akan membahas pendahuluan mengenai kepentingan, fungsi, serta aturan yang terdapat dalam dokumen ini.
 Bagian kedua dokumen ini mendefinisikan penjelasan secara umum mengenai kakas.
 Bagian ketiga dokumen ini mengenumerasikan dan menjelaskan spesifikasi kebutuhan untuk kakas ini, baik secara fungsionalitas atau dari sisi pengguna.
 
-\section{Deskripsi Umum Perangkat Lunak}
+\appendixsection{Deskripsi Umum Perangkat Lunak}
 
-\subsection{Deskripsi Umum Kakas}
+\appendixsubsection{Deskripsi Umum Kakas}
 
 \begin{figure}[ht]
     \centering
@@ -56,7 +58,6 @@ Bagian ketiga dokumen ini mengenumerasikan dan menjelaskan spesifikasi kebutuhan
 
 Kakas ini merupakan kakas yang melakukan otomatisasi pada tahapan pembentukan kode untuk sistem.
 Secara umum, kakas ini akan menerima masukan berupa \textit{file-file} yang dihasilkan pada tahapan eksperimen.
-\textit{File-file} eksperimen yang dihasilkan merujuk kepada model pemelajaran mesin serta \textit{file-file} lainnya yang diperlukan untuk melakukan pemrosesan data.
 Hasil sistem yang akan dibentuk tercatat dalam sebuah \textit{file} konfigurasi.
 
 Konfigurasi kakas terdiri atas lima bagian utama, yaitu sebagai berikut:
@@ -69,13 +70,13 @@ Konfigurasi kakas terdiri atas lima bagian utama, yaitu sebagai berikut:
 	\item Konfigurasi \textit{Interface} yang disediakan, yaitu bagian yang mengatur \textit{interface} apa saja yang digunakan oleh sistem untuk melakukan inferensi. 
 \end{enumerate}
 
-\subsection{Karakteristik Pengguna}
+\appendixsubsection{Karakteristik Pengguna}
 
 Pengguna dari kakas ini merupakan pengguna yang sudah lazim dan terbiasa dengan penggunaan CLI dan memiliki pemahaman terhadap .
 Bila dilihat dari sisi peran dalam sebuah tim pengembang sistem, kakas ini ditujukan pada pengguna yang berperan dalam eksperimen pemelajaran mesin serta yang berperan dalam pengimplementasian sistem pemelajaran mesin.
 Untuk pengembangan awal kakas, saat ini kakas lebih ditujukan pada pengguna yang hendak melakukan \textit{prototyping} kepada sebuah sistem pemelajaran mesin.
 
-\subsection{Batasan}
+\appendixsubsection{Batasan}
 
 Terdapat batasan implementasi untuk kakas ini untuk menyesuaikan dengan tujuan kakas yang ditujukan sebagai \textit{proof-of-concept}.
 Berikut adalah beberapa batasan dari sisi implementasi kakas:
@@ -86,7 +87,7 @@ Berikut adalah beberapa batasan dari sisi implementasi kakas:
     \item Keluaran dari kakas hanya perlu dapat mengembalikan prediksi saja.
 \end{itemize}
 
-\subsection{Lingkungan Operasi}
+\appendixsubsection{Lingkungan Operasi}
 
 Implementasi kakas dilakukan menggunakan bahasa Go 1.18 yang dapat menghasilkan kode Python 3.
 Untuk menjalankan kakas diperlukan Python dan Pip dengan versi yang bersesuaian.
@@ -99,47 +100,71 @@ Kakas ini akan diimplementasikan dan dijalankan pada lingkungan berbasis pada ke
 Pengujian terhadap kakas juga akan dilakukan pada lingkungan berbasis Linux menggunakan distribusi sistem operasi Ubuntu 20.04.
 Implementasi kakas ini yang menggunakan bahasa Go tidak menutup kemungkinan bahwa kakas ini dapat dijalankan pada sistem operasi lain, namun untuk pengujian dan implementasi ditetapkan hanya untuk sistem operasi tersebut.
 
-\section{Deskripsi Kebutuhan}
+\appendixsection{Deskripsi Kebutuhan}
 
-\subsection{Kebutuhan Antarmuka Eksternal}
+\appendixsubsection{Kebutuhan Antarmuka Eksternal}
 
 Bagian ini akan mencatat beberapa hal mengenai kebutuhan antarmuka kakas.
 Kebutuhan antarmuka meliputi pihak eksternal yang berhubungan dengan kakas agar kakas dapat berjalan sesuai spesifikasi yang ditetapkan.
 
-\subsubsection{Antarmuka Perangkat Lunak}
+\appendixsubsubsection{Antarmuka Perangkat Lunak}
 
 Seperti yang telah disinggung sebelumnya, kakas ini memerlukan Python untuk menjalankan beberapa hal.
 Python akan menjadi antarmuka untuk kakas ini untuk melakukan hal tersebut.
 Pip yang juga merupakan bagian dari Python untuk melakukan pengunduhan dan instalasi \textit{library} juga diperlukan sebagai antarmuka. 
 
-\subsubsection{Antarmuka Komunikasi}
+\appendixsubsubsection{Antarmuka Komunikasi}
 
 Keperluan kakas untuk melakukan pengunduhan dan instalasi mengharuskan kakas terhubung dengan koneksi internet.
 Tanpa koneksi internet, kakas tidak akan berjalan dengan benar.
 Kakas tidak menyediakan \textit{caching} untuk \textit{library-library} yang diunduh.
 
-\subsection{Kebutuhan Fungsional}
+\appendixsubsection{Kebutuhan Fungsional}
 
-\begin{table}
-    \small
+Bagian ini akan mendaftarkan beberapa kebutuhan fungsional yang dibutuhkan oleh kakas.
+Kebutuhan fungsional adalah fungsionalitas yang perlu diimplementasikan oleh kakas secara fitur dan proses yang ada dalam kakas.
+Tabel~\ref{table:functional-req} mendaftarkan kebutuhan-kebutuhan fungsional kakas serta penjelasan untuk masing-masing poinnya.
+
+\begin{table}[ht]
     \caption{Daftar Kebutuhan Fungsional Kakas}\label{table:functional-req}
-    \begin{center}
-        \begin{tabular}{|p{0.1\linewidth} | p{0.4\linewidth} | p{0.5\linewidth}|} 
-            \hline
-            \textbf{ID} & \textbf{Kebutuhan} & \textbf{Penjelasan}\\ [0.5ex] 
-            \hline
-            FR001 & Kakas dapat membaca konfigurasi dengan format tertentu. & Konfigurasi dibaca untuk memetakan hasil akhir sistem buatan kakas. \\ 
-            \hline
-            FR002 & Kakas dapat XXX & XXX \\ 
-            \hline
-            FR003 & Kakas dapat XXX & XXX \\ 
-            \hline
-        \end{tabular}
-    \end{center}
+    \scriptsize
+    \centering
+    \begin{tabular}{|p{0.1\linewidth}|p{0.4\linewidth}|p{0.4\linewidth}|} 
+        \hline
+        \textbf{ID} & \textbf{Kebutuhan} & \textbf{Penjelasan}\\ [0.5ex] 
+        \hline
+        FR001 & Kakas dapat membaca konfigurasi dengan format tertentu. & Konfigurasi dibaca untuk memetakan hasil akhir sistem buatan kakas. \\ 
+        \hline
+        FR002 & Kakas dapat menghasilkan kode sistem pemelajaran mesin. & Pembacaan konfigurasi akan dilakukan pemetaan menjadi kode sistem oleh kakas. Kode sistem yang dimaksud adalah kode sistem untuk melakukan permintaan inferensi.  \\ 
+        \hline
+        FR003 & Kode sistem yang dihasilkan kakas mampu inferensi terhadap model. &  Konfigurasi akan berperan dalam menetapkan hasil kode sistem yang dibuat untuk mengubah isi dari kode pemrosesan data untuk sistem. \\ 
+        \hline
+        FR004 & Kakas dapat melakukan pengunduhan \textit{library} yang diperlukan sistem. & Pengunduhan \textit{library} dilakukan melalui Pip. \\ 
+        \hline
+        FR005 & Kode sistem yang dihasilkan kakas mampu melakukan pemrosesan data berdasarkan modul. &  Modul-modul yang diimplementasikan dapat didefinisikan dalam konfigurasi. \\ 
+        \hline
+    \end{tabular}
 \end{table}
 
-\subsection{Kebutuhan Non Fungsional}
+\appendixsubsection{Kebutuhan Non Fungsional}
 
-\subsection{Lingkungan Operasi}
+Bagian ini akan mendaftarkan beberapa kebutuhan non fungsional yang dibutuhkan oleh kakas.
+Kebutuhan non fungsional merupakan kebutuhan yang didefinisikan untuk memastikan properti-properti mengenai perilaku kakas.
+Tabel~\ref{table:non-functional-req} mendaftarkan kebutuhan-kebutuhan non-fungsional kakas.
 
-
+\begin{table}[ht]
+    \caption{Daftar Kebutuhan Non Fungsional Kakas}\label{table:non-functional-req}
+    \scriptsize
+    \centering
+    \begin{tabular}{|p{0.1\linewidth} | p{0.4\linewidth} | p{0.4\linewidth}|} 
+        \hline
+        \textbf{ID} & \textbf{Parameter} & \textbf{Kebutuhan}\\ [0.5ex] 
+        \hline
+        NFR001 & Reliability & Kakas dapat diandalkan dalam menghasilkan kode yang konsisten berdasarkan konfigurasi.  \\ 
+        \hline
+        NFR002 & Portability & Kakas dapat dijalankan selama berada lingkungan dengan sistem operasi berbasis Linux.  \\ 
+        \hline
+        NFR003 & Extensibility & Modul-modul dalam kakas dapat dikembangkan lebih lanjut untuk keperluan pemrosesan data yang berbeda.  \\ 
+        \hline
+    \end{tabular}
+\end{table}

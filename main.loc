@@ -5,77 +5,77 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.1}{\ignorespaces Contoh spesifikasi masukan tabular untuk kakas\relax }}{24}{code.caption.21}%
+\contentsline {code}{\numberline {III.1}{\ignorespaces Contoh spesifikasi masukan tabular untuk kakas\relax }}{25}{code.caption.25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.2}{\ignorespaces Contoh spesifikasi masukan citra untuk kakas\relax }}{25}{code.caption.22}%
+\contentsline {code}{\numberline {III.2}{\ignorespaces Contoh spesifikasi masukan citra untuk kakas\relax }}{26}{code.caption.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.3}{\ignorespaces Contoh spesifikasi masukan yang perlu pemrosesan lanjut\relax }}{26}{code.caption.23}%
+\contentsline {code}{\numberline {III.3}{\ignorespaces Contoh spesifikasi masukan yang perlu pemrosesan lanjut\relax }}{27}{code.caption.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.4}{\ignorespaces Contoh spesifikasi keluaran untuk sistem\relax }}{26}{code.caption.24}%
+\contentsline {code}{\numberline {III.4}{\ignorespaces Contoh spesifikasi keluaran untuk sistem\relax }}{27}{code.caption.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.5}{\ignorespaces Contoh spesifikasi model dengan ONNX\relax }}{27}{code.caption.25}%
+\contentsline {code}{\numberline {III.5}{\ignorespaces Contoh spesifikasi model dengan ONNX\relax }}{28}{code.caption.29}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.6}{\ignorespaces Contoh spesifikasi model dengan Keras\relax }}{27}{code.caption.26}%
+\contentsline {code}{\numberline {III.6}{\ignorespaces Contoh spesifikasi model dengan Keras\relax }}{28}{code.caption.30}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.7}{\ignorespaces Contoh spesifikasi pemrosesan data\relax }}{28}{code.caption.27}%
+\contentsline {code}{\numberline {III.7}{\ignorespaces Contoh spesifikasi pemrosesan data\relax }}{29}{code.caption.31}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.8}{\ignorespaces Contoh spesifikasi sistem dengan \textit {interface} REST\relax }}{28}{code.caption.28}%
+\contentsline {code}{\numberline {III.8}{\ignorespaces Contoh spesifikasi sistem dengan \textit {interface} REST\relax }}{29}{code.caption.32}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.9}{\ignorespaces Contoh spesifikasi sistem dengan beberapa \textit {interface}\relax }}{28}{code.caption.29}%
+\contentsline {code}{\numberline {III.9}{\ignorespaces Contoh spesifikasi sistem dengan beberapa \textit {interface}\relax }}{29}{code.caption.33}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.10}{\ignorespaces Contoh hasil kode masukan sistem\relax }}{29}{code.caption.30}%
+\contentsline {code}{\numberline {III.10}{\ignorespaces Contoh hasil kode masukan sistem\relax }}{30}{code.caption.34}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.11}{\ignorespaces Contoh hasil kode keluaran sistem\relax }}{30}{code.caption.31}%
+\contentsline {code}{\numberline {III.11}{\ignorespaces Contoh hasil kode keluaran sistem\relax }}{31}{code.caption.35}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.12}{\ignorespaces Contoh hasil kode model dan inferensinya\relax }}{30}{code.caption.32}%
+\contentsline {code}{\numberline {III.12}{\ignorespaces Contoh hasil kode model dan inferensinya\relax }}{31}{code.caption.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.13}{\ignorespaces Contoh hasil kode pemrosesan data\relax }}{31}{code.caption.33}%
+\contentsline {code}{\numberline {III.13}{\ignorespaces Contoh hasil kode pemrosesan data\relax }}{32}{code.caption.37}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.14}{\ignorespaces Contoh konfigurasi sistem Titanic\relax }}{37}{code.caption.36}%
+\contentsline {code}{\numberline {III.14}{\ignorespaces Contoh konfigurasi sistem Titanic\relax }}{38}{code.caption.40}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.15}{\ignorespaces Contoh potongan kode sistem Titanic\relax }}{38}{code.caption.37}%
+\contentsline {code}{\numberline {III.15}{\ignorespaces Contoh potongan kode sistem Titanic\relax }}{39}{code.caption.41}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.16}{\ignorespaces Contoh spesifikasi sistem MNIST berdasarkan eksperimen\relax }}{39}{code.caption.38}%
+\contentsline {code}{\numberline {III.16}{\ignorespaces Contoh spesifikasi sistem MNIST berdasarkan eksperimen\relax }}{40}{code.caption.42}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {III.17}{\ignorespaces Contoh kode sistem MNIST\relax }}{40}{code.caption.39}%
+\contentsline {code}{\numberline {III.17}{\ignorespaces Contoh kode sistem MNIST\relax }}{41}{code.caption.43}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.1}{\ignorespaces Konfigurasi sistem eksperimen Titanic\relax }}{55}{code.caption.43}%
+\contentsline {code}{\numberline {IV.1}{\ignorespaces Konfigurasi sistem eksperimen Titanic\relax }}{56}{code.caption.47}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.2}{\ignorespaces Potongan kode sistem eksperimen Titanic\relax }}{56}{code.caption.44}%
+\contentsline {code}{\numberline {IV.2}{\ignorespaces Potongan kode sistem eksperimen Titanic\relax }}{57}{code.caption.48}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.3}{\ignorespaces Masukan sistem eksperimen Titanic\relax }}{56}{code.caption.45}%
+\contentsline {code}{\numberline {IV.3}{\ignorespaces Masukan sistem eksperimen Titanic\relax }}{57}{code.caption.49}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.4}{\ignorespaces Keluaran sistem eksperimen Titanic\relax }}{56}{code.caption.46}%
+\contentsline {code}{\numberline {IV.4}{\ignorespaces Keluaran sistem eksperimen Titanic\relax }}{57}{code.caption.50}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.5}{\ignorespaces Potongan Konfigurasi sistem eksperimen Churn Rate\relax }}{57}{code.caption.47}%
+\contentsline {code}{\numberline {IV.5}{\ignorespaces Potongan Konfigurasi sistem eksperimen Churn Rate\relax }}{58}{code.caption.51}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.6}{\ignorespaces Potongan kode sistem eksperimen Titanic\relax }}{58}{code.caption.48}%
+\contentsline {code}{\numberline {IV.6}{\ignorespaces Potongan kode sistem eksperimen Titanic\relax }}{59}{code.caption.52}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.7}{\ignorespaces Masukan sistem eksperimen Churn Rate\relax }}{58}{code.caption.49}%
+\contentsline {code}{\numberline {IV.7}{\ignorespaces Masukan sistem eksperimen Churn Rate\relax }}{59}{code.caption.53}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.8}{\ignorespaces Keluaran sistem eksperimen Churn Rate\relax }}{58}{code.caption.50}%
+\contentsline {code}{\numberline {IV.8}{\ignorespaces Keluaran sistem eksperimen Churn Rate\relax }}{59}{code.caption.54}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.9}{\ignorespaces Konfigurasi sistem eksperimen MNIST\relax }}{59}{code.caption.51}%
+\contentsline {code}{\numberline {IV.9}{\ignorespaces Konfigurasi sistem eksperimen MNIST\relax }}{60}{code.caption.55}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.10}{\ignorespaces Potongan kode sistem eksperimen MNIST\relax }}{59}{code.caption.52}%
+\contentsline {code}{\numberline {IV.10}{\ignorespaces Potongan kode sistem eksperimen MNIST\relax }}{60}{code.caption.56}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.11}{\ignorespaces Keluaran sistem eksperimen MNIST\relax }}{60}{code.caption.54}%
+\contentsline {code}{\numberline {IV.11}{\ignorespaces Keluaran sistem eksperimen MNIST\relax }}{61}{code.caption.58}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.12}{\ignorespaces Konfigurasi sistem eksperimen citra anjing dan kucing\relax }}{60}{code.caption.55}%
+\contentsline {code}{\numberline {IV.12}{\ignorespaces Konfigurasi sistem eksperimen citra anjing dan kucing\relax }}{61}{code.caption.59}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.13}{\ignorespaces Potongan kode sistem eksperimen MNIST\relax }}{61}{code.caption.56}%
+\contentsline {code}{\numberline {IV.13}{\ignorespaces Potongan kode sistem eksperimen MNIST\relax }}{62}{code.caption.60}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.14}{\ignorespaces Keluaran pertama sistem eksperimen citra anjing dan kucing\relax }}{61}{code.caption.58}%
+\contentsline {code}{\numberline {IV.14}{\ignorespaces Keluaran pertama sistem eksperimen citra anjing dan kucing\relax }}{62}{code.caption.62}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.15}{\ignorespaces Keluaran kedua sistem eksperimen citra anjing dan kucing\relax }}{61}{code.caption.60}%
+\contentsline {code}{\numberline {IV.15}{\ignorespaces Keluaran kedua sistem eksperimen citra anjing dan kucing\relax }}{62}{code.caption.64}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.16}{\ignorespaces \textit {Template} kode pembacaan \textit {label encoder}\relax }}{61}{code.caption.61}%
+\contentsline {code}{\numberline {IV.16}{\ignorespaces \textit {Template} kode pembacaan \textit {label encoder}\relax }}{62}{code.caption.65}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.17}{\ignorespaces \textit {Template} kode penggunaan \textit {label encoder}\relax }}{62}{code.caption.62}%
+\contentsline {code}{\numberline {IV.17}{\ignorespaces \textit {Template} kode penggunaan \textit {label encoder}\relax }}{63}{code.caption.66}%
 \defcounter {refsection}{0}\relax 
-\contentsline {code}{\numberline {IV.18}{\ignorespaces Kode nilai masukan \textit {template} untuk \textit {label encoder}\relax }}{62}{code.caption.63}%
+\contentsline {code}{\numberline {IV.18}{\ignorespaces Kode nilai masukan \textit {template} untuk \textit {label encoder}\relax }}{63}{code.caption.67}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

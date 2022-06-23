@@ -12,9 +12,9 @@ Seiring meningkatnya keperluan untuk MLOps dalam dunia industri, kakas-kakas MLO
 
 Kubeflow adalah salah satu kakas yang dikembangkan dengan tujuan untuk mempermudah proses \textit{deployment} pada sistem pemelajaran mesin dengan mudah (\cite{k8s}).
 Seperti namanya, Kubeflow dibuat untuk melakukan \textit{deployment} di atas Kubernetes.
-
 Kubeflow memiliki fitur yang lengkap, seperti adanya TensorFlow dan kakas-kakas pemelajaran mesin lainnya, kakas-kakas untuk melakukan eksperimen, menyimpan \textit{hyperparameter}, dan melakukan \textit{model versioning}, serta beberapa aplikasi yang digunakan untuk melakukan monitoring di Kubernetes juga, seperti Prometheus.
 Dengan dibangunnya Kubeflow di atas Kubernetes, hal itu membuat melakukan \textit{deployment} pada \textit{platform-platform} berbasis \textit{cloud} menjadi mudah.
+Dalam MLOps, Kubeflow ini membantu dalam tahapan \textit{model engineering} dan \textit{code engineering}.
 
 Dalam Kubeflow, terdapat suatu sistem yang menggunakan \textit{pipeline} serupa dengan CI/CD, namun dengan konteks pengunaan yang berbeda.
 Pipeline pada Kubeflow dapat membentuk sebuah graf yang masing-masing langkah atau \textit{node}-nya mendefinisikan parameter masukan dan keluaran yang terdapat pada tiap langkahnya.
@@ -36,5 +36,7 @@ Secara sederhana, kakas ini menyediakan kemampuan untuk membungkus model Tensorf
 Cara menjalankannya juga cukup mudah, yaitu hanya dengan menggunakan Docker untuk melakukan \textit{mounting} terhadap model.
 
 Kakas ini cukup membantu dalam proses \textit{deployment} yang cepat untuk mendapatkan prototipe dari layanan yang seutuhnya.
+Dalam MLOps, Tensorflow Serving ini membantu dalam tahapan \textit{code engineering}.
 Kakas ini hanya berfokus pada cara model dapat diakses oleh metode komunikasi umum.
 Terdapat beberapa hal yang tidak diatasi oleh kakas ini dari sisi pengembangan sistem, seperti pembuatan dokumentasi API dapat dibentuk berdasarkan masukan yang ada dan ketiadaan fitur untuk menggunakan model sebagai \textit{dependency} dari sistem.
+
